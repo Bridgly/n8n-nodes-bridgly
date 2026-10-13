@@ -1,6 +1,6 @@
 import type { INodeProperties, INodePropertyOptions, INodePropertyRouting } from 'n8n-workflow';
-import { endpoints } from './endpoints.generated';
 import type { CatalogEndpoint, CatalogLeafField } from './endpoints.generated';
+import { endpoints } from './endpoints.generated';
 
 /** Names shown for the bounds of a range filter. */
 const RANGE_BOUND_NAMES: Record<string, string> = {
@@ -168,7 +168,11 @@ function toInput({
 		...shared,
 		type: 'string',
 		default: '',
-		...(field.input === 'date' ? { placeholder: 'YYYY-MM-DD' } : {}),
+		...(field.input === 'date'
+			? {
+					placeholder: 'YYYY-MM-DD',
+				}
+			: {}),
 	};
 }
 
