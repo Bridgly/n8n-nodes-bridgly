@@ -1,5 +1,20 @@
 // Generated file. Do not edit.
-import type { CatalogEndpoint } from './types';
+export type CatalogLeafField =
+	| { name: string; description: string | null; required: boolean; defaultLabel: string | null; type: 'string'; input: 'text' | 'date' }
+	| { name: string; description: string | null; required: boolean; defaultLabel: string | null; type: 'number'; integer: boolean }
+	| { name: string; description: string | null; required: boolean; defaultLabel: string | null; type: 'boolean' }
+	| { name: string; description: string | null; required: boolean; defaultLabel: string | null; type: 'enum'; options: string[] }
+	| { name: string; description: string | null; required: boolean; defaultLabel: string | null; type: 'stringArray' };
+
+export type CatalogField =
+	| { name: string; description: string | null; required: boolean; defaultLabel: string | null; type: 'string'; input: 'text' | 'date' }
+	| { name: string; description: string | null; required: boolean; defaultLabel: string | null; type: 'number'; integer: boolean }
+	| { name: string; description: string | null; required: boolean; defaultLabel: string | null; type: 'boolean' }
+	| { name: string; description: string | null; required: boolean; defaultLabel: string | null; type: 'enum'; options: string[] }
+	| { name: string; description: string | null; required: boolean; defaultLabel: string | null; type: 'stringArray' }
+	| { name: string; description: string | null; required: boolean; defaultLabel: string | null; type: 'object'; fields: CatalogLeafField[] };
+
+export type CatalogEndpoint = { id: string; platform: string; title: string; description: string; method: 'GET' | 'POST'; path: string; fields: CatalogField[] };
 
 export const endpoints: CatalogEndpoint[] = [
 	{
