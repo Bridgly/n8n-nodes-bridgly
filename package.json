@@ -1,6 +1,6 @@
 {
 	"name": "n8n-nodes-bridgly",
-	"version": "0.1.2",
+	"version": "0.1.3",
 	"description": "n8n community node for Bridgly: structured public data from social and developer platforms",
 	"license": "MIT",
 	"homepage": "https://bridgly.app",
