@@ -26,6 +26,9 @@ jobs:
       - name: Install dependencies
         run: 'npm ci'
 
+      - name: Run lint without inline exceptions
+        run: 'npm run lint:scan'
+
       - name: Release
         run: |
           [ -n "$NPM_TOKEN" ] && npm config set //registry.npmjs.org/:_authToken "$NPM_TOKEN"

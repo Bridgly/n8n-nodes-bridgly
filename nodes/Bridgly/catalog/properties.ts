@@ -58,15 +58,15 @@ const resources = endpoints
 	.map(toResource)
 	.filter((resource, index, all) => all.findIndex((r) => r.value === resource.value) === index);
 
-// The default is the first resource in the catalog, which the linter cannot see is set.
-// eslint-disable-next-line n8n-nodes-base/node-param-default-missing
+const defaultResource = resources[0].value;
+
 export const resourceProperty: INodeProperties = {
 	displayName: 'Resource',
 	name: 'resource',
 	type: 'options',
 	noDataExpression: true,
 	options: resources,
-	default: resources[0].value,
+	default: defaultResource,
 };
 
 function toOperation(endpoint: CatalogEndpoint): INodePropertyOptions {
@@ -95,8 +95,7 @@ export const operationProperties: INodeProperties[] = resources.map((resource) =
 		.filter((endpoint) => toResource(endpoint).value === resource.value)
 		.map(toOperation)
 		.sort(byName);
-	// The default is this resource's first operation, which the linter cannot see is set.
-	// eslint-disable-next-line n8n-nodes-base/node-param-default-missing
+	const defaultOperation = options[0].value;
 	return {
 		displayName: 'Operation',
 		name: 'operation',
@@ -104,7 +103,7 @@ export const operationProperties: INodeProperties[] = resources.map((resource) =
 		noDataExpression: true,
 		displayOptions: { show: { resource: [resource.value] } },
 		options,
-		default: options[0].value,
+		default: defaultOperation,
 	};
 });
 

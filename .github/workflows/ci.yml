@@ -29,5 +29,8 @@ jobs:
       - name: Run lint
         run: 'npm run lint'
 
+      - name: Run lint without inline exceptions
+        run: 'npm run lint:scan'
+
       - name: Run build
         run: 'npm run build'

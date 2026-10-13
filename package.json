@@ -1,6 +1,6 @@
 {
 	"name": "n8n-nodes-bridgly",
-	"version": "0.1.1",
+	"version": "0.1.2",
 	"description": "n8n community node for Bridgly: structured public data from social and developer platforms",
 	"license": "MIT",
 	"homepage": "https://bridgly.app",
@@ -26,6 +26,7 @@
 		"dev": "n8n-node dev",
 		"lint": "n8n-node lint",
 		"lint:fix": "n8n-node lint --fix",
+		"lint:scan": "eslint --no-inline-config .",
 		"release": "n8n-node release",
 		"prepublishOnly": "n8n-node prerelease"
 	},
