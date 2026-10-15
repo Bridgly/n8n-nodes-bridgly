@@ -821,7 +821,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "reddit_list_user_posts",
 		"platform": "Reddit",
 		"title": "List a Reddit user's posts",
-		"description": "List a Reddit user's posts. Costs 2 credits per request.",
+		"description": "List a Reddit user's posts. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/reddit/list-user-posts",
 		"fields": [
@@ -847,7 +847,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "reddit_list_user_comments",
 		"platform": "Reddit",
 		"title": "List a Reddit user's comments",
-		"description": "List a Reddit user's comments. Costs 2 credits per request.",
+		"description": "List a Reddit user's comments. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/reddit/list-user-comments",
 		"fields": [
@@ -873,7 +873,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "reddit_list_user_overview",
 		"platform": "Reddit",
 		"title": "List a Reddit user's mixed post/comment activity",
-		"description": "List a Reddit user's mixed post/comment activity. Costs 2 credits per request.",
+		"description": "List a Reddit user's mixed post/comment activity. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/reddit/list-user-overview",
 		"fields": [
@@ -899,7 +899,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "reddit_list_subreddit_posts",
 		"platform": "Reddit",
 		"title": "Reddit: List posts in a subreddit feed",
-		"description": "Reddit: List posts in a subreddit feed. Costs 2 credits per request.",
+		"description": "Reddit: List posts in a subreddit feed. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/reddit/list-subreddit-posts",
 		"fields": [
@@ -961,7 +961,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "reddit_list_subreddit_comments",
 		"platform": "Reddit",
 		"title": "Reddit: List recent comments in a subreddit",
-		"description": "Reddit: List recent comments in a subreddit. Costs 2 credits per request.",
+		"description": "Reddit: List recent comments in a subreddit. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/reddit/list-subreddit-comments",
 		"fields": [
@@ -995,7 +995,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "reddit_search_all",
 		"platform": "Reddit",
 		"title": "Search Reddit across posts, communities and users",
-		"description": "Search Reddit across posts, communities and users. Costs 2 credits per request.",
+		"description": "Search Reddit across posts, communities and users. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/reddit/search/all",
 		"fields": [
@@ -1066,7 +1066,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "reddit_search_communities",
 		"platform": "Reddit",
 		"title": "Search Reddit communities",
-		"description": "Search Reddit communities. Costs 2 credits per request.",
+		"description": "Search Reddit communities. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/reddit/search/communities",
 		"fields": [
@@ -1137,7 +1137,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "reddit_search_posts",
 		"platform": "Reddit",
 		"title": "Search Reddit posts",
-		"description": "Search Reddit posts. Costs 2 credits per request.",
+		"description": "Search Reddit posts. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/reddit/search/posts",
 		"fields": [
@@ -1208,7 +1208,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "reddit_search_users",
 		"platform": "Reddit",
 		"title": "Search Reddit users",
-		"description": "Search Reddit users. Costs 2 credits per request.",
+		"description": "Search Reddit users. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/reddit/search/users",
 		"fields": [
@@ -1279,7 +1279,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "reddit_search_comments",
 		"platform": "Reddit",
 		"title": "Search Reddit comments",
-		"description": "Search Reddit comments. Costs 2 credits per request.",
+		"description": "Search Reddit comments. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/reddit/search/comments",
 		"fields": [
@@ -3878,7 +3878,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "instagram_search_users",
 		"platform": "Instagram",
 		"title": "Instagram: Search users",
-		"description": "Instagram: Search users. Costs 2 credits per request.",
+		"description": "Instagram: Search users. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/instagram/search-users",
 		"fields": [
