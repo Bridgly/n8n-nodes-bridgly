@@ -3902,7 +3902,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"fields": [
 			{
 				"name": "uniqueId",
-				"description": "The user's unique ID, e.g. \"@tiktok\".",
+				"description": "TikTok username, with or without @, for example \"tiktok\".",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
