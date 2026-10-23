@@ -3936,7 +3936,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "count",
-				"description": "Number of results to return per page (1–35). Defaults to 35.",
+				"description": "Most results to return per page (1–35). Defaults to 35. A page can hold fewer, so keep paging while `nextCursor` is set.",
 				"required": false,
 				"defaultLabel": "35",
 				"type": "number",
@@ -3970,7 +3970,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "count",
-				"description": "Number of results to return per page (1–30). Defaults to 30.",
+				"description": "Most results to return per page (1–30). Defaults to 30. A page can hold fewer, so keep paging while `nextCursor` is set.",
 				"required": false,
 				"defaultLabel": "30",
 				"type": "number",
@@ -4004,7 +4004,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "count",
-				"description": "Number of results to return per page (1–30). Defaults to 30.",
+				"description": "Most results to return per page (1–30). Defaults to 30. A page can hold fewer, so keep paging while `nextCursor` is set.",
 				"required": false,
 				"defaultLabel": "30",
 				"type": "number",
@@ -4038,7 +4038,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "count",
-				"description": "Number of results to return per page (1–30). Defaults to 30.",
+				"description": "Most results to return per page (1–30). Defaults to 30. A page can hold fewer, so keep paging while `nextCursor` is set.",
 				"required": false,
 				"defaultLabel": "30",
 				"type": "number",
@@ -4072,7 +4072,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "count",
-				"description": "Number of results to return per page (1–30). Defaults to 30.",
+				"description": "Most results to return per page (1–30). Defaults to 30. A page can hold fewer, so keep paging while `nextCursor` is set.",
 				"required": false,
 				"defaultLabel": "30",
 				"type": "number",
@@ -4106,7 +4106,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "count",
-				"description": "Number of results to return per page (1–30). Defaults to 30.",
+				"description": "Most results to return per page (1–30). Defaults to 30. A page can hold fewer, so keep paging while `nextCursor` is set.",
 				"required": false,
 				"defaultLabel": "30",
 				"type": "number",
@@ -4140,9 +4140,9 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "count",
-				"description": "Number of results to return per page (1–30). Defaults to 30.",
+				"description": "Most results to return per page (1–20). Defaults to 20. A page can hold fewer, so keep paging while `nextCursor` is set.",
 				"required": false,
-				"defaultLabel": "30",
+				"defaultLabel": "20",
 				"type": "number",
 				"integer": true
 			}
@@ -4192,7 +4192,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "count",
-				"description": "Number of results to return per page (1–20). Defaults to 20.",
+				"description": "Most results to return per page (1–20). Defaults to 20. A page can hold fewer, so keep paging while `nextCursor` is set.",
 				"required": false,
 				"defaultLabel": "20",
 				"type": "number",
@@ -4226,7 +4226,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "count",
-				"description": "Number of results to return per page (1–20). Defaults to 20.",
+				"description": "Most results to return per page (1–20). Defaults to 20. A page can hold fewer, so keep paging while `nextCursor` is set.",
 				"required": false,
 				"defaultLabel": "20",
 				"type": "number",
@@ -4304,7 +4304,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "count",
-				"description": "Number of results to return per page (1–30). Defaults to 30.",
+				"description": "Most results to return per page (1–30). Defaults to 30. A page can hold fewer, so keep paging while `nextCursor` is set.",
 				"required": false,
 				"defaultLabel": "30",
 				"type": "number",
@@ -4356,7 +4356,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "count",
-				"description": "Number of results to return per page (1–30). Defaults to 30.",
+				"description": "Most results to return per page (1–30). Defaults to 30. A page can hold fewer, so keep paging while `nextCursor` is set.",
 				"required": false,
 				"defaultLabel": "30",
 				"type": "number",
@@ -4416,7 +4416,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "count",
-				"description": "Number of results to return per page (1–30). Defaults to 30.",
+				"description": "Most results to return per page (1–30). Defaults to 30. A page can hold fewer, so keep paging while `nextCursor` is set.",
 				"required": false,
 				"defaultLabel": "30",
 				"type": "number",
