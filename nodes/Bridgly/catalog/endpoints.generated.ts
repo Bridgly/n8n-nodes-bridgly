@@ -3902,7 +3902,537 @@ export const endpoints: CatalogEndpoint[] = [
 		"fields": [
 			{
 				"name": "uniqueId",
-				"description": "The user's unique ID, e.g. \"@tiktok\".",
+				"description": "TikTok username, with or without @, for example \"tiktok\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			}
+		]
+	},
+	{
+		"id": "tiktok_get_user_posts",
+		"platform": "TikTok",
+		"title": "Get a TikTok user’s posts",
+		"description": "Get a TikTok user’s posts. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"method": "POST",
+		"path": "/tiktok/get-user-posts",
+		"fields": [
+			{
+				"name": "count",
+				"description": "Number of results to return per page (1–10). Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "uniqueId",
+				"description": "TikTok username, with or without @, for example \"tiktok\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			}
+		]
+	},
+	{
+		"id": "tiktok_get_user_liked_videos",
+		"platform": "TikTok",
+		"title": "Get the videos a TikTok user liked",
+		"description": "Get the videos a TikTok user liked. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"method": "POST",
+		"path": "/tiktok/get-user-liked-videos",
+		"fields": [
+			{
+				"name": "count",
+				"description": "Number of results to return per page (1–10). Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "uniqueId",
+				"description": "TikTok username, with or without @, for example \"tiktok\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			}
+		]
+	},
+	{
+		"id": "tiktok_get_user_reposts",
+		"platform": "TikTok",
+		"title": "Get the videos a TikTok user reposted",
+		"description": "Get the videos a TikTok user reposted. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"method": "POST",
+		"path": "/tiktok/get-user-reposts",
+		"fields": [
+			{
+				"name": "count",
+				"description": "Number of results to return per page (1–10). Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "uniqueId",
+				"description": "TikTok username, with or without @, for example \"tiktok\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			}
+		]
+	},
+	{
+		"id": "tiktok_get_user_followers",
+		"platform": "TikTok",
+		"title": "Get a TikTok user’s followers",
+		"description": "Get a TikTok user’s followers. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"method": "POST",
+		"path": "/tiktok/get-user-followers",
+		"fields": [
+			{
+				"name": "count",
+				"description": "Number of results to return per page (1–10). Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "uniqueId",
+				"description": "TikTok username, with or without @, for example \"tiktok\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			}
+		]
+	},
+	{
+		"id": "tiktok_get_user_following",
+		"platform": "TikTok",
+		"title": "Get the accounts a TikTok user follows",
+		"description": "Get the accounts a TikTok user follows. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"method": "POST",
+		"path": "/tiktok/get-user-following",
+		"fields": [
+			{
+				"name": "count",
+				"description": "Number of results to return per page (1–10). Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "uniqueId",
+				"description": "TikTok username, with or without @, for example \"tiktok\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			}
+		]
+	},
+	{
+		"id": "tiktok_get_user_playlists",
+		"platform": "TikTok",
+		"title": "Get a TikTok user’s playlists",
+		"description": "Get a TikTok user’s playlists. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"method": "POST",
+		"path": "/tiktok/get-user-playlists",
+		"fields": [
+			{
+				"name": "count",
+				"description": "Number of results to return per page (1–10). Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "uniqueId",
+				"description": "TikTok username, with or without @, for example \"tiktok\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			}
+		]
+	},
+	{
+		"id": "tiktok_get_playlist_videos",
+		"platform": "TikTok",
+		"title": "Get the videos in a TikTok playlist",
+		"description": "Get the videos in a TikTok playlist. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"method": "POST",
+		"path": "/tiktok/get-playlist-videos",
+		"fields": [
+			{
+				"name": "count",
+				"description": "Number of results to return per page (1–10). Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "playlistId",
+				"description": "Playlist ID, as returned by `getUserPlaylists`.",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			}
+		]
+	},
+	{
+		"id": "tiktok_get_video",
+		"platform": "TikTok",
+		"title": "Fetch a TikTok video by ID",
+		"description": "Fetch a TikTok video by ID. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/tiktok/get-video",
+		"fields": [
+			{
+				"name": "videoId",
+				"description": "Post ID, the number at the end of the post URL, for example \"7698770783367171359\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			}
+		]
+	},
+	{
+		"id": "tiktok_get_video_comments",
+		"platform": "TikTok",
+		"title": "Get the comments on a TikTok video",
+		"description": "Get the comments on a TikTok video. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"method": "POST",
+		"path": "/tiktok/get-video-comments",
+		"fields": [
+			{
+				"name": "count",
+				"description": "Number of results to return per page (1–10). Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "videoId",
+				"description": "Post ID, the number at the end of the post URL, for example \"7698770783367171359\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			}
+		]
+	},
+	{
+		"id": "tiktok_get_comment_replies",
+		"platform": "TikTok",
+		"title": "Get the replies to a TikTok comment",
+		"description": "Get the replies to a TikTok comment. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"method": "POST",
+		"path": "/tiktok/get-comment-replies",
+		"fields": [
+			{
+				"name": "count",
+				"description": "Number of results to return per page (1–10). Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "videoId",
+				"description": "Post ID, the number at the end of the post URL, for example \"7698770783367171359\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "commentId",
+				"description": "ID of the comment whose replies to list.",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			}
+		]
+	},
+	{
+		"id": "tiktok_get_related_videos",
+		"platform": "TikTok",
+		"title": "Get videos related to a TikTok video",
+		"description": "Get videos related to a TikTok video. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"method": "POST",
+		"path": "/tiktok/get-related-videos",
+		"fields": [
+			{
+				"name": "videoId",
+				"description": "Post ID, the number at the end of the post URL, for example \"7698770783367171359\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return per page (1–10). Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
+			}
+		]
+	},
+	{
+		"id": "tiktok_get_hashtag",
+		"platform": "TikTok",
+		"title": "Fetch a TikTok hashtag",
+		"description": "Fetch a TikTok hashtag. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/tiktok/get-hashtag",
+		"fields": [
+			{
+				"name": "hashtag",
+				"description": "Hashtag name, with or without #, for example \"cooking\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			}
+		]
+	},
+	{
+		"id": "tiktok_get_hashtag_videos",
+		"platform": "TikTok",
+		"title": "Get the videos for a TikTok hashtag",
+		"description": "Get the videos for a TikTok hashtag. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"method": "POST",
+		"path": "/tiktok/get-hashtag-videos",
+		"fields": [
+			{
+				"name": "count",
+				"description": "Number of results to return per page (1–10). Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "hashtag",
+				"description": "Hashtag name, with or without #, for example \"cooking\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			}
+		]
+	},
+	{
+		"id": "tiktok_get_sound",
+		"platform": "TikTok",
+		"title": "Fetch a TikTok sound by ID",
+		"description": "Fetch a TikTok sound by ID. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/tiktok/get-sound",
+		"fields": [
+			{
+				"name": "soundId",
+				"description": "Sound ID, the number at the end of the sound URL or a post’s `sound.id`.",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			}
+		]
+	},
+	{
+		"id": "tiktok_get_sound_videos",
+		"platform": "TikTok",
+		"title": "Get the videos that use a TikTok sound",
+		"description": "Get the videos that use a TikTok sound. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"method": "POST",
+		"path": "/tiktok/get-sound-videos",
+		"fields": [
+			{
+				"name": "count",
+				"description": "Number of results to return per page (1–10). Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "soundId",
+				"description": "Sound ID, the number at the end of the sound URL or a post’s `sound.id`.",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			}
+		]
+	},
+	{
+		"id": "tiktok_search_users",
+		"platform": "TikTok",
+		"title": "Search TikTok accounts",
+		"description": "Search TikTok accounts. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"method": "POST",
+		"path": "/tiktok/search-users",
+		"fields": [
+			{
+				"name": "count",
+				"description": "Number of results to return per page (1–10). Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "query",
+				"description": "Search keywords, for example \"street food\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			}
+		]
+	},
+	{
+		"id": "tiktok_search_videos",
+		"platform": "TikTok",
+		"title": "Search TikTok videos",
+		"description": "Search TikTok videos. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"method": "POST",
+		"path": "/tiktok/search-videos",
+		"fields": [
+			{
+				"name": "count",
+				"description": "Number of results to return per page (1–10). Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "query",
+				"description": "Search keywords, for example \"street food\".",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
