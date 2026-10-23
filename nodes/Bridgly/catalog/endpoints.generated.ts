@@ -3919,14 +3919,6 @@ export const endpoints: CatalogEndpoint[] = [
 		"path": "/tiktok/get-user-posts",
 		"fields": [
 			{
-				"name": "count",
-				"description": "Number of results to return per page (1–10). Defaults to 10.",
-				"required": false,
-				"defaultLabel": "10",
-				"type": "number",
-				"integer": true
-			},
-			{
 				"name": "cursor",
 				"description": "The previous response's `nextCursor`, to fetch the next page.",
 				"required": false,
@@ -3941,6 +3933,14 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return per page (1–35). Defaults to 35.",
+				"required": false,
+				"defaultLabel": "35",
+				"type": "number",
+				"integer": true
 			}
 		]
 	},
@@ -3953,14 +3953,6 @@ export const endpoints: CatalogEndpoint[] = [
 		"path": "/tiktok/get-user-liked-videos",
 		"fields": [
 			{
-				"name": "count",
-				"description": "Number of results to return per page (1–10). Defaults to 10.",
-				"required": false,
-				"defaultLabel": "10",
-				"type": "number",
-				"integer": true
-			},
-			{
 				"name": "cursor",
 				"description": "The previous response's `nextCursor`, to fetch the next page.",
 				"required": false,
@@ -3975,6 +3967,14 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return per page (1–30). Defaults to 30.",
+				"required": false,
+				"defaultLabel": "30",
+				"type": "number",
+				"integer": true
 			}
 		]
 	},
@@ -3987,14 +3987,6 @@ export const endpoints: CatalogEndpoint[] = [
 		"path": "/tiktok/get-user-reposts",
 		"fields": [
 			{
-				"name": "count",
-				"description": "Number of results to return per page (1–10). Defaults to 10.",
-				"required": false,
-				"defaultLabel": "10",
-				"type": "number",
-				"integer": true
-			},
-			{
 				"name": "cursor",
 				"description": "The previous response's `nextCursor`, to fetch the next page.",
 				"required": false,
@@ -4009,6 +4001,14 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return per page (1–30). Defaults to 30.",
+				"required": false,
+				"defaultLabel": "30",
+				"type": "number",
+				"integer": true
 			}
 		]
 	},
@@ -4021,14 +4021,6 @@ export const endpoints: CatalogEndpoint[] = [
 		"path": "/tiktok/get-user-followers",
 		"fields": [
 			{
-				"name": "count",
-				"description": "Number of results to return per page (1–10). Defaults to 10.",
-				"required": false,
-				"defaultLabel": "10",
-				"type": "number",
-				"integer": true
-			},
-			{
 				"name": "cursor",
 				"description": "The previous response's `nextCursor`, to fetch the next page.",
 				"required": false,
@@ -4043,6 +4035,14 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return per page (1–30). Defaults to 30.",
+				"required": false,
+				"defaultLabel": "30",
+				"type": "number",
+				"integer": true
 			}
 		]
 	},
@@ -4055,14 +4055,6 @@ export const endpoints: CatalogEndpoint[] = [
 		"path": "/tiktok/get-user-following",
 		"fields": [
 			{
-				"name": "count",
-				"description": "Number of results to return per page (1–10). Defaults to 10.",
-				"required": false,
-				"defaultLabel": "10",
-				"type": "number",
-				"integer": true
-			},
-			{
 				"name": "cursor",
 				"description": "The previous response's `nextCursor`, to fetch the next page.",
 				"required": false,
@@ -4077,6 +4069,14 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return per page (1–30). Defaults to 30.",
+				"required": false,
+				"defaultLabel": "30",
+				"type": "number",
+				"integer": true
 			}
 		]
 	},
@@ -4089,14 +4089,6 @@ export const endpoints: CatalogEndpoint[] = [
 		"path": "/tiktok/get-user-playlists",
 		"fields": [
 			{
-				"name": "count",
-				"description": "Number of results to return per page (1–10). Defaults to 10.",
-				"required": false,
-				"defaultLabel": "10",
-				"type": "number",
-				"integer": true
-			},
-			{
 				"name": "cursor",
 				"description": "The previous response's `nextCursor`, to fetch the next page.",
 				"required": false,
@@ -4111,6 +4103,14 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return per page (1–30). Defaults to 30.",
+				"required": false,
+				"defaultLabel": "30",
+				"type": "number",
+				"integer": true
 			}
 		]
 	},
@@ -4122,14 +4122,6 @@ export const endpoints: CatalogEndpoint[] = [
 		"method": "POST",
 		"path": "/tiktok/get-playlist-videos",
 		"fields": [
-			{
-				"name": "count",
-				"description": "Number of results to return per page (1–10). Defaults to 10.",
-				"required": false,
-				"defaultLabel": "10",
-				"type": "number",
-				"integer": true
-			},
 			{
 				"name": "cursor",
 				"description": "The previous response's `nextCursor`, to fetch the next page.",
@@ -4145,6 +4137,14 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return per page (1–30). Defaults to 30.",
+				"required": false,
+				"defaultLabel": "30",
+				"type": "number",
+				"integer": true
 			}
 		]
 	},
@@ -4175,14 +4175,6 @@ export const endpoints: CatalogEndpoint[] = [
 		"path": "/tiktok/get-video-comments",
 		"fields": [
 			{
-				"name": "count",
-				"description": "Number of results to return per page (1–10). Defaults to 10.",
-				"required": false,
-				"defaultLabel": "10",
-				"type": "number",
-				"integer": true
-			},
-			{
 				"name": "cursor",
 				"description": "The previous response's `nextCursor`, to fetch the next page.",
 				"required": false,
@@ -4197,6 +4189,14 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return per page (1–20). Defaults to 20.",
+				"required": false,
+				"defaultLabel": "20",
+				"type": "number",
+				"integer": true
 			}
 		]
 	},
@@ -4209,14 +4209,6 @@ export const endpoints: CatalogEndpoint[] = [
 		"path": "/tiktok/get-comment-replies",
 		"fields": [
 			{
-				"name": "count",
-				"description": "Number of results to return per page (1–10). Defaults to 10.",
-				"required": false,
-				"defaultLabel": "10",
-				"type": "number",
-				"integer": true
-			},
-			{
 				"name": "cursor",
 				"description": "The previous response's `nextCursor`, to fetch the next page.",
 				"required": false,
@@ -4231,6 +4223,14 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return per page (1–20). Defaults to 20.",
+				"required": false,
+				"defaultLabel": "20",
+				"type": "number",
+				"integer": true
 			},
 			{
 				"name": "commentId",
@@ -4257,14 +4257,6 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
-			},
-			{
-				"name": "count",
-				"description": "Number of results to return per page (1–10). Defaults to 10.",
-				"required": false,
-				"defaultLabel": "10",
-				"type": "number",
-				"integer": true
 			}
 		]
 	},
@@ -4295,14 +4287,6 @@ export const endpoints: CatalogEndpoint[] = [
 		"path": "/tiktok/get-hashtag-videos",
 		"fields": [
 			{
-				"name": "count",
-				"description": "Number of results to return per page (1–10). Defaults to 10.",
-				"required": false,
-				"defaultLabel": "10",
-				"type": "number",
-				"integer": true
-			},
-			{
 				"name": "cursor",
 				"description": "The previous response's `nextCursor`, to fetch the next page.",
 				"required": false,
@@ -4317,6 +4301,14 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return per page (1–30). Defaults to 30.",
+				"required": false,
+				"defaultLabel": "30",
+				"type": "number",
+				"integer": true
 			}
 		]
 	},
@@ -4347,14 +4339,6 @@ export const endpoints: CatalogEndpoint[] = [
 		"path": "/tiktok/get-sound-videos",
 		"fields": [
 			{
-				"name": "count",
-				"description": "Number of results to return per page (1–10). Defaults to 10.",
-				"required": false,
-				"defaultLabel": "10",
-				"type": "number",
-				"integer": true
-			},
-			{
 				"name": "cursor",
 				"description": "The previous response's `nextCursor`, to fetch the next page.",
 				"required": false,
@@ -4369,6 +4353,14 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return per page (1–30). Defaults to 30.",
+				"required": false,
+				"defaultLabel": "30",
+				"type": "number",
+				"integer": true
 			}
 		]
 	},
@@ -4380,14 +4372,6 @@ export const endpoints: CatalogEndpoint[] = [
 		"method": "POST",
 		"path": "/tiktok/search-users",
 		"fields": [
-			{
-				"name": "count",
-				"description": "Number of results to return per page (1–10). Defaults to 10.",
-				"required": false,
-				"defaultLabel": "10",
-				"type": "number",
-				"integer": true
-			},
 			{
 				"name": "cursor",
 				"description": "The previous response's `nextCursor`, to fetch the next page.",
@@ -4415,14 +4399,6 @@ export const endpoints: CatalogEndpoint[] = [
 		"path": "/tiktok/search-videos",
 		"fields": [
 			{
-				"name": "count",
-				"description": "Number of results to return per page (1–10). Defaults to 10.",
-				"required": false,
-				"defaultLabel": "10",
-				"type": "number",
-				"integer": true
-			},
-			{
 				"name": "cursor",
 				"description": "The previous response's `nextCursor`, to fetch the next page.",
 				"required": false,
@@ -4437,6 +4413,14 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return per page (1–30). Defaults to 30.",
+				"required": false,
+				"defaultLabel": "30",
+				"type": "number",
+				"integer": true
 			}
 		]
 	},
