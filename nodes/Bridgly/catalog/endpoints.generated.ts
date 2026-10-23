@@ -80,6 +80,14 @@ export const endpoints: CatalogEndpoint[] = [
 		"path": "/linkedin/get-posts/from-company",
 		"fields": [
 			{
+				"name": "start",
+				"description": "Number of results to skip. Defaults to 0.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
 				"name": "universalName",
 				"description": "The company universal name, e.g. \"openai\".",
 				"required": true,
@@ -88,16 +96,8 @@ export const endpoints: CatalogEndpoint[] = [
 				"input": "text"
 			},
 			{
-				"name": "start",
-				"description": "Pagination offset into the post list. Defaults to 0.",
-				"required": false,
-				"defaultLabel": null,
-				"type": "number",
-				"integer": true
-			},
-			{
 				"name": "count",
-				"description": "Number of posts to return (1–10). Defaults to 10.",
+				"description": "Number of results to return per page (1–100). Defaults to 10.",
 				"required": false,
 				"defaultLabel": "10",
 				"type": "number",
@@ -114,6 +114,14 @@ export const endpoints: CatalogEndpoint[] = [
 		"path": "/linkedin/get-posts/from-profile",
 		"fields": [
 			{
+				"name": "cursor",
+				"description": "Pagination cursor from a previous response's `nextCursor` to fetch the next page.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
 				"name": "publicId",
 				"description": "The member public identity, e.g. \"williamhgates\".",
 				"required": true,
@@ -122,16 +130,8 @@ export const endpoints: CatalogEndpoint[] = [
 				"input": "text"
 			},
 			{
-				"name": "start",
-				"description": "Pagination offset into the post list. Defaults to 0.",
-				"required": false,
-				"defaultLabel": null,
-				"type": "number",
-				"integer": true
-			},
-			{
 				"name": "count",
-				"description": "Number of posts to return (1–10). Defaults to 10.",
+				"description": "Most results to return per page (1–100). Defaults to 10. A page can hold fewer, so keep paging while `nextCursor` is set.",
 				"required": false,
 				"defaultLabel": "10",
 				"type": "number",
@@ -166,6 +166,14 @@ export const endpoints: CatalogEndpoint[] = [
 		"path": "/linkedin/get-activity-comments",
 		"fields": [
 			{
+				"name": "start",
+				"description": "Number of results to skip. Defaults to 0.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
 				"name": "activityUrn",
 				"description": "The activity to fetch comments for — a `urn:li:activity:<id>`, e.g. \"urn:li:activity:7300000000000000000\".",
 				"required": true,
@@ -175,7 +183,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "count",
-				"description": "Number of comments to return (1–10). Defaults to 10.",
+				"description": "Number of results to return per page (1–100). Defaults to 10.",
 				"required": false,
 				"defaultLabel": "10",
 				"type": "number",
@@ -192,6 +200,14 @@ export const endpoints: CatalogEndpoint[] = [
 		"path": "/linkedin/get-profile-comments",
 		"fields": [
 			{
+				"name": "cursor",
+				"description": "Pagination cursor from a previous response's `nextCursor` to fetch the next page.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
 				"name": "publicId",
 				"description": "The member public identity, e.g. \"williamhgates\".",
 				"required": true,
@@ -201,17 +217,9 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "count",
-				"description": "Number of comments to return (1–10). Defaults to 10.",
+				"description": "Most results to return per page (1–100). Defaults to 10. A page can hold fewer, so keep paging while `nextCursor` is set.",
 				"required": false,
 				"defaultLabel": "10",
-				"type": "number",
-				"integer": true
-			},
-			{
-				"name": "start",
-				"description": "Pagination offset into the comment list. Defaults to 0.",
-				"required": false,
-				"defaultLabel": null,
 				"type": "number",
 				"integer": true
 			}
@@ -226,6 +234,14 @@ export const endpoints: CatalogEndpoint[] = [
 		"path": "/linkedin/get-profile-reactions",
 		"fields": [
 			{
+				"name": "cursor",
+				"description": "Pagination cursor from a previous response's `nextCursor` to fetch the next page.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
 				"name": "publicId",
 				"description": "The member public identity, e.g. \"williamhgates\".",
 				"required": true,
@@ -235,17 +251,9 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "count",
-				"description": "Number of reactions to return (1–10). Defaults to 10.",
+				"description": "Most results to return per page (1–100). Defaults to 10. A page can hold fewer, so keep paging while `nextCursor` is set.",
 				"required": false,
 				"defaultLabel": "10",
-				"type": "number",
-				"integer": true
-			},
-			{
-				"name": "start",
-				"description": "Pagination offset into the comment list. Defaults to 0.",
-				"required": false,
-				"defaultLabel": null,
 				"type": "number",
 				"integer": true
 			}
@@ -260,6 +268,14 @@ export const endpoints: CatalogEndpoint[] = [
 		"path": "/linkedin/get-post-reactions",
 		"fields": [
 			{
+				"name": "start",
+				"description": "Number of results to skip. Defaults to 0.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
 				"name": "activityUrn",
 				"description": "The post/update to fetch reactions for — a `urn:li:activity:<id>`, e.g. \"urn:li:activity:7300000000000000000\".",
 				"required": true,
@@ -269,17 +285,9 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "count",
-				"description": "Number of reactions to return (1–10). Defaults to 10.",
+				"description": "Number of results to return per page (1–100). Defaults to 10.",
 				"required": false,
 				"defaultLabel": "10",
-				"type": "number",
-				"integer": true
-			},
-			{
-				"name": "start",
-				"description": "Pagination offset into the comment list. Defaults to 0.",
-				"required": false,
-				"defaultLabel": null,
 				"type": "number",
 				"integer": true
 			}
@@ -481,7 +489,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "count",
-				"description": "Number of results to return (1–10). Defaults to 10.",
+				"description": "Number of results to return per page (1–100). Defaults to 10.",
 				"required": false,
 				"defaultLabel": "10",
 				"type": "number",
@@ -578,7 +586,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "count",
-				"description": "Number of results to return (1–10). Defaults to 10.",
+				"description": "Number of results to return per page (1–50). Defaults to 10.",
 				"required": false,
 				"defaultLabel": "10",
 				"type": "number",
