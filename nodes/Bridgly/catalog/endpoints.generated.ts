@@ -1356,7 +1356,25 @@ export const endpoints: CatalogEndpoint[] = [
 		"fields": [
 			{
 				"name": "tweetId",
-				"description": "Numeric ID of the focal tweet to expand, e.g. \"1234567890\".",
+				"description": "Numeric ID of the tweet to fetch, e.g. \"1234567890\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			}
+		]
+	},
+	{
+		"id": "x_get_tweet_replies",
+		"platform": "X (Twitter)",
+		"title": "X (Twitter): List the replies to a tweet",
+		"description": "X (Twitter): List the replies to a tweet. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"method": "POST",
+		"path": "/x/get-tweet-replies",
+		"fields": [
+			{
+				"name": "tweetId",
+				"description": "Numeric ID of the tweet whose replies to list, e.g. \"1234567890\".",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
@@ -1364,7 +1382,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cursor",
-				"description": "Pagination cursor for loading more replies.",
+				"description": "Pagination cursor from a previous response's `nextCursor` to fetch the next page.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "string",
@@ -1398,11 +1416,19 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "count",
-				"description": "Number of results to return (1–10). Defaults to 10.",
+				"description": "Most results to return per page (1–20). Defaults to 10. A page can hold fewer, so keep paging while `nextCursor` is set.",
 				"required": false,
 				"defaultLabel": "10",
 				"type": "number",
 				"integer": true
+			},
+			{
+				"name": "cursor",
+				"description": "Pagination cursor from a previous response's `nextCursor` to fetch the next page.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
 			},
 			{
 				"name": "sortOrder",
@@ -1442,20 +1468,20 @@ export const endpoints: CatalogEndpoint[] = [
 				"input": "text"
 			},
 			{
-				"name": "count",
-				"description": "Number of results to return (1–10). Defaults to 10.",
-				"required": false,
-				"defaultLabel": "10",
-				"type": "number",
-				"integer": true
-			},
-			{
 				"name": "cursor",
 				"description": "Pagination cursor from a previous response's `nextCursor` to fetch the next page.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Most results to return per page (1–20). Defaults to 10. A page can hold fewer, so keep paging while `nextCursor` is set.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
 			}
 		]
 	},
@@ -1494,14 +1520,6 @@ export const endpoints: CatalogEndpoint[] = [
 				"input": "text"
 			},
 			{
-				"name": "count",
-				"description": "Number of tweets to return per page (1–10). Defaults to 10.",
-				"required": false,
-				"defaultLabel": "10",
-				"type": "number",
-				"integer": true
-			},
-			{
 				"name": "cursor",
 				"description": "Pagination cursor from a previous response's `nextCursor` to fetch the next page.",
 				"required": false,
@@ -1526,14 +1544,6 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
-			},
-			{
-				"name": "count",
-				"description": "Number of tweets to return per page (1–10). Defaults to 10.",
-				"required": false,
-				"defaultLabel": "10",
-				"type": "number",
-				"integer": true
 			},
 			{
 				"name": "cursor",
@@ -1562,20 +1572,20 @@ export const endpoints: CatalogEndpoint[] = [
 				"input": "text"
 			},
 			{
-				"name": "count",
-				"description": "Number of tweets to return per page (1–10). Defaults to 10.",
-				"required": false,
-				"defaultLabel": "10",
-				"type": "number",
-				"integer": true
-			},
-			{
 				"name": "cursor",
 				"description": "Pagination cursor from a previous response's `nextCursor` to fetch the next page.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Most results to return per page (1–100). Defaults to 10. A page can hold fewer, so keep paging while `nextCursor` is set.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
 			}
 		]
 	},
@@ -1594,14 +1604,6 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
-			},
-			{
-				"name": "count",
-				"description": "Number of tweets to return per page (1–10). Defaults to 10.",
-				"required": false,
-				"defaultLabel": "10",
-				"type": "number",
-				"integer": true
 			},
 			{
 				"name": "cursor",
@@ -1630,14 +1632,6 @@ export const endpoints: CatalogEndpoint[] = [
 				"input": "text"
 			},
 			{
-				"name": "count",
-				"description": "Number of tweets to return per page (1–10). Defaults to 10.",
-				"required": false,
-				"defaultLabel": "10",
-				"type": "number",
-				"integer": true
-			},
-			{
 				"name": "cursor",
 				"description": "Pagination cursor from a previous response's `nextCursor` to fetch the next page.",
 				"required": false,
@@ -1656,14 +1650,6 @@ export const endpoints: CatalogEndpoint[] = [
 		"path": "/x/get-tweet-retweeters",
 		"fields": [
 			{
-				"name": "count",
-				"description": "Number of retweeters to return per page (1–10). Defaults to 10.",
-				"required": false,
-				"defaultLabel": "10",
-				"type": "number",
-				"integer": true
-			},
-			{
 				"name": "cursor",
 				"description": "Pagination cursor from a previous response's `nextCursor` to fetch the next page.",
 				"required": false,
@@ -1678,6 +1664,14 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Most results to return per page (1–100). Defaults to 10. A page can hold fewer, so keep paging while `nextCursor` is set.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
 			}
 		]
 	},
@@ -1699,11 +1693,19 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "count",
-				"description": "Number of quote tweets to return (1–10). Defaults to 10.",
+				"description": "Most results to return per page (1–20). Defaults to 10. A page can hold fewer, so keep paging while `nextCursor` is set.",
 				"required": false,
 				"defaultLabel": "10",
 				"type": "number",
 				"integer": true
+			},
+			{
+				"name": "cursor",
+				"description": "Pagination cursor from a previous response's `nextCursor` to fetch the next page.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
 			},
 			{
 				"name": "sortOrder",
