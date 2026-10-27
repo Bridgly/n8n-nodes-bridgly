@@ -27,7 +27,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"fields": [
 			{
 				"name": "universalName",
-				"description": "The company's LinkedIn universal name — the slug in linkedin.com/company/<universalName>, e.g. \"openai\".",
+				"description": "The company's LinkedIn universal name — the slug in linkedin.com/company/<universalName> — or the company, school or showcase page link itself, e.g. \"openai\" or \"https://www.linkedin.com/company/openai\".",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
@@ -45,7 +45,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"fields": [
 			{
 				"name": "memberIdentity",
-				"description": "The member's public identity — the slug in linkedin.com/in/<memberIdentity>, e.g. \"williamhgates\".",
+				"description": "The member's public identity — the slug in linkedin.com/in/<memberIdentity> — or the profile link itself, e.g. \"williamhgates\" or \"https://www.linkedin.com/in/williamhgates\".",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
@@ -63,7 +63,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"fields": [
 			{
 				"name": "jobUrl",
-				"description": "The LinkedIn job posting URL — the numeric job id is parsed from it, e.g. \"https://www.linkedin.com/jobs/view/4417164255/\".",
+				"description": "The LinkedIn job posting URL, or its numeric job id, e.g. \"https://www.linkedin.com/jobs/view/4417164255/\" or \"4417164255\". A jobs search link with a job open (`?currentJobId=<id>`) works too.",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
@@ -89,7 +89,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "universalName",
-				"description": "The company universal name, e.g. \"openai\".",
+				"description": "The company universal name, or the company, school or showcase page link itself, e.g. \"openai\" or \"https://www.linkedin.com/company/openai\".",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
@@ -123,7 +123,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "publicId",
-				"description": "The member public identity, e.g. \"williamhgates\".",
+				"description": "The member public identity, or the profile link itself, e.g. \"williamhgates\" or \"https://www.linkedin.com/in/williamhgates\".",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
@@ -149,7 +149,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"fields": [
 			{
 				"name": "activityUrn",
-				"description": "The post/update to fetch — a `urn:li:activity:<id>`, e.g. \"urn:li:activity:7300000000000000000\".",
+				"description": "The post/update to fetch — a `urn:li:activity:<id>` or the post link, e.g. \"urn:li:activity:7300000000000000000\".",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
@@ -175,7 +175,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "activityUrn",
-				"description": "The activity to fetch comments for — a `urn:li:activity:<id>`, e.g. \"urn:li:activity:7300000000000000000\".",
+				"description": "The activity to fetch comments for — a `urn:li:activity:<id>` or the post link, e.g. \"urn:li:activity:7300000000000000000\" or \"https://www.linkedin.com/feed/update/urn:li:activity:7300000000000000000/\".",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
@@ -209,7 +209,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "publicId",
-				"description": "The member public identity, e.g. \"williamhgates\".",
+				"description": "The member public identity, or the profile link itself, e.g. \"williamhgates\" or \"https://www.linkedin.com/in/williamhgates\".",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
@@ -243,7 +243,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "publicId",
-				"description": "The member public identity, e.g. \"williamhgates\".",
+				"description": "The member public identity, or the profile link itself, e.g. \"williamhgates\" or \"https://www.linkedin.com/in/williamhgates\".",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
@@ -277,7 +277,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "activityUrn",
-				"description": "The post/update to fetch reactions for — a `urn:li:activity:<id>`, e.g. \"urn:li:activity:7300000000000000000\".",
+				"description": "The post/update to fetch reactions for — a `urn:li:activity:<id>` or the post link, e.g. \"urn:li:activity:7300000000000000000\".",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
@@ -763,7 +763,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"fields": [
 			{
 				"name": "url",
-				"description": "Full URL of the Reddit post to fetch (with or without query).",
+				"description": "Link to the Reddit post to fetch (with or without query), e.g. \"https://www.reddit.com/r/programming/comments/1u3a0cd/title/\". A redd.it short link works too.",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
@@ -799,7 +799,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"fields": [
 			{
 				"name": "subreddit",
-				"description": "Subreddit name, with or without the \"r/\" prefix, e.g. \"programming\".",
+				"description": "Subreddit name, with or without the \"r/\" prefix, or the subreddit link, e.g. \"programming\" or \"https://www.reddit.com/r/programming/\".",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
@@ -817,7 +817,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"fields": [
 			{
 				"name": "username",
-				"description": "Reddit username, with or without the \"u/\" prefix, e.g. \"spez\".",
+				"description": "Reddit username, with or without the \"u/\" prefix, or the profile link, e.g. \"spez\" or \"https://www.reddit.com/user/spez/\".",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
@@ -835,7 +835,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"fields": [
 			{
 				"name": "username",
-				"description": "Reddit username, with or without the \"u/\" prefix, e.g. \"spez\".",
+				"description": "Reddit username, with or without the \"u/\" prefix, or the profile link, e.g. \"spez\" or \"https://www.reddit.com/user/spez/\".",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
@@ -861,7 +861,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"fields": [
 			{
 				"name": "username",
-				"description": "Reddit username, with or without the \"u/\" prefix, e.g. \"spez\".",
+				"description": "Reddit username, with or without the \"u/\" prefix, or the profile link, e.g. \"spez\" or \"https://www.reddit.com/user/spez/\".",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
@@ -887,7 +887,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"fields": [
 			{
 				"name": "username",
-				"description": "Reddit username, with or without the \"u/\" prefix, e.g. \"spez\".",
+				"description": "Reddit username, with or without the \"u/\" prefix, or the profile link, e.g. \"spez\" or \"https://www.reddit.com/user/spez/\".",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
@@ -913,7 +913,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"fields": [
 			{
 				"name": "subreddit",
-				"description": "Subreddit name, with or without the \"r/\" prefix, e.g. \"programming\".",
+				"description": "Subreddit name, with or without the \"r/\" prefix, or the subreddit link, e.g. \"programming\" or \"https://www.reddit.com/r/programming/\".",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
@@ -975,7 +975,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"fields": [
 			{
 				"name": "subreddit",
-				"description": "Subreddit name, with or without the \"r/\" prefix, e.g. \"programming\".",
+				"description": "Subreddit name, with or without the \"r/\" prefix, or the subreddit link, e.g. \"programming\" or \"https://www.reddit.com/r/programming/\".",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
@@ -1364,8 +1364,16 @@ export const endpoints: CatalogEndpoint[] = [
 		"fields": [
 			{
 				"name": "tweetId",
-				"description": "Numeric ID of the tweet to fetch, e.g. \"1234567890\".",
+				"description": "Numeric ID of the focal tweet to expand, e.g. \"1234567890\".",
 				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "cursor",
+				"description": "Pagination cursor for loading more replies.",
+				"required": false,
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
@@ -1503,7 +1511,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"fields": [
 			{
 				"name": "handle",
-				"description": "X handle / screen name, with or without the @, e.g. \"elonmusk\".",
+				"description": "X handle / screen name, with or without the @, or the profile link, e.g. \"elonmusk\" or \"https://x.com/elonmusk\".",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
@@ -1521,7 +1529,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"fields": [
 			{
 				"name": "userId",
-				"description": "Numeric user ID (rest_id) whose tweets to list, e.g. \"44196397\".",
+				"description": "Numeric user ID (rest_id) whose tweets to list, e.g. \"44196397\". Look it up from a handle with get-user.",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
@@ -1547,7 +1555,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"fields": [
 			{
 				"name": "userId",
-				"description": "Numeric user ID (rest_id) whose tweets to list, e.g. \"44196397\".",
+				"description": "Numeric user ID (rest_id) whose tweets to list, e.g. \"44196397\". Look it up from a handle with get-user.",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
@@ -1573,7 +1581,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"fields": [
 			{
 				"name": "userId",
-				"description": "Numeric user ID (rest_id) whose tweets to list, e.g. \"44196397\".",
+				"description": "Numeric user ID (rest_id) whose tweets to list, e.g. \"44196397\". Look it up from a handle with get-user.",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
@@ -1607,7 +1615,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"fields": [
 			{
 				"name": "userId",
-				"description": "Numeric user ID (rest_id) whose tweets to list, e.g. \"44196397\".",
+				"description": "Numeric user ID (rest_id) whose tweets to list, e.g. \"44196397\". Look it up from a handle with get-user.",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
@@ -1633,7 +1641,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"fields": [
 			{
 				"name": "userId",
-				"description": "Numeric user ID (rest_id) whose tweets to list, e.g. \"44196397\".",
+				"description": "Numeric user ID (rest_id) whose tweets to list, e.g. \"44196397\". Look it up from a handle with get-user.",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
@@ -1667,7 +1675,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "tweetId",
-				"description": "Numeric ID of the tweet whose retweeters to list, e.g. \"1234567890\".",
+				"description": "Numeric ID of the tweet whose retweeters to list, or the tweet link, e.g. \"1234567890\".",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
@@ -1693,7 +1701,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"fields": [
 			{
 				"name": "tweetId",
-				"description": "Numeric ID of the tweet whose quote tweets to list, e.g. \"1234567890\".",
+				"description": "Numeric ID of the tweet whose quote tweets to list, or the tweet link, e.g. \"1234567890\".",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
@@ -1738,7 +1746,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"fields": [
 			{
 				"name": "username",
-				"description": "GitHub username (login) without the \"@\", e.g. \"torvalds\".",
+				"description": "GitHub username (login), or the profile link, e.g. \"torvalds\" or \"https://github.com/torvalds\".",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
@@ -1756,7 +1764,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"fields": [
 			{
 				"name": "username",
-				"description": "GitHub username (login) without the \"@\", e.g. \"torvalds\".",
+				"description": "GitHub username (login), or the profile link, e.g. \"torvalds\" or \"https://github.com/torvalds\".",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
@@ -1790,7 +1798,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"fields": [
 			{
 				"name": "username",
-				"description": "GitHub username (login) without the \"@\", e.g. \"torvalds\".",
+				"description": "GitHub username (login), or the profile link, e.g. \"torvalds\" or \"https://github.com/torvalds\".",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
@@ -1838,7 +1846,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"fields": [
 			{
 				"name": "username",
-				"description": "GitHub username (login) without the \"@\", e.g. \"torvalds\".",
+				"description": "GitHub username (login), or the profile link, e.g. \"torvalds\" or \"https://github.com/torvalds\".",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
@@ -1872,7 +1880,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"fields": [
 			{
 				"name": "username",
-				"description": "GitHub username (login) without the \"@\", e.g. \"torvalds\".",
+				"description": "GitHub username (login), or the profile link, e.g. \"torvalds\" or \"https://github.com/torvalds\".",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
@@ -3722,7 +3730,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"fields": [
 			{
 				"name": "username",
-				"description": "Instagram username, e.g. instagram",
+				"description": "Instagram username, or the profile link, e.g. \"instagram\" or \"https://www.instagram.com/instagram/\"",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
@@ -3740,7 +3748,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"fields": [
 			{
 				"name": "username",
-				"description": "Instagram username, e.g. instagram",
+				"description": "Instagram username, or the profile link, e.g. \"instagram\" or \"https://www.instagram.com/instagram/\"",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
@@ -3774,7 +3782,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"fields": [
 			{
 				"name": "username",
-				"description": "Instagram username, e.g. instagram",
+				"description": "Instagram username, or the profile link, e.g. \"instagram\" or \"https://www.instagram.com/instagram/\"",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
@@ -3808,7 +3816,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"fields": [
 			{
 				"name": "username",
-				"description": "Instagram username, e.g. instagram",
+				"description": "Instagram username, or the profile link, e.g. \"instagram\" or \"https://www.instagram.com/instagram/\"",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
@@ -3842,7 +3850,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"fields": [
 			{
 				"name": "shortcode",
-				"description": null,
+				"description": "Post shortcode, or the post or Reel link, e.g. \"DA1b2C3d4E5\" or \"https://www.instagram.com/p/DA1b2C3d4E5/\"",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
@@ -3860,7 +3868,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"fields": [
 			{
 				"name": "shortcode",
-				"description": null,
+				"description": "Post shortcode, or the post or Reel link, e.g. \"DA1b2C3d4E5\" or \"https://www.instagram.com/p/DA1b2C3d4E5/\"",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
@@ -3912,7 +3920,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"fields": [
 			{
 				"name": "uniqueId",
-				"description": "TikTok username, with or without @, for example \"tiktok\".",
+				"description": "TikTok username, with or without @, or the profile link, for example \"tiktok\" or \"https://www.tiktok.com/@tiktok\".",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
@@ -3938,7 +3946,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "uniqueId",
-				"description": "TikTok username, with or without @, for example \"tiktok\".",
+				"description": "TikTok username, with or without @, or the profile link, for example \"tiktok\" or \"https://www.tiktok.com/@tiktok\".",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
@@ -3972,7 +3980,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "uniqueId",
-				"description": "TikTok username, with or without @, for example \"tiktok\".",
+				"description": "TikTok username, with or without @, or the profile link, for example \"tiktok\" or \"https://www.tiktok.com/@tiktok\".",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
@@ -4006,7 +4014,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "uniqueId",
-				"description": "TikTok username, with or without @, for example \"tiktok\".",
+				"description": "TikTok username, with or without @, or the profile link, for example \"tiktok\" or \"https://www.tiktok.com/@tiktok\".",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
@@ -4040,7 +4048,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "uniqueId",
-				"description": "TikTok username, with or without @, for example \"tiktok\".",
+				"description": "TikTok username, with or without @, or the profile link, for example \"tiktok\" or \"https://www.tiktok.com/@tiktok\".",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
@@ -4074,7 +4082,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "uniqueId",
-				"description": "TikTok username, with or without @, for example \"tiktok\".",
+				"description": "TikTok username, with or without @, or the profile link, for example \"tiktok\" or \"https://www.tiktok.com/@tiktok\".",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
@@ -4108,7 +4116,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "uniqueId",
-				"description": "TikTok username, with or without @, for example \"tiktok\".",
+				"description": "TikTok username, with or without @, or the profile link, for example \"tiktok\" or \"https://www.tiktok.com/@tiktok\".",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
@@ -4142,7 +4150,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "playlistId",
-				"description": "Playlist ID, as returned by `getUserPlaylists`.",
+				"description": "Playlist ID, as returned by `getUserPlaylists`, or the playlist URL.",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
@@ -4168,7 +4176,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"fields": [
 			{
 				"name": "videoId",
-				"description": "Post ID, the number at the end of the post URL, for example \"7698770783367171359\".",
+				"description": "Post ID, the number at the end of the post URL, or the post URL itself, for example \"7698770783367171359\" or \"https://www.tiktok.com/@tiktok/video/7698770783367171359\".",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
@@ -4194,7 +4202,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "videoId",
-				"description": "Post ID, the number at the end of the post URL, for example \"7698770783367171359\".",
+				"description": "Post ID, the number at the end of the post URL, or the post URL itself, for example \"7698770783367171359\" or \"https://www.tiktok.com/@tiktok/video/7698770783367171359\".",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
@@ -4228,7 +4236,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "videoId",
-				"description": "Post ID, the number at the end of the post URL, for example \"7698770783367171359\".",
+				"description": "Post ID, the number at the end of the post URL, or the post URL itself, for example \"7698770783367171359\" or \"https://www.tiktok.com/@tiktok/video/7698770783367171359\".",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
@@ -4262,7 +4270,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"fields": [
 			{
 				"name": "videoId",
-				"description": "Post ID, the number at the end of the post URL, for example \"7698770783367171359\".",
+				"description": "Post ID, the number at the end of the post URL, or the post URL itself, for example \"7698770783367171359\" or \"https://www.tiktok.com/@tiktok/video/7698770783367171359\".",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
@@ -4280,7 +4288,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"fields": [
 			{
 				"name": "hashtag",
-				"description": "Hashtag name, with or without #, for example \"cooking\".",
+				"description": "Hashtag name, with or without #, or the hashtag link, for example \"cooking\" or \"https://www.tiktok.com/tag/cooking\".",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
@@ -4306,7 +4314,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "hashtag",
-				"description": "Hashtag name, with or without #, for example \"cooking\".",
+				"description": "Hashtag name, with or without #, or the hashtag link, for example \"cooking\" or \"https://www.tiktok.com/tag/cooking\".",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
@@ -4332,7 +4340,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"fields": [
 			{
 				"name": "soundId",
-				"description": "Sound ID, the number at the end of the sound URL or a post’s `sound.id`.",
+				"description": "Sound ID, the number at the end of the sound URL or a post’s `sound.id`. The sound URL itself works too.",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
@@ -4358,7 +4366,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "soundId",
-				"description": "Sound ID, the number at the end of the sound URL or a post’s `sound.id`.",
+				"description": "Sound ID, the number at the end of the sound URL or a post’s `sound.id`. The sound URL itself works too.",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
