@@ -1364,7 +1364,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"fields": [
 			{
 				"name": "tweetId",
-				"description": "Numeric ID of the focal tweet to expand, e.g. \"1234567890\".",
+				"description": "Numeric ID of the focal tweet to expand, or the tweet link, e.g. \"1234567890\".",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
@@ -1390,7 +1390,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"fields": [
 			{
 				"name": "tweetId",
-				"description": "Numeric ID of the tweet whose replies to list, e.g. \"1234567890\".",
+				"description": "Numeric ID of the tweet whose replies to list, or the tweet link, e.g. \"1234567890\".",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
