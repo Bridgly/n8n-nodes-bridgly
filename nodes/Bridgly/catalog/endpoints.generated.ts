@@ -97,7 +97,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "count",
-				"description": "Number of results to return per page (1–100). Defaults to 10.",
+				"description": "Number of results to return (1–100). Defaults to 10.",
 				"required": false,
 				"defaultLabel": "10",
 				"type": "number",
@@ -115,7 +115,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"fields": [
 			{
 				"name": "cursor",
-				"description": "Pagination cursor from a previous response's `nextCursor` to fetch the next page.",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "string",
@@ -131,7 +131,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "count",
-				"description": "Most results to return per page (1–100). Defaults to 10. A page can hold fewer, so keep paging while `nextCursor` is set.",
+				"description": "Number of results to return (1–100). Defaults to 10.",
 				"required": false,
 				"defaultLabel": "10",
 				"type": "number",
@@ -183,7 +183,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "count",
-				"description": "Number of results to return per page (1–100). Defaults to 10.",
+				"description": "Number of results to return (1–100). Defaults to 10.",
 				"required": false,
 				"defaultLabel": "10",
 				"type": "number",
@@ -201,7 +201,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"fields": [
 			{
 				"name": "cursor",
-				"description": "Pagination cursor from a previous response's `nextCursor` to fetch the next page.",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "string",
@@ -217,7 +217,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "count",
-				"description": "Most results to return per page (1–100). Defaults to 10. A page can hold fewer, so keep paging while `nextCursor` is set.",
+				"description": "Number of results to return (1–100). Defaults to 10.",
 				"required": false,
 				"defaultLabel": "10",
 				"type": "number",
@@ -235,7 +235,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"fields": [
 			{
 				"name": "cursor",
-				"description": "Pagination cursor from a previous response's `nextCursor` to fetch the next page.",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "string",
@@ -251,7 +251,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "count",
-				"description": "Most results to return per page (1–100). Defaults to 10. A page can hold fewer, so keep paging while `nextCursor` is set.",
+				"description": "Number of results to return (1–100). Defaults to 10.",
 				"required": false,
 				"defaultLabel": "10",
 				"type": "number",
@@ -285,7 +285,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "count",
-				"description": "Number of results to return per page (1–100). Defaults to 10.",
+				"description": "Number of results to return (1–100). Defaults to 10.",
 				"required": false,
 				"defaultLabel": "10",
 				"type": "number",
@@ -302,20 +302,20 @@ export const endpoints: CatalogEndpoint[] = [
 		"path": "/linkedin/search/all",
 		"fields": [
 			{
+				"name": "start",
+				"description": "Number of results to skip. Defaults to 0.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
 				"name": "keyword",
 				"description": "Keyword(s) to search LinkedIn for, e.g. \"openai\", \"software engineer\", \"fintech\".",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
-			},
-			{
-				"name": "start",
-				"description": "Pagination offset into the result list. Defaults to 0.",
-				"required": false,
-				"defaultLabel": null,
-				"type": "number",
-				"integer": true
 			},
 			{
 				"name": "count",
@@ -336,20 +336,20 @@ export const endpoints: CatalogEndpoint[] = [
 		"path": "/linkedin/search/companies",
 		"fields": [
 			{
+				"name": "start",
+				"description": "Number of results to skip. Defaults to 0.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
 				"name": "keyword",
 				"description": "Keyword(s) to search LinkedIn for, e.g. \"openai\", \"software engineer\", \"fintech\".",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
-			},
-			{
-				"name": "start",
-				"description": "Pagination offset into the result list. Defaults to 0.",
-				"required": false,
-				"defaultLabel": null,
-				"type": "number",
-				"integer": true
 			},
 			{
 				"name": "count",
@@ -370,20 +370,20 @@ export const endpoints: CatalogEndpoint[] = [
 		"path": "/linkedin/search/courses",
 		"fields": [
 			{
+				"name": "start",
+				"description": "Number of results to skip. Defaults to 0.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
 				"name": "keyword",
 				"description": "Keyword(s) to search LinkedIn for, e.g. \"openai\", \"software engineer\", \"fintech\".",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
-			},
-			{
-				"name": "start",
-				"description": "Pagination offset into the result list. Defaults to 0.",
-				"required": false,
-				"defaultLabel": null,
-				"type": "number",
-				"integer": true
 			},
 			{
 				"name": "count",
@@ -404,20 +404,20 @@ export const endpoints: CatalogEndpoint[] = [
 		"path": "/linkedin/search/events",
 		"fields": [
 			{
+				"name": "start",
+				"description": "Number of results to skip. Defaults to 0.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
 				"name": "keyword",
 				"description": "Keyword(s) to search LinkedIn for, e.g. \"openai\", \"software engineer\", \"fintech\".",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
-			},
-			{
-				"name": "start",
-				"description": "Pagination offset into the result list. Defaults to 0.",
-				"required": false,
-				"defaultLabel": null,
-				"type": "number",
-				"integer": true
 			},
 			{
 				"name": "count",
@@ -438,20 +438,20 @@ export const endpoints: CatalogEndpoint[] = [
 		"path": "/linkedin/search/groups",
 		"fields": [
 			{
+				"name": "start",
+				"description": "Number of results to skip. Defaults to 0.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
 				"name": "keyword",
 				"description": "Keyword(s) to search LinkedIn for, e.g. \"openai\", \"software engineer\", \"fintech\".",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
-			},
-			{
-				"name": "start",
-				"description": "Pagination offset into the result list. Defaults to 0.",
-				"required": false,
-				"defaultLabel": null,
-				"type": "number",
-				"integer": true
 			},
 			{
 				"name": "count",
@@ -472,6 +472,14 @@ export const endpoints: CatalogEndpoint[] = [
 		"path": "/linkedin/search/jobs",
 		"fields": [
 			{
+				"name": "start",
+				"description": "Number of results to skip. Defaults to 0.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
 				"name": "keyword",
 				"description": "Keyword(s) to search LinkedIn for, e.g. \"openai\", \"software engineer\", \"fintech\".",
 				"required": true,
@@ -480,16 +488,8 @@ export const endpoints: CatalogEndpoint[] = [
 				"input": "text"
 			},
 			{
-				"name": "start",
-				"description": "Pagination offset into the result list. Defaults to 0.",
-				"required": false,
-				"defaultLabel": null,
-				"type": "number",
-				"integer": true
-			},
-			{
 				"name": "count",
-				"description": "Number of results to return per page (1–100). Defaults to 10.",
+				"description": "Number of results to return (1–100). Defaults to 10.",
 				"required": false,
 				"defaultLabel": "10",
 				"type": "number",
@@ -569,6 +569,14 @@ export const endpoints: CatalogEndpoint[] = [
 		"path": "/linkedin/search/people",
 		"fields": [
 			{
+				"name": "start",
+				"description": "Number of results to skip. Defaults to 0.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
 				"name": "keyword",
 				"description": "Keyword(s) to search LinkedIn for, e.g. \"openai\", \"software engineer\", \"fintech\".",
 				"required": true,
@@ -577,16 +585,8 @@ export const endpoints: CatalogEndpoint[] = [
 				"input": "text"
 			},
 			{
-				"name": "start",
-				"description": "Pagination offset into the result list. Defaults to 0.",
-				"required": false,
-				"defaultLabel": null,
-				"type": "number",
-				"integer": true
-			},
-			{
 				"name": "count",
-				"description": "Number of results to return per page (1–50). Defaults to 10.",
+				"description": "Number of results to return (1–50). Defaults to 10.",
 				"required": false,
 				"defaultLabel": "10",
 				"type": "number",
@@ -603,20 +603,20 @@ export const endpoints: CatalogEndpoint[] = [
 		"path": "/linkedin/search/posts",
 		"fields": [
 			{
+				"name": "start",
+				"description": "Number of results to skip. Defaults to 0.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
 				"name": "keyword",
 				"description": "Keyword(s) to search LinkedIn for, e.g. \"openai\", \"software engineer\", \"fintech\".",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
-			},
-			{
-				"name": "start",
-				"description": "Pagination offset into the result list. Defaults to 0.",
-				"required": false,
-				"defaultLabel": null,
-				"type": "number",
-				"integer": true
 			},
 			{
 				"name": "count",
@@ -660,20 +660,20 @@ export const endpoints: CatalogEndpoint[] = [
 		"path": "/linkedin/search/products",
 		"fields": [
 			{
+				"name": "start",
+				"description": "Number of results to skip. Defaults to 0.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
 				"name": "keyword",
 				"description": "Keyword(s) to search LinkedIn for, e.g. \"openai\", \"software engineer\", \"fintech\".",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
-			},
-			{
-				"name": "start",
-				"description": "Pagination offset into the result list. Defaults to 0.",
-				"required": false,
-				"defaultLabel": null,
-				"type": "number",
-				"integer": true
 			},
 			{
 				"name": "count",
@@ -694,20 +694,20 @@ export const endpoints: CatalogEndpoint[] = [
 		"path": "/linkedin/search/schools",
 		"fields": [
 			{
+				"name": "start",
+				"description": "Number of results to skip. Defaults to 0.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
 				"name": "keyword",
 				"description": "Keyword(s) to search LinkedIn for, e.g. \"openai\", \"software engineer\", \"fintech\".",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
-			},
-			{
-				"name": "start",
-				"description": "Pagination offset into the result list. Defaults to 0.",
-				"required": false,
-				"defaultLabel": null,
-				"type": "number",
-				"integer": true
 			},
 			{
 				"name": "count",
@@ -728,20 +728,20 @@ export const endpoints: CatalogEndpoint[] = [
 		"path": "/linkedin/search/services",
 		"fields": [
 			{
+				"name": "start",
+				"description": "Number of results to skip. Defaults to 0.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
 				"name": "keyword",
 				"description": "Keyword(s) to search LinkedIn for, e.g. \"openai\", \"software engineer\", \"fintech\".",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
-			},
-			{
-				"name": "start",
-				"description": "Pagination offset into the result list. Defaults to 0.",
-				"required": false,
-				"defaultLabel": null,
-				"type": "number",
-				"integer": true
 			},
 			{
 				"name": "count",
@@ -834,6 +834,14 @@ export const endpoints: CatalogEndpoint[] = [
 		"path": "/reddit/list-user-posts",
 		"fields": [
 			{
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
 				"name": "username",
 				"description": "Reddit username, with or without the \"u/\" prefix, or the profile link, e.g. \"spez\" or \"https://www.reddit.com/user/spez/\".",
 				"required": true,
@@ -843,7 +851,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "count",
-				"description": "Number of posts to return (1–10). Defaults to 10.",
+				"description": "Number of results to return (1–10). Defaults to 10.",
 				"required": false,
 				"defaultLabel": "10",
 				"type": "number",
@@ -860,6 +868,14 @@ export const endpoints: CatalogEndpoint[] = [
 		"path": "/reddit/list-user-comments",
 		"fields": [
 			{
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
 				"name": "username",
 				"description": "Reddit username, with or without the \"u/\" prefix, or the profile link, e.g. \"spez\" or \"https://www.reddit.com/user/spez/\".",
 				"required": true,
@@ -869,7 +885,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "count",
-				"description": "Number of comments to return (1–10). Defaults to 10.",
+				"description": "Number of results to return (1–10). Defaults to 10.",
 				"required": false,
 				"defaultLabel": "10",
 				"type": "number",
@@ -886,6 +902,14 @@ export const endpoints: CatalogEndpoint[] = [
 		"path": "/reddit/list-user-overview",
 		"fields": [
 			{
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
 				"name": "username",
 				"description": "Reddit username, with or without the \"u/\" prefix, or the profile link, e.g. \"spez\" or \"https://www.reddit.com/user/spez/\".",
 				"required": true,
@@ -895,7 +919,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "count",
-				"description": "Number of overview items to return (1–10). Defaults to 10.",
+				"description": "Number of results to return (1–10). Defaults to 10.",
 				"required": false,
 				"defaultLabel": "10",
 				"type": "number",
@@ -949,15 +973,15 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "count",
-				"description": "Number of posts to return (1–10). Defaults to 10.",
+				"description": "Number of results to return (1–10). Defaults to 10.",
 				"required": false,
 				"defaultLabel": "10",
 				"type": "number",
 				"integer": true
 			},
 			{
-				"name": "after",
-				"description": "Pagination cursor (a Reddit fullname returned as `after` from a previous page).",
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "string",
@@ -982,20 +1006,20 @@ export const endpoints: CatalogEndpoint[] = [
 				"input": "text"
 			},
 			{
-				"name": "after",
-				"description": "Pagination cursor (a Reddit fullname returned as `after` from a previous page).",
-				"required": false,
-				"defaultLabel": null,
-				"type": "string",
-				"input": "text"
-			},
-			{
 				"name": "count",
-				"description": "Number of comments to return (1–10). Defaults to 10.",
+				"description": "Number of results to return (1–10). Defaults to 10.",
 				"required": false,
 				"defaultLabel": "10",
 				"type": "number",
 				"integer": true
+			},
+			{
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
 			}
 		]
 	},
@@ -1053,15 +1077,15 @@ export const endpoints: CatalogEndpoint[] = [
 				]
 			},
 			{
-				"name": "after",
-				"description": "Pagination cursor (a Reddit fullname returned as `after` from a previous page).",
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
 			},
 			{
-				"name": "limit",
+				"name": "count",
 				"description": "Number of results to return (1–10). Defaults to 10.",
 				"required": false,
 				"defaultLabel": "10",
@@ -1124,15 +1148,15 @@ export const endpoints: CatalogEndpoint[] = [
 				]
 			},
 			{
-				"name": "after",
-				"description": "Pagination cursor (a Reddit fullname returned as `after` from a previous page).",
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
 			},
 			{
-				"name": "limit",
+				"name": "count",
 				"description": "Number of results to return (1–10). Defaults to 10.",
 				"required": false,
 				"defaultLabel": "10",
@@ -1195,15 +1219,15 @@ export const endpoints: CatalogEndpoint[] = [
 				]
 			},
 			{
-				"name": "after",
-				"description": "Pagination cursor (a Reddit fullname returned as `after` from a previous page).",
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
 			},
 			{
-				"name": "limit",
+				"name": "count",
 				"description": "Number of results to return (1–10). Defaults to 10.",
 				"required": false,
 				"defaultLabel": "10",
@@ -1266,15 +1290,15 @@ export const endpoints: CatalogEndpoint[] = [
 				]
 			},
 			{
-				"name": "after",
-				"description": "Pagination cursor (a Reddit fullname returned as `after` from a previous page).",
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
 			},
 			{
-				"name": "limit",
+				"name": "count",
 				"description": "Number of results to return (1–10). Defaults to 10.",
 				"required": false,
 				"defaultLabel": "10",
@@ -1337,15 +1361,15 @@ export const endpoints: CatalogEndpoint[] = [
 				]
 			},
 			{
-				"name": "after",
-				"description": "Pagination cursor (a Reddit fullname returned as `after` from a previous page).",
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
 			},
 			{
-				"name": "limit",
+				"name": "count",
 				"description": "Number of results to return (1–10). Defaults to 10.",
 				"required": false,
 				"defaultLabel": "10",
@@ -1366,14 +1390,6 @@ export const endpoints: CatalogEndpoint[] = [
 				"name": "tweetId",
 				"description": "Numeric ID of the focal tweet to expand, or the tweet link, e.g. \"1234567890\".",
 				"required": true,
-				"defaultLabel": null,
-				"type": "string",
-				"input": "text"
-			},
-			{
-				"name": "cursor",
-				"description": "Pagination cursor for loading more replies.",
-				"required": false,
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
@@ -1398,7 +1414,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cursor",
-				"description": "Pagination cursor from a previous response's `nextCursor` to fetch the next page.",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "string",
@@ -1432,7 +1448,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "count",
-				"description": "Most results to return per page (1–20). Defaults to 10. A page can hold fewer, so keep paging while `nextCursor` is set.",
+				"description": "Number of results to return (1–20). Defaults to 10.",
 				"required": false,
 				"defaultLabel": "10",
 				"type": "number",
@@ -1440,7 +1456,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cursor",
-				"description": "Pagination cursor from a previous response's `nextCursor` to fetch the next page.",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "string",
@@ -1485,7 +1501,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cursor",
-				"description": "Pagination cursor from a previous response's `nextCursor` to fetch the next page.",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "string",
@@ -1493,7 +1509,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "count",
-				"description": "Most results to return per page (1–20). Defaults to 10. A page can hold fewer, so keep paging while `nextCursor` is set.",
+				"description": "Number of results to return (1–20). Defaults to 10.",
 				"required": false,
 				"defaultLabel": "10",
 				"type": "number",
@@ -1537,7 +1553,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cursor",
-				"description": "Pagination cursor from a previous response's `nextCursor` to fetch the next page.",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "string",
@@ -1563,7 +1579,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cursor",
-				"description": "Pagination cursor from a previous response's `nextCursor` to fetch the next page.",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "string",
@@ -1589,7 +1605,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cursor",
-				"description": "Pagination cursor from a previous response's `nextCursor` to fetch the next page.",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "string",
@@ -1597,7 +1613,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "count",
-				"description": "Most results to return per page (1–100). Defaults to 10. A page can hold fewer, so keep paging while `nextCursor` is set.",
+				"description": "Number of results to return (1–100). Defaults to 10.",
 				"required": false,
 				"defaultLabel": "10",
 				"type": "number",
@@ -1623,7 +1639,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cursor",
-				"description": "Pagination cursor from a previous response's `nextCursor` to fetch the next page.",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "string",
@@ -1649,7 +1665,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cursor",
-				"description": "Pagination cursor from a previous response's `nextCursor` to fetch the next page.",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "string",
@@ -1667,7 +1683,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"fields": [
 			{
 				"name": "cursor",
-				"description": "Pagination cursor from a previous response's `nextCursor` to fetch the next page.",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "string",
@@ -1683,7 +1699,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "count",
-				"description": "Most results to return per page (1–100). Defaults to 10. A page can hold fewer, so keep paging while `nextCursor` is set.",
+				"description": "Number of results to return (1–100). Defaults to 10.",
 				"required": false,
 				"defaultLabel": "10",
 				"type": "number",
@@ -1709,7 +1725,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "count",
-				"description": "Most results to return per page (1–20). Defaults to 10. A page can hold fewer, so keep paging while `nextCursor` is set.",
+				"description": "Number of results to return (1–20). Defaults to 10.",
 				"required": false,
 				"defaultLabel": "10",
 				"type": "number",
@@ -1717,7 +1733,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cursor",
-				"description": "Pagination cursor from a previous response's `nextCursor` to fetch the next page.",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "string",
@@ -1813,8 +1829,8 @@ export const endpoints: CatalogEndpoint[] = [
 				"integer": true
 			},
 			{
-				"name": "after",
-				"description": "Pagination cursor (the `after` value returned by a previous page). Omit for the first page.",
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "string",
@@ -1861,8 +1877,8 @@ export const endpoints: CatalogEndpoint[] = [
 				"integer": true
 			},
 			{
-				"name": "after",
-				"description": "Pagination cursor (the `after` value returned by a previous page). Omit for the first page.",
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "string",
@@ -1895,8 +1911,8 @@ export const endpoints: CatalogEndpoint[] = [
 				"integer": true
 			},
 			{
-				"name": "after",
-				"description": "Pagination cursor (the `after` value returned by a previous page). Omit for the first page.",
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "string",
@@ -2219,15 +2235,15 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "count",
-				"description": "Number of results per page (1–10). Defaults to 10.",
+				"description": "Number of results to return (1–10). Defaults to 10.",
 				"required": false,
 				"defaultLabel": "10",
 				"type": "number",
 				"integer": true
 			},
 			{
-				"name": "after",
-				"description": "Pagination cursor (the `after` value returned by a previous page). Omit for the first page.",
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "string",
@@ -2332,17 +2348,17 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "count",
-				"description": "Number of results per page (1–10). Defaults to 10.",
+				"description": "Number of results to return (1–10). Defaults to 10.",
 				"required": false,
 				"defaultLabel": "10",
 				"type": "number",
 				"integer": true
 			},
 			{
-				"name": "page",
-				"description": "1-based page number. Defaults to 1. Only the first 1,000 results of a search can be paged through.",
+				"name": "start",
+				"description": "Number of results to skip (0–999). Defaults to 0. Only the first 1,000 results of a search can be paged through.",
 				"required": false,
-				"defaultLabel": "1",
+				"defaultLabel": null,
 				"type": "number",
 				"integer": true
 			}
@@ -2516,17 +2532,17 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "count",
-				"description": "Number of results per page (1–10). Defaults to 10.",
+				"description": "Number of results to return (1–10). Defaults to 10.",
 				"required": false,
 				"defaultLabel": "10",
 				"type": "number",
 				"integer": true
 			},
 			{
-				"name": "page",
-				"description": "1-based page number. Defaults to 1. Only the first 1,000 results of a search can be paged through.",
+				"name": "start",
+				"description": "Number of results to skip (0–999). Defaults to 0. Only the first 1,000 results of a search can be paged through.",
 				"required": false,
-				"defaultLabel": "1",
+				"defaultLabel": null,
 				"type": "number",
 				"integer": true
 			}
@@ -2789,15 +2805,15 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "count",
-				"description": "Number of results per page (1–10). Defaults to 10.",
+				"description": "Number of results to return (1–10). Defaults to 10.",
 				"required": false,
 				"defaultLabel": "10",
 				"type": "number",
 				"integer": true
 			},
 			{
-				"name": "after",
-				"description": "Pagination cursor (the `after` value returned by a previous page). Omit for the first page.",
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "string",
@@ -3087,15 +3103,15 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "count",
-				"description": "Number of results per page (1–10). Defaults to 10.",
+				"description": "Number of results to return (1–10). Defaults to 10.",
 				"required": false,
 				"defaultLabel": "10",
 				"type": "number",
 				"integer": true
 			},
 			{
-				"name": "after",
-				"description": "Pagination cursor (the `after` value returned by a previous page). Omit for the first page.",
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "string",
@@ -3358,15 +3374,15 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "count",
-				"description": "Number of results per page (1–10). Defaults to 10.",
+				"description": "Number of results to return (1–10). Defaults to 10.",
 				"required": false,
 				"defaultLabel": "10",
 				"type": "number",
 				"integer": true
 			},
 			{
-				"name": "after",
-				"description": "Pagination cursor (the `after` value returned by a previous page). Omit for the first page.",
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "string",
@@ -3574,15 +3590,15 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "count",
-				"description": "Number of results per page (1–10). Defaults to 10.",
+				"description": "Number of results to return (1–10). Defaults to 10.",
 				"required": false,
 				"defaultLabel": "10",
 				"type": "number",
 				"integer": true
 			},
 			{
-				"name": "after",
-				"description": "Pagination cursor (the `after` value returned by a previous page). Omit for the first page.",
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "string",
@@ -3704,17 +3720,17 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "count",
-				"description": "Number of results per page (1–10). Defaults to 10.",
+				"description": "Number of results to return (1–10). Defaults to 10.",
 				"required": false,
 				"defaultLabel": "10",
 				"type": "number",
 				"integer": true
 			},
 			{
-				"name": "page",
-				"description": "1-based page number. Defaults to 1. Only the first 1,000 results of a search can be paged through.",
+				"name": "start",
+				"description": "Number of results to skip (0–999). Defaults to 0. Only the first 1,000 results of a search can be paged through.",
 				"required": false,
-				"defaultLabel": "1",
+				"defaultLabel": null,
 				"type": "number",
 				"integer": true
 			}
@@ -3756,15 +3772,15 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "count",
-				"description": "Page size requested from Instagram (1–10). Defaults to 10. Instagram determines the number of results returned.",
+				"description": "Number of results to return (1–10). Defaults to 10.",
 				"required": false,
 				"defaultLabel": "10",
 				"type": "number",
 				"integer": true
 			},
 			{
-				"name": "after",
-				"description": "Instagram cursor from the previous response’s end_cursor",
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "string",
@@ -3790,15 +3806,15 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "count",
-				"description": "Page size requested from Instagram (1–10). Defaults to 10. Instagram determines the number of results returned.",
+				"description": "Number of results to return (1–10). Defaults to 10.",
 				"required": false,
 				"defaultLabel": "10",
 				"type": "number",
 				"integer": true
 			},
 			{
-				"name": "after",
-				"description": "Instagram cursor from the previous response’s end_cursor",
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "string",
@@ -3824,15 +3840,15 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "count",
-				"description": "Page size requested from Instagram (1–10). Defaults to 10. Instagram determines the number of results returned.",
+				"description": "Number of results to return (1–10). Defaults to 10.",
 				"required": false,
 				"defaultLabel": "10",
 				"type": "number",
 				"integer": true
 			},
 			{
-				"name": "after",
-				"description": "Instagram cursor from the previous response’s end_cursor",
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "string",
@@ -3876,15 +3892,15 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "count",
-				"description": "Page size requested from Instagram (1–10). Defaults to 10. Instagram determines the number of results returned.",
+				"description": "Number of results to return (1–10). Defaults to 10.",
 				"required": false,
 				"defaultLabel": "10",
 				"type": "number",
 				"integer": true
 			},
 			{
-				"name": "after",
-				"description": "Instagram cursor from the previous response’s end_cursor",
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "string",
@@ -3938,7 +3954,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"fields": [
 			{
 				"name": "cursor",
-				"description": "The previous response's `nextCursor`, to fetch the next page.",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "string",
@@ -3954,7 +3970,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "count",
-				"description": "Most results to return per page (1–35). Defaults to 35. A page can hold fewer, so keep paging while `nextCursor` is set.",
+				"description": "Number of results to return (1–35). Defaults to 35.",
 				"required": false,
 				"defaultLabel": "35",
 				"type": "number",
@@ -3972,7 +3988,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"fields": [
 			{
 				"name": "cursor",
-				"description": "The previous response's `nextCursor`, to fetch the next page.",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "string",
@@ -3988,7 +4004,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "count",
-				"description": "Most results to return per page (1–30). Defaults to 30. A page can hold fewer, so keep paging while `nextCursor` is set.",
+				"description": "Number of results to return (1–30). Defaults to 30.",
 				"required": false,
 				"defaultLabel": "30",
 				"type": "number",
@@ -4006,7 +4022,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"fields": [
 			{
 				"name": "cursor",
-				"description": "The previous response's `nextCursor`, to fetch the next page.",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "string",
@@ -4022,7 +4038,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "count",
-				"description": "Most results to return per page (1–30). Defaults to 30. A page can hold fewer, so keep paging while `nextCursor` is set.",
+				"description": "Number of results to return (1–30). Defaults to 30.",
 				"required": false,
 				"defaultLabel": "30",
 				"type": "number",
@@ -4040,7 +4056,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"fields": [
 			{
 				"name": "cursor",
-				"description": "The previous response's `nextCursor`, to fetch the next page.",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "string",
@@ -4056,7 +4072,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "count",
-				"description": "Most results to return per page (1–30). Defaults to 30. A page can hold fewer, so keep paging while `nextCursor` is set.",
+				"description": "Number of results to return (1–30). Defaults to 30.",
 				"required": false,
 				"defaultLabel": "30",
 				"type": "number",
@@ -4074,7 +4090,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"fields": [
 			{
 				"name": "cursor",
-				"description": "The previous response's `nextCursor`, to fetch the next page.",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "string",
@@ -4090,7 +4106,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "count",
-				"description": "Most results to return per page (1–30). Defaults to 30. A page can hold fewer, so keep paging while `nextCursor` is set.",
+				"description": "Number of results to return (1–30). Defaults to 30.",
 				"required": false,
 				"defaultLabel": "30",
 				"type": "number",
@@ -4108,7 +4124,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"fields": [
 			{
 				"name": "cursor",
-				"description": "The previous response's `nextCursor`, to fetch the next page.",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "string",
@@ -4124,7 +4140,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "count",
-				"description": "Most results to return per page (1–30). Defaults to 30. A page can hold fewer, so keep paging while `nextCursor` is set.",
+				"description": "Number of results to return (1–30). Defaults to 30.",
 				"required": false,
 				"defaultLabel": "30",
 				"type": "number",
@@ -4142,7 +4158,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"fields": [
 			{
 				"name": "cursor",
-				"description": "The previous response's `nextCursor`, to fetch the next page.",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "string",
@@ -4158,7 +4174,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "count",
-				"description": "Most results to return per page (1–20). Defaults to 20. A page can hold fewer, so keep paging while `nextCursor` is set.",
+				"description": "Number of results to return (1–20). Defaults to 20.",
 				"required": false,
 				"defaultLabel": "20",
 				"type": "number",
@@ -4194,7 +4210,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"fields": [
 			{
 				"name": "cursor",
-				"description": "The previous response's `nextCursor`, to fetch the next page.",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "string",
@@ -4210,7 +4226,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "count",
-				"description": "Most results to return per page (1–20). Defaults to 20. A page can hold fewer, so keep paging while `nextCursor` is set.",
+				"description": "Number of results to return (1–20). Defaults to 20.",
 				"required": false,
 				"defaultLabel": "20",
 				"type": "number",
@@ -4228,7 +4244,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"fields": [
 			{
 				"name": "cursor",
-				"description": "The previous response's `nextCursor`, to fetch the next page.",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "string",
@@ -4244,7 +4260,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "count",
-				"description": "Most results to return per page (1–20). Defaults to 20. A page can hold fewer, so keep paging while `nextCursor` is set.",
+				"description": "Number of results to return (1–20). Defaults to 20.",
 				"required": false,
 				"defaultLabel": "20",
 				"type": "number",
@@ -4306,7 +4322,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"fields": [
 			{
 				"name": "cursor",
-				"description": "The previous response's `nextCursor`, to fetch the next page.",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "string",
@@ -4322,7 +4338,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "count",
-				"description": "Most results to return per page (1–30). Defaults to 30. A page can hold fewer, so keep paging while `nextCursor` is set.",
+				"description": "Number of results to return (1–30). Defaults to 30.",
 				"required": false,
 				"defaultLabel": "30",
 				"type": "number",
@@ -4358,7 +4374,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"fields": [
 			{
 				"name": "cursor",
-				"description": "The previous response's `nextCursor`, to fetch the next page.",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "string",
@@ -4374,7 +4390,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "count",
-				"description": "Most results to return per page (1–30). Defaults to 30. A page can hold fewer, so keep paging while `nextCursor` is set.",
+				"description": "Number of results to return (1–30). Defaults to 30.",
 				"required": false,
 				"defaultLabel": "30",
 				"type": "number",
@@ -4392,33 +4408,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"fields": [
 			{
 				"name": "cursor",
-				"description": "The previous response's `nextCursor`, to fetch the next page.",
-				"required": false,
-				"defaultLabel": null,
-				"type": "string",
-				"input": "text"
-			},
-			{
-				"name": "query",
-				"description": "Search keywords, for example \"street food\".",
-				"required": true,
-				"defaultLabel": null,
-				"type": "string",
-				"input": "text"
-			}
-		]
-	},
-	{
-		"id": "tiktok_search_videos",
-		"platform": "TikTok",
-		"title": "Search TikTok videos",
-		"description": "Search TikTok videos. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
-		"method": "POST",
-		"path": "/tiktok/search-videos",
-		"fields": [
-			{
-				"name": "cursor",
-				"description": "The previous response's `nextCursor`, to fetch the next page.",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "string",
@@ -4434,7 +4424,41 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "count",
-				"description": "Most results to return per page (1–30). Defaults to 30. A page can hold fewer, so keep paging while `nextCursor` is set.",
+				"description": "Number of results to return (1–10). Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
+			}
+		]
+	},
+	{
+		"id": "tiktok_search_videos",
+		"platform": "TikTok",
+		"title": "Search TikTok videos",
+		"description": "Search TikTok videos. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"method": "POST",
+		"path": "/tiktok/search-videos",
+		"fields": [
+			{
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "query",
+				"description": "Search keywords, for example \"street food\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–30). Defaults to 30.",
 				"required": false,
 				"defaultLabel": "30",
 				"type": "number",
