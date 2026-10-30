@@ -22,16 +22,16 @@ n8n checks the key when you save the credential.
 
 Pick a **Resource**, then an **Operation**. Each operation's required inputs are shown directly; optional ones are under **Additional Fields**.
 
-| Resource    | Operations                                                                                                                                                                                       |
-| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| LinkedIn    | Get a profile, company, job or post; list a profile's or company's posts, comments and reactions; search people, companies, jobs, posts, groups, events, schools, courses, products and services |
-| Reddit      | Get a post, comment, subreddit or user; list a user's posts and comments; list a subreddit's posts and comments; search posts, comments, communities and users                                   |
-| X (Twitter) | Get a user or a tweet with its replies; list a user's tweets, replies, media, followers and following; list a tweet's quotes and retweeters; search tweets and users                             |
-| GitHub      | Get a profile or contribution calendar; list a user's repositories, starred repositories and projects; search repositories, code, commits, issues, pull requests, discussions, users and topics  |
-| Instagram   | Get a user or post; list a user's posts, followers and following; list a post's comments; search users                                                                                           |
-| TikTok      | Get a user                                                                                                                                                                                       |
-| YouTube     | Get a video with its transcript                                                                                                                                                                  |
-| Account     | Get your credit balance                                                                                                                                                                          |
+| Resource    | Operations                                                                                                                                                                                      |
+| ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| LinkedIn    | Get a profile, company, job or post; list a profile's or company's posts, comments and reactions; search companies, jobs, posts, groups, events, schools, courses, products and services        |
+| Reddit      | Get a post, comment, subreddit or user; list a user's posts and comments; list a subreddit's posts and comments; search posts, comments, communities and users                                  |
+| X (Twitter) | Get a user or a tweet with its replies; list a user's tweets, replies, media, followers and following; list a tweet's quotes and retweeters; search tweets and users                            |
+| GitHub      | Get a profile or contribution calendar; list a user's repositories, starred repositories and projects; search repositories, code, commits, issues, pull requests, discussions, users and topics |
+| Instagram   | Get a user or post; list a user's posts, followers and following; list a post's comments; search users                                                                                          |
+| TikTok      | Get a user                                                                                                                                                                                      |
+| YouTube     | Get a video with its transcript                                                                                                                                                                 |
+| Account     | Get your credit balance                                                                                                                                                                         |
 
 The node can also be used as a tool by n8n AI agents.
 

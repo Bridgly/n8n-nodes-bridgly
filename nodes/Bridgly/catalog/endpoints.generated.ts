@@ -561,40 +561,6 @@ export const endpoints: CatalogEndpoint[] = [
 		]
 	},
 	{
-		"id": "linkedin_search_people",
-		"platform": "LinkedIn",
-		"title": "Search LinkedIn people",
-		"description": "Search LinkedIn people. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
-		"method": "POST",
-		"path": "/linkedin/search/people",
-		"fields": [
-			{
-				"name": "start",
-				"description": "Number of results to skip. Defaults to 0.",
-				"required": false,
-				"defaultLabel": null,
-				"type": "number",
-				"integer": true
-			},
-			{
-				"name": "keyword",
-				"description": "Keyword(s) to search LinkedIn for, e.g. \"openai\", \"software engineer\", \"fintech\".",
-				"required": true,
-				"defaultLabel": null,
-				"type": "string",
-				"input": "text"
-			},
-			{
-				"name": "count",
-				"description": "Number of results to return (1–50). Defaults to 10.",
-				"required": false,
-				"defaultLabel": "10",
-				"type": "number",
-				"integer": true
-			}
-		]
-	},
-	{
 		"id": "linkedin_search_posts",
 		"platform": "LinkedIn",
 		"title": "Search LinkedIn posts",
