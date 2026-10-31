@@ -1049,14 +1049,6 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
-			},
-			{
-				"name": "count",
-				"description": "Number of results to return (1–10). Defaults to 10.",
-				"required": false,
-				"defaultLabel": "10",
-				"type": "number",
-				"integer": true
 			}
 		]
 	},
@@ -1120,14 +1112,6 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
-			},
-			{
-				"name": "count",
-				"description": "Number of results to return (1–10). Defaults to 10.",
-				"required": false,
-				"defaultLabel": "10",
-				"type": "number",
-				"integer": true
 			}
 		]
 	},
@@ -1191,14 +1175,6 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
-			},
-			{
-				"name": "count",
-				"description": "Number of results to return (1–10). Defaults to 10.",
-				"required": false,
-				"defaultLabel": "10",
-				"type": "number",
-				"integer": true
 			}
 		]
 	},
@@ -1262,14 +1238,6 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
-			},
-			{
-				"name": "count",
-				"description": "Number of results to return (1–10). Defaults to 10.",
-				"required": false,
-				"defaultLabel": "10",
-				"type": "number",
-				"integer": true
 			}
 		]
 	},
@@ -1333,14 +1301,6 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
-			},
-			{
-				"name": "count",
-				"description": "Number of results to return (1–10). Defaults to 10.",
-				"required": false,
-				"defaultLabel": "10",
-				"type": "number",
-				"integer": true
 			}
 		]
 	},
