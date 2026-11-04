@@ -188,6 +188,17 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": "10",
 				"type": "number",
 				"integer": true
+			},
+			{
+				"name": "sortOrder",
+				"description": "Comment ordering: \"relevance\" for LinkedIn's \"Most relevant\" ranking (default), \"recent\" for newest first.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "enum",
+				"options": [
+					"relevance",
+					"recent"
+				]
 			}
 		]
 	},
@@ -734,6 +745,21 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
+			},
+			{
+				"name": "sort",
+				"description": "Comment ordering. Defaults to the subreddit's suggested sort, usually \"best\".",
+				"required": false,
+				"defaultLabel": null,
+				"type": "enum",
+				"options": [
+					"best",
+					"top",
+					"new",
+					"controversial",
+					"old",
+					"qa"
+				]
 			}
 		]
 	},
@@ -752,6 +778,21 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
+			},
+			{
+				"name": "sort",
+				"description": "Ordering of the replies. Defaults to the subreddit's suggested sort, usually \"best\".",
+				"required": false,
+				"defaultLabel": null,
+				"type": "enum",
+				"options": [
+					"best",
+					"top",
+					"new",
+					"controversial",
+					"old",
+					"qa"
+				]
 			}
 		]
 	},
@@ -822,6 +863,34 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": "10",
 				"type": "number",
 				"integer": true
+			},
+			{
+				"name": "sort",
+				"description": "Result ordering. Defaults to \"new\".",
+				"required": false,
+				"defaultLabel": null,
+				"type": "enum",
+				"options": [
+					"new",
+					"hot",
+					"top",
+					"controversial"
+				]
+			},
+			{
+				"name": "time",
+				"description": "Time window for the \"top\" and \"controversial\" sorts. Defaults to \"all\".",
+				"required": false,
+				"defaultLabel": null,
+				"type": "enum",
+				"options": [
+					"hour",
+					"day",
+					"week",
+					"month",
+					"year",
+					"all"
+				]
 			}
 		]
 	},
@@ -856,6 +925,34 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": "10",
 				"type": "number",
 				"integer": true
+			},
+			{
+				"name": "sort",
+				"description": "Result ordering. Defaults to \"new\".",
+				"required": false,
+				"defaultLabel": null,
+				"type": "enum",
+				"options": [
+					"new",
+					"hot",
+					"top",
+					"controversial"
+				]
+			},
+			{
+				"name": "time",
+				"description": "Time window for the \"top\" and \"controversial\" sorts. Defaults to \"all\".",
+				"required": false,
+				"defaultLabel": null,
+				"type": "enum",
+				"options": [
+					"hour",
+					"day",
+					"week",
+					"month",
+					"year",
+					"all"
+				]
 			}
 		]
 	},
@@ -890,6 +987,34 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": "10",
 				"type": "number",
 				"integer": true
+			},
+			{
+				"name": "sort",
+				"description": "Result ordering. Defaults to \"new\".",
+				"required": false,
+				"defaultLabel": null,
+				"type": "enum",
+				"options": [
+					"new",
+					"hot",
+					"top",
+					"controversial"
+				]
+			},
+			{
+				"name": "time",
+				"description": "Time window for the \"top\" and \"controversial\" sorts. Defaults to \"all\".",
+				"required": false,
+				"defaultLabel": null,
+				"type": "enum",
+				"options": [
+					"hour",
+					"day",
+					"week",
+					"month",
+					"year",
+					"all"
+				]
 			}
 		]
 	},
@@ -1319,6 +1444,18 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
+			},
+			{
+				"name": "sortOrder",
+				"description": "Reply ordering: \"Relevance\" for X's ranking (default), \"Recency\" for newest first, \"Likes\" for most liked first.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "enum",
+				"options": [
+					"Relevance",
+					"Recency",
+					"Likes"
+				]
 			}
 		]
 	},
@@ -1345,6 +1482,18 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
+			},
+			{
+				"name": "sortOrder",
+				"description": "Reply ordering: \"Relevance\" for X's ranking (default), \"Recency\" for newest first, \"Likes\" for most liked first.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "enum",
+				"options": [
+					"Relevance",
+					"Recency",
+					"Likes"
+				]
 			}
 		]
 	},
@@ -3659,6 +3808,290 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": null,
 				"type": "number",
 				"integer": true
+			}
+		]
+	},
+	{
+		"id": "instagram_user_reels",
+		"platform": "Instagram",
+		"title": "Instagram: List profile Reels",
+		"description": "Instagram: List profile Reels. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"method": "POST",
+		"path": "/instagram/user-reels",
+		"fields": [
+			{
+				"name": "username",
+				"description": "Instagram username, or the profile link, e.g. \"instagram\" or \"https://www.instagram.com/instagram/\"",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–10). Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			}
+		]
+	},
+	{
+		"id": "instagram_tagged_posts",
+		"platform": "Instagram",
+		"title": "Instagram: List posts tagging a profile",
+		"description": "Instagram: List posts tagging a profile. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"method": "POST",
+		"path": "/instagram/tagged-posts",
+		"fields": [
+			{
+				"name": "username",
+				"description": "Instagram username, or the profile link, e.g. \"instagram\" or \"https://www.instagram.com/instagram/\"",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–10). Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			}
+		]
+	},
+	{
+		"id": "instagram_stories",
+		"platform": "Instagram",
+		"title": "Instagram: Get current profile stories",
+		"description": "Instagram: Get current profile stories. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/instagram/stories",
+		"fields": [
+			{
+				"name": "username",
+				"description": "Instagram username, or the profile link, e.g. \"instagram\" or \"https://www.instagram.com/instagram/\"",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			}
+		]
+	},
+	{
+		"id": "instagram_highlights",
+		"platform": "Instagram",
+		"title": "Instagram: List profile highlights",
+		"description": "Instagram: List profile highlights. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"method": "POST",
+		"path": "/instagram/highlights",
+		"fields": [
+			{
+				"name": "username",
+				"description": "Instagram username, or the profile link, e.g. \"instagram\" or \"https://www.instagram.com/instagram/\"",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–10). Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			}
+		]
+	},
+	{
+		"id": "instagram_highlight",
+		"platform": "Instagram",
+		"title": "Instagram: Get a highlight and its stories",
+		"description": "Instagram: Get a highlight and its stories. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/instagram/highlight",
+		"fields": [
+			{
+				"name": "highlightId",
+				"description": "Numeric highlight ID, highlight:<ID>, or an Instagram stories/highlights link.",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			}
+		]
+	},
+	{
+		"id": "instagram_post_likers",
+		"platform": "Instagram",
+		"title": "Instagram: Get post likers",
+		"description": "Instagram: Get post likers. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/instagram/post-likers",
+		"fields": [
+			{
+				"name": "shortcode",
+				"description": "Post shortcode, or the post or Reel link, e.g. \"DA1b2C3d4E5\" or \"https://www.instagram.com/p/DA1b2C3d4E5/\"",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			}
+		]
+	},
+	{
+		"id": "instagram_comment_replies",
+		"platform": "Instagram",
+		"title": "Instagram: List replies to a comment",
+		"description": "Instagram: List replies to a comment. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"method": "POST",
+		"path": "/instagram/comment-replies",
+		"fields": [
+			{
+				"name": "shortcode",
+				"description": "Post shortcode, or the post or Reel link, e.g. \"DA1b2C3d4E5\" or \"https://www.instagram.com/p/DA1b2C3d4E5/\"",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–10). Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "commentId",
+				"description": "Numeric ID of the parent comment.",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			}
+		]
+	},
+	{
+		"id": "instagram_location",
+		"platform": "Instagram",
+		"title": "Instagram: Get location details",
+		"description": "Instagram: Get location details. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/instagram/location",
+		"fields": [
+			{
+				"name": "locationId",
+				"description": "Numeric Instagram location ID or an instagram.com/explore/locations/<ID>/ link.",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			}
+		]
+	},
+	{
+		"id": "instagram_location_posts",
+		"platform": "Instagram",
+		"title": "Instagram: List posts at a location",
+		"description": "Instagram: List posts at a location. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"method": "POST",
+		"path": "/instagram/location-posts",
+		"fields": [
+			{
+				"name": "locationId",
+				"description": "Numeric Instagram location ID or an instagram.com/explore/locations/<ID>/ link.",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–10). Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			}
+		]
+	},
+	{
+		"id": "instagram_search",
+		"platform": "Instagram",
+		"title": "Instagram: Search posts by keyword or hashtag",
+		"description": "Instagram: Search posts by keyword or hashtag. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"method": "POST",
+		"path": "/instagram/search",
+		"fields": [
+			{
+				"name": "query",
+				"description": null,
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–10). Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
 			}
 		]
 	},
