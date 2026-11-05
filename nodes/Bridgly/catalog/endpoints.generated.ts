@@ -188,6 +188,17 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": "10",
 				"type": "number",
 				"integer": true
+			},
+			{
+				"name": "sortOrder",
+				"description": "Comment ordering: \"relevance\" for LinkedIn's \"Most relevant\" ranking (default), \"recent\" for newest first.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "enum",
+				"options": [
+					"relevance",
+					"recent"
+				]
 			}
 		]
 	},
@@ -240,6 +251,414 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
+			},
+			{
+				"name": "publicId",
+				"description": "The member public identity, or the profile link itself, e.g. \"williamhgates\" or \"https://www.linkedin.com/in/williamhgates\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–100). Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
+			}
+		]
+	},
+	{
+		"id": "linkedin_get_profile_experience",
+		"platform": "LinkedIn",
+		"title": "List the work experience of a LinkedIn profile",
+		"description": "List the work experience of a LinkedIn profile. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/linkedin/get-profile-experience",
+		"fields": [
+			{
+				"name": "start",
+				"description": "Number of results to skip. Defaults to 0.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "publicId",
+				"description": "The member public identity, or the profile link itself, e.g. \"williamhgates\" or \"https://www.linkedin.com/in/williamhgates\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Number of companies to return (1–100), each with every position held there. Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
+			}
+		]
+	},
+	{
+		"id": "linkedin_get_profile_education",
+		"platform": "LinkedIn",
+		"title": "List the education of a LinkedIn profile",
+		"description": "List the education of a LinkedIn profile. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/linkedin/get-profile-education",
+		"fields": [
+			{
+				"name": "start",
+				"description": "Number of results to skip. Defaults to 0.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "publicId",
+				"description": "The member public identity, or the profile link itself, e.g. \"williamhgates\" or \"https://www.linkedin.com/in/williamhgates\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–100). Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
+			}
+		]
+	},
+	{
+		"id": "linkedin_get_profile_skills",
+		"platform": "LinkedIn",
+		"title": "List the skills of a LinkedIn profile",
+		"description": "List the skills of a LinkedIn profile. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/linkedin/get-profile-skills",
+		"fields": [
+			{
+				"name": "start",
+				"description": "Number of results to skip. Defaults to 0.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "publicId",
+				"description": "The member public identity, or the profile link itself, e.g. \"williamhgates\" or \"https://www.linkedin.com/in/williamhgates\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–100). Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
+			}
+		]
+	},
+	{
+		"id": "linkedin_get_profile_certifications",
+		"platform": "LinkedIn",
+		"title": "List the certifications of a LinkedIn profile",
+		"description": "List the certifications of a LinkedIn profile. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/linkedin/get-profile-certifications",
+		"fields": [
+			{
+				"name": "start",
+				"description": "Number of results to skip. Defaults to 0.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "publicId",
+				"description": "The member public identity, or the profile link itself, e.g. \"williamhgates\" or \"https://www.linkedin.com/in/williamhgates\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–100). Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
+			}
+		]
+	},
+	{
+		"id": "linkedin_get_profile_publications",
+		"platform": "LinkedIn",
+		"title": "List the publications of a LinkedIn profile",
+		"description": "List the publications of a LinkedIn profile. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/linkedin/get-profile-publications",
+		"fields": [
+			{
+				"name": "start",
+				"description": "Number of results to skip. Defaults to 0.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "publicId",
+				"description": "The member public identity, or the profile link itself, e.g. \"williamhgates\" or \"https://www.linkedin.com/in/williamhgates\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–100). Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
+			}
+		]
+	},
+	{
+		"id": "linkedin_get_profile_volunteering",
+		"platform": "LinkedIn",
+		"title": "List the volunteer experience of a LinkedIn profile",
+		"description": "List the volunteer experience of a LinkedIn profile. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/linkedin/get-profile-volunteering",
+		"fields": [
+			{
+				"name": "start",
+				"description": "Number of results to skip. Defaults to 0.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "publicId",
+				"description": "The member public identity, or the profile link itself, e.g. \"williamhgates\" or \"https://www.linkedin.com/in/williamhgates\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–100). Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
+			}
+		]
+	},
+	{
+		"id": "linkedin_get_profile_honors",
+		"platform": "LinkedIn",
+		"title": "List the honors and awards of a LinkedIn profile",
+		"description": "List the honors and awards of a LinkedIn profile. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/linkedin/get-profile-honors",
+		"fields": [
+			{
+				"name": "start",
+				"description": "Number of results to skip. Defaults to 0.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "publicId",
+				"description": "The member public identity, or the profile link itself, e.g. \"williamhgates\" or \"https://www.linkedin.com/in/williamhgates\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–100). Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
+			}
+		]
+	},
+	{
+		"id": "linkedin_get_profile_interests_top_voices",
+		"platform": "LinkedIn",
+		"title": "List the Top Voices a LinkedIn profile follows",
+		"description": "List the Top Voices a LinkedIn profile follows. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/linkedin/get-profile-interests/top-voices",
+		"fields": [
+			{
+				"name": "start",
+				"description": "Number of results to skip. Defaults to 0.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "publicId",
+				"description": "The member public identity, or the profile link itself, e.g. \"williamhgates\" or \"https://www.linkedin.com/in/williamhgates\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–100). Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
+			}
+		]
+	},
+	{
+		"id": "linkedin_get_profile_interests_companies",
+		"platform": "LinkedIn",
+		"title": "List the companies a LinkedIn profile follows",
+		"description": "List the companies a LinkedIn profile follows. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/linkedin/get-profile-interests/companies",
+		"fields": [
+			{
+				"name": "start",
+				"description": "Number of results to skip. Defaults to 0.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "publicId",
+				"description": "The member public identity, or the profile link itself, e.g. \"williamhgates\" or \"https://www.linkedin.com/in/williamhgates\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–100). Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
+			}
+		]
+	},
+	{
+		"id": "linkedin_get_profile_interests_groups",
+		"platform": "LinkedIn",
+		"title": "List the groups of a LinkedIn profile",
+		"description": "List the groups of a LinkedIn profile. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/linkedin/get-profile-interests/groups",
+		"fields": [
+			{
+				"name": "start",
+				"description": "Number of results to skip. Defaults to 0.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "publicId",
+				"description": "The member public identity, or the profile link itself, e.g. \"williamhgates\" or \"https://www.linkedin.com/in/williamhgates\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–100). Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
+			}
+		]
+	},
+	{
+		"id": "linkedin_get_profile_interests_newsletters",
+		"platform": "LinkedIn",
+		"title": "List the newsletters a LinkedIn profile subscribes to",
+		"description": "List the newsletters a LinkedIn profile subscribes to. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/linkedin/get-profile-interests/newsletters",
+		"fields": [
+			{
+				"name": "start",
+				"description": "Number of results to skip. Defaults to 0.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "publicId",
+				"description": "The member public identity, or the profile link itself, e.g. \"williamhgates\" or \"https://www.linkedin.com/in/williamhgates\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–100). Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
+			}
+		]
+	},
+	{
+		"id": "linkedin_get_profile_interests_schools",
+		"platform": "LinkedIn",
+		"title": "List the schools a LinkedIn profile follows",
+		"description": "List the schools a LinkedIn profile follows. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/linkedin/get-profile-interests/schools",
+		"fields": [
+			{
+				"name": "start",
+				"description": "Number of results to skip. Defaults to 0.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
 			},
 			{
 				"name": "publicId",
@@ -734,6 +1153,21 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
+			},
+			{
+				"name": "sort",
+				"description": "Comment ordering. Defaults to the subreddit's suggested sort, usually \"best\".",
+				"required": false,
+				"defaultLabel": null,
+				"type": "enum",
+				"options": [
+					"best",
+					"top",
+					"new",
+					"controversial",
+					"old",
+					"qa"
+				]
 			}
 		]
 	},
@@ -752,6 +1186,21 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
+			},
+			{
+				"name": "sort",
+				"description": "Ordering of the replies. Defaults to the subreddit's suggested sort, usually \"best\".",
+				"required": false,
+				"defaultLabel": null,
+				"type": "enum",
+				"options": [
+					"best",
+					"top",
+					"new",
+					"controversial",
+					"old",
+					"qa"
+				]
 			}
 		]
 	},
@@ -822,6 +1271,34 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": "10",
 				"type": "number",
 				"integer": true
+			},
+			{
+				"name": "sort",
+				"description": "Result ordering. Defaults to \"new\".",
+				"required": false,
+				"defaultLabel": null,
+				"type": "enum",
+				"options": [
+					"new",
+					"hot",
+					"top",
+					"controversial"
+				]
+			},
+			{
+				"name": "time",
+				"description": "Time window for the \"top\" and \"controversial\" sorts. Defaults to \"all\".",
+				"required": false,
+				"defaultLabel": null,
+				"type": "enum",
+				"options": [
+					"hour",
+					"day",
+					"week",
+					"month",
+					"year",
+					"all"
+				]
 			}
 		]
 	},
@@ -856,6 +1333,34 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": "10",
 				"type": "number",
 				"integer": true
+			},
+			{
+				"name": "sort",
+				"description": "Result ordering. Defaults to \"new\".",
+				"required": false,
+				"defaultLabel": null,
+				"type": "enum",
+				"options": [
+					"new",
+					"hot",
+					"top",
+					"controversial"
+				]
+			},
+			{
+				"name": "time",
+				"description": "Time window for the \"top\" and \"controversial\" sorts. Defaults to \"all\".",
+				"required": false,
+				"defaultLabel": null,
+				"type": "enum",
+				"options": [
+					"hour",
+					"day",
+					"week",
+					"month",
+					"year",
+					"all"
+				]
 			}
 		]
 	},
@@ -890,6 +1395,34 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": "10",
 				"type": "number",
 				"integer": true
+			},
+			{
+				"name": "sort",
+				"description": "Result ordering. Defaults to \"new\".",
+				"required": false,
+				"defaultLabel": null,
+				"type": "enum",
+				"options": [
+					"new",
+					"hot",
+					"top",
+					"controversial"
+				]
+			},
+			{
+				"name": "time",
+				"description": "Time window for the \"top\" and \"controversial\" sorts. Defaults to \"all\".",
+				"required": false,
+				"defaultLabel": null,
+				"type": "enum",
+				"options": [
+					"hour",
+					"day",
+					"week",
+					"month",
+					"year",
+					"all"
+				]
 			}
 		]
 	},
@@ -1319,6 +1852,18 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
+			},
+			{
+				"name": "sortOrder",
+				"description": "Reply ordering: \"Relevance\" for X's ranking (default), \"Recency\" for newest first, \"Likes\" for most liked first.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "enum",
+				"options": [
+					"Relevance",
+					"Recency",
+					"Likes"
+				]
 			}
 		]
 	},
@@ -1345,6 +1890,18 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
+			},
+			{
+				"name": "sortOrder",
+				"description": "Reply ordering: \"Relevance\" for X's ranking (default), \"Recency\" for newest first, \"Likes\" for most liked first.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "enum",
+				"options": [
+					"Relevance",
+					"Recency",
+					"Likes"
+				]
 			}
 		]
 	},
