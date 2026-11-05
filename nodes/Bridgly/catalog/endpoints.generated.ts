@@ -3812,6 +3812,290 @@ export const endpoints: CatalogEndpoint[] = [
 		]
 	},
 	{
+		"id": "instagram_user_reels",
+		"platform": "Instagram",
+		"title": "Instagram: List profile Reels",
+		"description": "List Reels from a public Instagram profile with media links, engagement counts, collaborator IDs and owner details. Continue with nextCursor. Instagram may include other profile videos. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"method": "POST",
+		"path": "/instagram/user-reels",
+		"fields": [
+			{
+				"name": "username",
+				"description": "Instagram username, or the profile link, e.g. \"instagram\" or \"https://www.instagram.com/instagram/\"",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–10). Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			}
+		]
+	},
+	{
+		"id": "instagram_tagged_posts",
+		"platform": "Instagram",
+		"title": "Instagram: List posts tagging a profile",
+		"description": "List public posts in which an Instagram account is tagged, including captions, media links and engagement counts. Continue with nextCursor; Instagram controls which tagged posts are visible. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"method": "POST",
+		"path": "/instagram/tagged-posts",
+		"fields": [
+			{
+				"name": "username",
+				"description": "Instagram username, or the profile link, e.g. \"instagram\" or \"https://www.instagram.com/instagram/\"",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–10). Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			}
+		]
+	},
+	{
+		"id": "instagram_stories",
+		"platform": "Instagram",
+		"title": "Instagram: Get current profile stories",
+		"description": "Get the stories currently available on a public Instagram profile, including media variants, publish and expiration times, author details, mentions, links and shared posts. Returns an empty stories list when none are available. Stories are not paginated. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/instagram/stories",
+		"fields": [
+			{
+				"name": "username",
+				"description": "Instagram username, or the profile link, e.g. \"instagram\" or \"https://www.instagram.com/instagram/\"",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			}
+		]
+	},
+	{
+		"id": "instagram_highlights",
+		"platform": "Instagram",
+		"title": "Instagram: List profile highlights",
+		"description": "List saved story highlights on a public Instagram profile, including highlight IDs, titles and cover images. Use a highlight ID with the highlight endpoint to retrieve its stories. Continue with nextCursor. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"method": "POST",
+		"path": "/instagram/highlights",
+		"fields": [
+			{
+				"name": "username",
+				"description": "Instagram username, or the profile link, e.g. \"instagram\" or \"https://www.instagram.com/instagram/\"",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–10). Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			}
+		]
+	},
+	{
+		"id": "instagram_highlight",
+		"platform": "Instagram",
+		"title": "Instagram: Get a highlight and its stories",
+		"description": "Get a saved Instagram highlight and its available stories, including media variants, publish times, author details, mentions, links and shared posts. Saved highlights do not expire. Stories in a highlight are returned together without pagination. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/instagram/highlight",
+		"fields": [
+			{
+				"name": "highlightId",
+				"description": "Numeric highlight ID, highlight:<ID>, or an Instagram stories/highlights link.",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			}
+		]
+	},
+	{
+		"id": "instagram_post_likers",
+		"platform": "Instagram",
+		"title": "Instagram: Get post likers",
+		"description": "Get the liker accounts Instagram exposes for a post or Reel, with usernames, names, profile images, private and verified flags, and the total liker count. Instagram can limit this list; it is not a complete audience export and does not support pagination. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/instagram/post-likers",
+		"fields": [
+			{
+				"name": "shortcode",
+				"description": "Post shortcode, or the post or Reel link, e.g. \"DA1b2C3d4E5\" or \"https://www.instagram.com/p/DA1b2C3d4E5/\"",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			}
+		]
+	},
+	{
+		"id": "instagram_comment_replies",
+		"platform": "Instagram",
+		"title": "Instagram: List replies to a comment",
+		"description": "List the accessible replies to an Instagram post comment in chronological order, including text, author, publish time, like count, the parent comment and total reply count. Supply the post shortcode and parent comment ID. Continue with nextCursor. Instagram may return a different page size than requested. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"method": "POST",
+		"path": "/instagram/comment-replies",
+		"fields": [
+			{
+				"name": "shortcode",
+				"description": "Post shortcode, or the post or Reel link, e.g. \"DA1b2C3d4E5\" or \"https://www.instagram.com/p/DA1b2C3d4E5/\"",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–10). Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "commentId",
+				"description": "Numeric ID of the parent comment.",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			}
+		]
+	},
+	{
+		"id": "instagram_location",
+		"platform": "Instagram",
+		"title": "Instagram: Get location details",
+		"description": "Get an Instagram location by its numeric ID or location link. Returns its name, coordinates, category, post count, address, price range and hours status. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/instagram/location",
+		"fields": [
+			{
+				"name": "locationId",
+				"description": "Numeric Instagram location ID or an instagram.com/explore/locations/<ID>/ link.",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			}
+		]
+	},
+	{
+		"id": "instagram_location_posts",
+		"platform": "Instagram",
+		"title": "Instagram: List posts at a location",
+		"description": "List posts Instagram associates with a location, including captions, image and video URLs, publish times, engagement counts, tagged users and place details. Results use Instagram’s ranked order and may include nearby places. Continue with nextCursor. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"method": "POST",
+		"path": "/instagram/location-posts",
+		"fields": [
+			{
+				"name": "locationId",
+				"description": "Numeric Instagram location ID or an instagram.com/explore/locations/<ID>/ link.",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–10). Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			}
+		]
+	},
+	{
+		"id": "instagram_search",
+		"platform": "Instagram",
+		"title": "Instagram: Search posts by keyword or hashtag",
+		"description": "Search public Instagram posts and Reels by keyword or hashtag. Returns media links, captions, publish times, engagement counts and owner details, with nextCursor for more results. Search results reflect Instagram’s ranking and available content. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"method": "POST",
+		"path": "/instagram/search",
+		"fields": [
+			{
+				"name": "query",
+				"description": null,
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–10). Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			}
+		]
+	},
+	{
 		"id": "instagram_user",
 		"platform": "Instagram",
 		"title": "Instagram: Get user profile by username",
