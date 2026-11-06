@@ -1,13 +1,13 @@
 // Generated file. Do not edit.
 export type CatalogLeafField =
-	| { name: string; description: string | null; required: boolean; defaultLabel: string | null; type: 'string'; input: 'text' | 'date' }
+	| { name: string; description: string | null; required: boolean; defaultLabel: string | null; type: 'string'; input: 'text' | 'date' | 'datetime' }
 	| { name: string; description: string | null; required: boolean; defaultLabel: string | null; type: 'number'; integer: boolean }
 	| { name: string; description: string | null; required: boolean; defaultLabel: string | null; type: 'boolean' }
 	| { name: string; description: string | null; required: boolean; defaultLabel: string | null; type: 'enum'; options: string[] }
 	| { name: string; description: string | null; required: boolean; defaultLabel: string | null; type: 'stringArray' };
 
 export type CatalogField =
-	| { name: string; description: string | null; required: boolean; defaultLabel: string | null; type: 'string'; input: 'text' | 'date' }
+	| { name: string; description: string | null; required: boolean; defaultLabel: string | null; type: 'string'; input: 'text' | 'date' | 'datetime' }
 	| { name: string; description: string | null; required: boolean; defaultLabel: string | null; type: 'number'; integer: boolean }
 	| { name: string; description: string | null; required: boolean; defaultLabel: string | null; type: 'boolean' }
 	| { name: string; description: string | null; required: boolean; defaultLabel: string | null; type: 'enum'; options: string[] }
@@ -274,7 +274,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "linkedin_get_profile_experience",
 		"platform": "LinkedIn",
 		"title": "List the work experience of a LinkedIn profile",
-		"description": "List the work experience of a LinkedIn profile. Costs 1 credit per request.",
+		"description": "List every position on a LinkedIn member's profile, including roles the full profile leaves out. Each position includes the title, company with its link and logo, employment type, location, dates and description. `count` sets how many companies come back, each with every position held there; page on with the `nextStart` from the previous response. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/linkedin/get-profile-experience",
 		"fields": [
@@ -308,7 +308,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "linkedin_get_profile_education",
 		"platform": "LinkedIn",
 		"title": "List the education of a LinkedIn profile",
-		"description": "List the education of a LinkedIn profile. Costs 1 credit per request.",
+		"description": "List every education entry on a LinkedIn member's profile. Each entry includes the school with its link and logo, degree, field of study, dates, grade, activities and description. Page on with the `nextStart` from the previous response. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/linkedin/get-profile-education",
 		"fields": [
@@ -342,7 +342,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "linkedin_get_profile_skills",
 		"platform": "LinkedIn",
 		"title": "List the skills of a LinkedIn profile",
-		"description": "List the skills of a LinkedIn profile. Costs 1 credit per request.",
+		"description": "List every skill on a LinkedIn member's profile, in the order the profile shows them, with how many members endorsed each. Page on with the `nextStart` from the previous response. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/linkedin/get-profile-skills",
 		"fields": [
@@ -376,7 +376,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "linkedin_get_profile_certifications",
 		"platform": "LinkedIn",
 		"title": "List the certifications of a LinkedIn profile",
-		"description": "List the certifications of a LinkedIn profile. Costs 1 credit per request.",
+		"description": "List every license and certification on a LinkedIn member's profile, with the issuing organization, issue and expiry dates, credential ID and credential link. Page on with the `nextStart` from the previous response. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/linkedin/get-profile-certifications",
 		"fields": [
@@ -410,7 +410,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "linkedin_get_profile_publications",
 		"platform": "LinkedIn",
 		"title": "List the publications of a LinkedIn profile",
-		"description": "List the publications of a LinkedIn profile. Costs 1 credit per request.",
+		"description": "List every publication on a LinkedIn member's profile, with the publisher, publication date, description and link. Page on with the `nextStart` from the previous response. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/linkedin/get-profile-publications",
 		"fields": [
@@ -444,7 +444,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "linkedin_get_profile_volunteering",
 		"platform": "LinkedIn",
 		"title": "List the volunteer experience of a LinkedIn profile",
-		"description": "List the volunteer experience of a LinkedIn profile. Costs 1 credit per request.",
+		"description": "List every volunteer role on a LinkedIn member's profile, with the organization, cause, dates and description. Page on with the `nextStart` from the previous response. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/linkedin/get-profile-volunteering",
 		"fields": [
@@ -478,7 +478,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "linkedin_get_profile_honors",
 		"platform": "LinkedIn",
 		"title": "List the honors and awards of a LinkedIn profile",
-		"description": "List the honors and awards of a LinkedIn profile. Costs 1 credit per request.",
+		"description": "List every honor and award on a LinkedIn member's profile, with the issuer, issue date and description. Page on with the `nextStart` from the previous response. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/linkedin/get-profile-honors",
 		"fields": [
@@ -512,7 +512,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "linkedin_get_profile_interests_top_voices",
 		"platform": "LinkedIn",
 		"title": "List the Top Voices a LinkedIn profile follows",
-		"description": "List the Top Voices a LinkedIn profile follows. Costs 1 credit per request.",
+		"description": "List the Top Voices from the interests section of a LinkedIn member's profile, each with their name, headline, profile link, photo and follower count. Page on with the `nextStart` from the previous response. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/linkedin/get-profile-interests/top-voices",
 		"fields": [
@@ -546,7 +546,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "linkedin_get_profile_interests_companies",
 		"platform": "LinkedIn",
 		"title": "List the companies a LinkedIn profile follows",
-		"description": "List the companies a LinkedIn profile follows. Costs 1 credit per request.",
+		"description": "List the companies from the interests section of a LinkedIn member's profile, each with its name, page link, logo and follower count. Page on with the `nextStart` from the previous response. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/linkedin/get-profile-interests/companies",
 		"fields": [
@@ -580,7 +580,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "linkedin_get_profile_interests_groups",
 		"platform": "LinkedIn",
 		"title": "List the groups of a LinkedIn profile",
-		"description": "List the groups of a LinkedIn profile. Costs 1 credit per request.",
+		"description": "List the groups from the interests section of a LinkedIn member's profile, each with its name, link, logo and member count. Page on with the `nextStart` from the previous response. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/linkedin/get-profile-interests/groups",
 		"fields": [
@@ -614,7 +614,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "linkedin_get_profile_interests_newsletters",
 		"platform": "LinkedIn",
 		"title": "List the newsletters a LinkedIn profile subscribes to",
-		"description": "List the newsletters a LinkedIn profile subscribes to. Costs 1 credit per request.",
+		"description": "List the newsletters from the interests section of a LinkedIn member's profile, each with its title, description, how often it is published, link, cover image and publisher. Page on with the `nextStart` from the previous response. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/linkedin/get-profile-interests/newsletters",
 		"fields": [
@@ -648,7 +648,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "linkedin_get_profile_interests_schools",
 		"platform": "LinkedIn",
 		"title": "List the schools a LinkedIn profile follows",
-		"description": "List the schools a LinkedIn profile follows. Costs 1 credit per request.",
+		"description": "List the schools from the interests section of a LinkedIn member's profile, each with its name, page link, logo and follower count. Page on with the `nextStart` from the previous response. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/linkedin/get-profile-interests/schools",
 		"fields": [
@@ -2275,7 +2275,7 @@ export const endpoints: CatalogEndpoint[] = [
 				"required": false,
 				"defaultLabel": null,
 				"type": "string",
-				"input": "text"
+				"input": "datetime"
 			},
 			{
 				"name": "to",
@@ -2283,7 +2283,7 @@ export const endpoints: CatalogEndpoint[] = [
 				"required": false,
 				"defaultLabel": null,
 				"type": "string",
-				"input": "text"
+				"input": "datetime"
 			}
 		]
 	},
@@ -2667,17 +2667,6 @@ export const endpoints: CatalogEndpoint[] = [
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
-			},
-			{
-				"name": "visibility",
-				"description": "Repository visibility. Maps to `is:public` / `is:private`.",
-				"required": false,
-				"defaultLabel": null,
-				"type": "enum",
-				"options": [
-					"public",
-					"private"
-				]
 			},
 			{
 				"name": "fork",
@@ -4229,7 +4218,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"fields": [
 			{
 				"name": "username",
-				"description": "Instagram username, or the profile link, e.g. \"instagram\" or \"https://www.instagram.com/instagram/\"",
+				"description": "Instagram username, or the profile link, e.g. \"instagram\" or \"https://www.instagram.com/instagram/\".",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
@@ -4263,7 +4252,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"fields": [
 			{
 				"name": "username",
-				"description": "Instagram username, or the profile link, e.g. \"instagram\" or \"https://www.instagram.com/instagram/\"",
+				"description": "Instagram username, or the profile link, e.g. \"instagram\" or \"https://www.instagram.com/instagram/\".",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
@@ -4297,7 +4286,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"fields": [
 			{
 				"name": "username",
-				"description": "Instagram username, or the profile link, e.g. \"instagram\" or \"https://www.instagram.com/instagram/\"",
+				"description": "Instagram username, or the profile link, e.g. \"instagram\" or \"https://www.instagram.com/instagram/\".",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
@@ -4315,7 +4304,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"fields": [
 			{
 				"name": "username",
-				"description": "Instagram username, or the profile link, e.g. \"instagram\" or \"https://www.instagram.com/instagram/\"",
+				"description": "Instagram username, or the profile link, e.g. \"instagram\" or \"https://www.instagram.com/instagram/\".",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
@@ -4367,7 +4356,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"fields": [
 			{
 				"name": "shortcode",
-				"description": "Post shortcode, or the post or Reel link, e.g. \"DA1b2C3d4E5\" or \"https://www.instagram.com/p/DA1b2C3d4E5/\"",
+				"description": "Post shortcode, or the post or Reel link, e.g. \"DA1b2C3d4E5\" or \"https://www.instagram.com/p/DA1b2C3d4E5/\".",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
@@ -4385,7 +4374,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"fields": [
 			{
 				"name": "shortcode",
-				"description": "Post shortcode, or the post or Reel link, e.g. \"DA1b2C3d4E5\" or \"https://www.instagram.com/p/DA1b2C3d4E5/\"",
+				"description": "Post shortcode, or the post or Reel link, e.g. \"DA1b2C3d4E5\" or \"https://www.instagram.com/p/DA1b2C3d4E5/\".",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
@@ -4513,7 +4502,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"fields": [
 			{
 				"name": "username",
-				"description": "Instagram username, or the profile link, e.g. \"instagram\" or \"https://www.instagram.com/instagram/\"",
+				"description": "Instagram username, or the profile link, e.g. \"instagram\" or \"https://www.instagram.com/instagram/\".",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
@@ -4531,7 +4520,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"fields": [
 			{
 				"name": "username",
-				"description": "Instagram username, or the profile link, e.g. \"instagram\" or \"https://www.instagram.com/instagram/\"",
+				"description": "Instagram username, or the profile link, e.g. \"instagram\" or \"https://www.instagram.com/instagram/\".",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
@@ -4565,7 +4554,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"fields": [
 			{
 				"name": "username",
-				"description": "Instagram username, or the profile link, e.g. \"instagram\" or \"https://www.instagram.com/instagram/\"",
+				"description": "Instagram username, or the profile link, e.g. \"instagram\" or \"https://www.instagram.com/instagram/\".",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
@@ -4599,7 +4588,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"fields": [
 			{
 				"name": "username",
-				"description": "Instagram username, or the profile link, e.g. \"instagram\" or \"https://www.instagram.com/instagram/\"",
+				"description": "Instagram username, or the profile link, e.g. \"instagram\" or \"https://www.instagram.com/instagram/\".",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
@@ -4633,7 +4622,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"fields": [
 			{
 				"name": "shortcode",
-				"description": "Post shortcode, or the post or Reel link, e.g. \"DA1b2C3d4E5\" or \"https://www.instagram.com/p/DA1b2C3d4E5/\"",
+				"description": "Post shortcode, or the post or Reel link, e.g. \"DA1b2C3d4E5\" or \"https://www.instagram.com/p/DA1b2C3d4E5/\".",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
@@ -4651,7 +4640,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"fields": [
 			{
 				"name": "shortcode",
-				"description": "Post shortcode, or the post or Reel link, e.g. \"DA1b2C3d4E5\" or \"https://www.instagram.com/p/DA1b2C3d4E5/\"",
+				"description": "Post shortcode, or the post or Reel link, e.g. \"DA1b2C3d4E5\" or \"https://www.instagram.com/p/DA1b2C3d4E5/\".",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
