@@ -1,13 +1,13 @@
 // Generated file. Do not edit.
 export type CatalogLeafField =
-	| { name: string; description: string | null; required: boolean; defaultLabel: string | null; type: 'string'; input: 'text' | 'date' }
+	| { name: string; description: string | null; required: boolean; defaultLabel: string | null; type: 'string'; input: 'text' | 'date' | 'datetime' }
 	| { name: string; description: string | null; required: boolean; defaultLabel: string | null; type: 'number'; integer: boolean }
 	| { name: string; description: string | null; required: boolean; defaultLabel: string | null; type: 'boolean' }
 	| { name: string; description: string | null; required: boolean; defaultLabel: string | null; type: 'enum'; options: string[] }
 	| { name: string; description: string | null; required: boolean; defaultLabel: string | null; type: 'stringArray' };
 
 export type CatalogField =
-	| { name: string; description: string | null; required: boolean; defaultLabel: string | null; type: 'string'; input: 'text' | 'date' }
+	| { name: string; description: string | null; required: boolean; defaultLabel: string | null; type: 'string'; input: 'text' | 'date' | 'datetime' }
 	| { name: string; description: string | null; required: boolean; defaultLabel: string | null; type: 'number'; integer: boolean }
 	| { name: string; description: string | null; required: boolean; defaultLabel: string | null; type: 'boolean' }
 	| { name: string; description: string | null; required: boolean; defaultLabel: string | null; type: 'enum'; options: string[] }
@@ -21,7 +21,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "linkedin_get_company_from_url",
 		"platform": "LinkedIn",
 		"title": "Fetch a LinkedIn company by company slug",
-		"description": "Fetch a LinkedIn company by company slug. Costs 1 credit per request.",
+		"description": "Get a LinkedIn company page from the slug in its URL, e.g. \"openai\". Returns the name, tagline, description, industry, employee count, headquarters and other locations, website, follower count, specialties, funding details and similar companies. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/linkedin/get-company-from-url",
 		"fields": [
@@ -32,6 +32,21 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
 			}
 		]
 	},
@@ -39,7 +54,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "linkedin_get_profile_from_url",
 		"platform": "LinkedIn",
 		"title": "Fetch a LinkedIn profile by profile slug",
-		"description": "Fetch a LinkedIn profile by profile slug. Costs 1 credit per request.",
+		"description": "Get a LinkedIn profile from the slug in its URL, e.g. \"williamhgates\". Returns the name, headline, location, about section, full work history, education, skills, certifications, languages, projects and more. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/linkedin/get-profile-from-url",
 		"fields": [
@@ -50,6 +65,21 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
 			}
 		]
 	},
@@ -57,7 +87,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "linkedin_get_job",
 		"platform": "LinkedIn",
 		"title": "Fetch a LinkedIn job posting by URL",
-		"description": "Fetch a LinkedIn job posting by URL. Costs 1 credit per request.",
+		"description": "Get a LinkedIn job posting from its URL. Returns the title, full description, company, location, remote option, experience level, employment type, application link, posting and expiry dates, and applicant and view counts. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/linkedin/get-job",
 		"fields": [
@@ -68,6 +98,21 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
 			}
 		]
 	},
@@ -75,7 +120,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "linkedin_get_posts_from_company",
 		"platform": "LinkedIn",
 		"title": "List posts published by a LinkedIn company",
-		"description": "List posts published by a LinkedIn company. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"description": "List the posts a LinkedIn company page has published, newest first. Each post includes the text, images, shared links, publish date and reaction, comment and share counts. Page through older posts with `start`. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
 		"method": "POST",
 		"path": "/linkedin/get-posts/from-company",
 		"fields": [
@@ -102,6 +147,21 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": "10",
 				"type": "number",
 				"integer": true
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
 			}
 		]
 	},
@@ -109,7 +169,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "linkedin_get_posts_from_profile",
 		"platform": "LinkedIn",
 		"title": "List posts published by a LinkedIn profile",
-		"description": "List posts published by a LinkedIn profile. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"description": "List the posts and reposts a LinkedIn member has published, newest first, going back through their full history. Each post includes the text, images, shared links, publish date and reaction, comment and share counts. Page through older posts with the `cursor` from the previous response's `nextCursor`. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
 		"method": "POST",
 		"path": "/linkedin/get-posts/from-profile",
 		"fields": [
@@ -136,6 +196,21 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": "10",
 				"type": "number",
 				"integer": true
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
 			}
 		]
 	},
@@ -143,7 +218,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "linkedin_get_post_detail",
 		"platform": "LinkedIn",
 		"title": "Fetch a single LinkedIn post by URN",
-		"description": "Fetch a single LinkedIn post by URN. Costs 1 credit per request.",
+		"description": "Get a single LinkedIn post by its activity URN. Returns the post text, author, publish date, images, any shared article, event or job, reaction, comment and share counts, and its comments. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/linkedin/get-post-detail",
 		"fields": [
@@ -154,6 +229,21 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
 			}
 		]
 	},
@@ -161,7 +251,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "linkedin_get_activity_comments",
 		"platform": "LinkedIn",
 		"title": "Fetch the comment thread on a LinkedIn post",
-		"description": "Fetch the comment thread on a LinkedIn post. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"description": "Get the comments on a LinkedIn post by its activity URN. Each comment includes the text, author, time posted and like and reply counts. Page through the rest with `start`. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
 		"method": "POST",
 		"path": "/linkedin/get-activity-comments",
 		"fields": [
@@ -188,6 +278,32 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": "10",
 				"type": "number",
 				"integer": true
+			},
+			{
+				"name": "sortOrder",
+				"description": "Comment ordering: \"relevance\" for LinkedIn's \"Most relevant\" ranking (default), \"recent\" for newest first.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "enum",
+				"options": [
+					"relevance",
+					"recent"
+				]
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
 			}
 		]
 	},
@@ -195,7 +311,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "linkedin_get_profile_comments",
 		"platform": "LinkedIn",
 		"title": "List comments made by a LinkedIn profile",
-		"description": "List comments made by a LinkedIn profile. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"description": "List the comments a LinkedIn member has written on posts across LinkedIn. Each comment includes the text, time posted, a link to it and the post it was left on. Page through older comments with the `cursor` from the previous response's `nextCursor`. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
 		"method": "POST",
 		"path": "/linkedin/get-profile-comments",
 		"fields": [
@@ -222,6 +338,21 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": "10",
 				"type": "number",
 				"integer": true
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
 			}
 		]
 	},
@@ -229,7 +360,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "linkedin_get_profile_reactions",
 		"platform": "LinkedIn",
 		"title": "List posts a LinkedIn member reacted to",
-		"description": "List posts a LinkedIn member reacted to. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"description": "List the posts a LinkedIn member has liked or reacted to, newest first. Each item includes the reaction type, the post's text and author, and its like, comment and share counts. Page through older reactions with the `cursor` from the previous response's `nextCursor`. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
 		"method": "POST",
 		"path": "/linkedin/get-profile-reactions",
 		"fields": [
@@ -256,6 +387,609 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": "10",
 				"type": "number",
 				"integer": true
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
+			}
+		]
+	},
+	{
+		"id": "linkedin_get_profile_experience",
+		"platform": "LinkedIn",
+		"title": "List the work experience of a LinkedIn profile",
+		"description": "List every position on a LinkedIn member's profile, including roles the full profile leaves out. Each position includes the title, company with its link and logo, employment type, location, dates and description. `count` sets how many companies come back, each with every position held there; page on with the `nextStart` from the previous response. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/linkedin/get-profile-experience",
+		"fields": [
+			{
+				"name": "start",
+				"description": "Number of results to skip. Defaults to 0.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "publicId",
+				"description": "The member public identity, or the profile link itself, e.g. \"williamhgates\" or \"https://www.linkedin.com/in/williamhgates\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Number of companies to return (1–100), each with every position held there. Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
+			}
+		]
+	},
+	{
+		"id": "linkedin_get_profile_education",
+		"platform": "LinkedIn",
+		"title": "List the education of a LinkedIn profile",
+		"description": "List every education entry on a LinkedIn member's profile. Each entry includes the school with its link and logo, degree, field of study, dates, grade, activities and description. Page on with the `nextStart` from the previous response. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/linkedin/get-profile-education",
+		"fields": [
+			{
+				"name": "start",
+				"description": "Number of results to skip. Defaults to 0.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "publicId",
+				"description": "The member public identity, or the profile link itself, e.g. \"williamhgates\" or \"https://www.linkedin.com/in/williamhgates\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–100). Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
+			}
+		]
+	},
+	{
+		"id": "linkedin_get_profile_skills",
+		"platform": "LinkedIn",
+		"title": "List the skills of a LinkedIn profile",
+		"description": "List every skill on a LinkedIn member's profile, in the order the profile shows them, with how many members endorsed each. Page on with the `nextStart` from the previous response. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/linkedin/get-profile-skills",
+		"fields": [
+			{
+				"name": "start",
+				"description": "Number of results to skip. Defaults to 0.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "publicId",
+				"description": "The member public identity, or the profile link itself, e.g. \"williamhgates\" or \"https://www.linkedin.com/in/williamhgates\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–100). Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
+			}
+		]
+	},
+	{
+		"id": "linkedin_get_profile_certifications",
+		"platform": "LinkedIn",
+		"title": "List the certifications of a LinkedIn profile",
+		"description": "List every license and certification on a LinkedIn member's profile, with the issuing organization, issue and expiry dates, credential ID and credential link. Page on with the `nextStart` from the previous response. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/linkedin/get-profile-certifications",
+		"fields": [
+			{
+				"name": "start",
+				"description": "Number of results to skip. Defaults to 0.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "publicId",
+				"description": "The member public identity, or the profile link itself, e.g. \"williamhgates\" or \"https://www.linkedin.com/in/williamhgates\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–100). Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
+			}
+		]
+	},
+	{
+		"id": "linkedin_get_profile_publications",
+		"platform": "LinkedIn",
+		"title": "List the publications of a LinkedIn profile",
+		"description": "List every publication on a LinkedIn member's profile, with the publisher, publication date, description and link. Page on with the `nextStart` from the previous response. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/linkedin/get-profile-publications",
+		"fields": [
+			{
+				"name": "start",
+				"description": "Number of results to skip. Defaults to 0.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "publicId",
+				"description": "The member public identity, or the profile link itself, e.g. \"williamhgates\" or \"https://www.linkedin.com/in/williamhgates\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–100). Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
+			}
+		]
+	},
+	{
+		"id": "linkedin_get_profile_volunteering",
+		"platform": "LinkedIn",
+		"title": "List the volunteer experience of a LinkedIn profile",
+		"description": "List every volunteer role on a LinkedIn member's profile, with the organization, cause, dates and description. Page on with the `nextStart` from the previous response. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/linkedin/get-profile-volunteering",
+		"fields": [
+			{
+				"name": "start",
+				"description": "Number of results to skip. Defaults to 0.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "publicId",
+				"description": "The member public identity, or the profile link itself, e.g. \"williamhgates\" or \"https://www.linkedin.com/in/williamhgates\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–100). Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
+			}
+		]
+	},
+	{
+		"id": "linkedin_get_profile_honors",
+		"platform": "LinkedIn",
+		"title": "List the honors and awards of a LinkedIn profile",
+		"description": "List every honor and award on a LinkedIn member's profile, with the issuer, issue date and description. Page on with the `nextStart` from the previous response. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/linkedin/get-profile-honors",
+		"fields": [
+			{
+				"name": "start",
+				"description": "Number of results to skip. Defaults to 0.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "publicId",
+				"description": "The member public identity, or the profile link itself, e.g. \"williamhgates\" or \"https://www.linkedin.com/in/williamhgates\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–100). Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
+			}
+		]
+	},
+	{
+		"id": "linkedin_get_profile_interests_top_voices",
+		"platform": "LinkedIn",
+		"title": "List the Top Voices a LinkedIn profile follows",
+		"description": "List the Top Voices from the interests section of a LinkedIn member's profile, each with their name, headline, profile link, photo and follower count. Page on with the `nextStart` from the previous response. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/linkedin/get-profile-interests/top-voices",
+		"fields": [
+			{
+				"name": "start",
+				"description": "Number of results to skip. Defaults to 0.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "publicId",
+				"description": "The member public identity, or the profile link itself, e.g. \"williamhgates\" or \"https://www.linkedin.com/in/williamhgates\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–100). Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
+			}
+		]
+	},
+	{
+		"id": "linkedin_get_profile_interests_companies",
+		"platform": "LinkedIn",
+		"title": "List the companies a LinkedIn profile follows",
+		"description": "List the companies from the interests section of a LinkedIn member's profile, each with its name, page link, logo and follower count. Page on with the `nextStart` from the previous response. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/linkedin/get-profile-interests/companies",
+		"fields": [
+			{
+				"name": "start",
+				"description": "Number of results to skip. Defaults to 0.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "publicId",
+				"description": "The member public identity, or the profile link itself, e.g. \"williamhgates\" or \"https://www.linkedin.com/in/williamhgates\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–100). Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
+			}
+		]
+	},
+	{
+		"id": "linkedin_get_profile_interests_groups",
+		"platform": "LinkedIn",
+		"title": "List the groups of a LinkedIn profile",
+		"description": "List the groups from the interests section of a LinkedIn member's profile, each with its name, link, logo and member count. Page on with the `nextStart` from the previous response. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/linkedin/get-profile-interests/groups",
+		"fields": [
+			{
+				"name": "start",
+				"description": "Number of results to skip. Defaults to 0.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "publicId",
+				"description": "The member public identity, or the profile link itself, e.g. \"williamhgates\" or \"https://www.linkedin.com/in/williamhgates\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–100). Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
+			}
+		]
+	},
+	{
+		"id": "linkedin_get_profile_interests_newsletters",
+		"platform": "LinkedIn",
+		"title": "List the newsletters a LinkedIn profile subscribes to",
+		"description": "List the newsletters from the interests section of a LinkedIn member's profile, each with its title, description, how often it is published, link, cover image and publisher. Page on with the `nextStart` from the previous response. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/linkedin/get-profile-interests/newsletters",
+		"fields": [
+			{
+				"name": "start",
+				"description": "Number of results to skip. Defaults to 0.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "publicId",
+				"description": "The member public identity, or the profile link itself, e.g. \"williamhgates\" or \"https://www.linkedin.com/in/williamhgates\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–100). Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
+			}
+		]
+	},
+	{
+		"id": "linkedin_get_profile_interests_schools",
+		"platform": "LinkedIn",
+		"title": "List the schools a LinkedIn profile follows",
+		"description": "List the schools from the interests section of a LinkedIn member's profile, each with its name, page link, logo and follower count. Page on with the `nextStart` from the previous response. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/linkedin/get-profile-interests/schools",
+		"fields": [
+			{
+				"name": "start",
+				"description": "Number of results to skip. Defaults to 0.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "publicId",
+				"description": "The member public identity, or the profile link itself, e.g. \"williamhgates\" or \"https://www.linkedin.com/in/williamhgates\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–100). Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
 			}
 		]
 	},
@@ -263,7 +997,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "linkedin_get_post_reactions",
 		"platform": "LinkedIn",
 		"title": "List the members who reacted to a LinkedIn post",
-		"description": "List the members who reacted to a LinkedIn post. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"description": "List the members who reacted to a LinkedIn post, with each person's name, headline, profile link, profile picture and the reaction they chose. Page through the rest with `start`. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
 		"method": "POST",
 		"path": "/linkedin/get-post-reactions",
 		"fields": [
@@ -290,6 +1024,21 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": "10",
 				"type": "number",
 				"integer": true
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
 			}
 		]
 	},
@@ -297,7 +1046,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "linkedin_search_all",
 		"platform": "LinkedIn",
 		"title": "Global LinkedIn search",
-		"description": "Global LinkedIn search. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"description": "Search all of LinkedIn by keyword in one call and get matching people, companies, jobs, posts, groups and more, along with the total number of matches. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
 		"method": "POST",
 		"path": "/linkedin/search/all",
 		"fields": [
@@ -324,6 +1073,21 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": "10",
 				"type": "number",
 				"integer": true
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
 			}
 		]
 	},
@@ -331,7 +1095,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "linkedin_search_companies",
 		"platform": "LinkedIn",
 		"title": "Search LinkedIn companies",
-		"description": "Search LinkedIn companies. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"description": "Find LinkedIn companies by keyword. Each result includes the company name, industry, location, follower count, description, logo and page link. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
 		"method": "POST",
 		"path": "/linkedin/search/companies",
 		"fields": [
@@ -358,6 +1122,21 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": "10",
 				"type": "number",
 				"integer": true
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
 			}
 		]
 	},
@@ -365,7 +1144,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "linkedin_search_courses",
 		"platform": "LinkedIn",
 		"title": "Search LinkedIn courses",
-		"description": "Search LinkedIn courses. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"description": "Find LinkedIn Learning courses by keyword. Each result includes the course title, author, format, duration, release date and thumbnail. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
 		"method": "POST",
 		"path": "/linkedin/search/courses",
 		"fields": [
@@ -392,6 +1171,21 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": "10",
 				"type": "number",
 				"integer": true
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
 			}
 		]
 	},
@@ -399,7 +1193,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "linkedin_search_events",
 		"platform": "LinkedIn",
 		"title": "Search LinkedIn events",
-		"description": "Search LinkedIn events. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"description": "Find LinkedIn events by keyword. Each result includes the event name, date, location, organizer, attendee count, whether it is online and its link. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
 		"method": "POST",
 		"path": "/linkedin/search/events",
 		"fields": [
@@ -426,6 +1220,21 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": "10",
 				"type": "number",
 				"integer": true
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
 			}
 		]
 	},
@@ -433,7 +1242,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "linkedin_search_groups",
 		"platform": "LinkedIn",
 		"title": "Search LinkedIn groups",
-		"description": "Search LinkedIn groups. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"description": "Find LinkedIn groups by keyword. Each result includes the group name, member count, description, logo and link. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
 		"method": "POST",
 		"path": "/linkedin/search/groups",
 		"fields": [
@@ -460,6 +1269,21 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": "10",
 				"type": "number",
 				"integer": true
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
 			}
 		]
 	},
@@ -467,7 +1291,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "linkedin_search_jobs",
 		"platform": "LinkedIn",
 		"title": "Search LinkedIn jobs",
-		"description": "Search LinkedIn jobs. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"description": "Search LinkedIn job listings by keyword, with optional filters for location, workplace type, experience level, job type and date posted. Each result includes the job title, company, location, salary when listed and posting date. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
 		"method": "POST",
 		"path": "/linkedin/search/jobs",
 		"fields": [
@@ -557,6 +1381,21 @@ export const endpoints: CatalogEndpoint[] = [
 					"past-week",
 					"past-month"
 				]
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
 			}
 		]
 	},
@@ -564,7 +1403,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "linkedin_search_posts",
 		"platform": "LinkedIn",
 		"title": "Search LinkedIn posts",
-		"description": "Search LinkedIn posts. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"description": "Search LinkedIn posts by keyword, sorted by relevance or newest first and optionally limited to a recent time window. Each result includes the post text, author, link and reaction, comment and share counts. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
 		"method": "POST",
 		"path": "/linkedin/search/posts",
 		"fields": [
@@ -614,6 +1453,21 @@ export const endpoints: CatalogEndpoint[] = [
 					"past-week",
 					"past-month"
 				]
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
 			}
 		]
 	},
@@ -621,7 +1475,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "linkedin_search_products",
 		"platform": "LinkedIn",
 		"title": "Search LinkedIn products",
-		"description": "Search LinkedIn products. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"description": "Find software products listed on LinkedIn by keyword. Each result includes the product name, category, maker, description, top features, integrations and the companies that use it. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
 		"method": "POST",
 		"path": "/linkedin/search/products",
 		"fields": [
@@ -648,6 +1502,21 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": "10",
 				"type": "number",
 				"integer": true
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
 			}
 		]
 	},
@@ -655,7 +1524,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "linkedin_search_schools",
 		"platform": "LinkedIn",
 		"title": "Search LinkedIn schools",
-		"description": "Search LinkedIn schools. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"description": "Find schools and universities on LinkedIn by keyword. Each result includes the name, location, student and alumni count, description, logo and page link. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
 		"method": "POST",
 		"path": "/linkedin/search/schools",
 		"fields": [
@@ -682,6 +1551,21 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": "10",
 				"type": "number",
 				"integer": true
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
 			}
 		]
 	},
@@ -689,7 +1573,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "linkedin_search_services",
 		"platform": "LinkedIn",
 		"title": "Search LinkedIn services",
-		"description": "Search LinkedIn services. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"description": "Find professionals offering services on LinkedIn by keyword. Each result includes the provider's name, headline, location, the services they offer and their service page link. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
 		"method": "POST",
 		"path": "/linkedin/search/services",
 		"fields": [
@@ -716,6 +1600,21 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": "10",
 				"type": "number",
 				"integer": true
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
 			}
 		]
 	},
@@ -723,7 +1622,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "reddit_get_post",
 		"platform": "Reddit",
 		"title": "Fetch a Reddit post with its comments",
-		"description": "Fetch a Reddit post with its comments. Costs 1 credit per request.",
+		"description": "Get a Reddit post from its URL together with its comments. Returns the title, body, author, subreddit, score, upvote ratio, comment count and links, plus the comment thread. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/reddit/get-post",
 		"fields": [
@@ -734,6 +1633,36 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
+			},
+			{
+				"name": "sort",
+				"description": "Comment ordering. Defaults to the subreddit's suggested sort, usually \"best\".",
+				"required": false,
+				"defaultLabel": null,
+				"type": "enum",
+				"options": [
+					"best",
+					"top",
+					"new",
+					"controversial",
+					"old",
+					"qa"
+				]
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
 			}
 		]
 	},
@@ -741,7 +1670,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "reddit_get_comment",
 		"platform": "Reddit",
 		"title": "Fetch a single Reddit comment with its thread",
-		"description": "Fetch a single Reddit comment with its thread. Costs 1 credit per request.",
+		"description": "Get a single Reddit comment from its permalink, together with the post it was left on and the replies beneath it. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/reddit/get-comment",
 		"fields": [
@@ -752,6 +1681,36 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
+			},
+			{
+				"name": "sort",
+				"description": "Ordering of the replies. Defaults to the subreddit's suggested sort, usually \"best\".",
+				"required": false,
+				"defaultLabel": null,
+				"type": "enum",
+				"options": [
+					"best",
+					"top",
+					"new",
+					"controversial",
+					"old",
+					"qa"
+				]
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
 			}
 		]
 	},
@@ -759,7 +1718,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "reddit_get_subreddit",
 		"platform": "Reddit",
 		"title": "Reddit: Fetch subreddit metadata",
-		"description": "Reddit: Fetch subreddit metadata. Costs 1 credit per request.",
+		"description": "Get the details of a subreddit by name: title, description, subscriber count, creation date, icon and banner, posting settings and the community rules. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/reddit/get-subreddit",
 		"fields": [
@@ -770,6 +1729,21 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
 			}
 		]
 	},
@@ -777,7 +1751,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "reddit_get_user",
 		"platform": "Reddit",
 		"title": "Fetch a Reddit user profile",
-		"description": "Fetch a Reddit user profile. Costs 1 credit per request.",
+		"description": "Get a Reddit user's public profile by username: post and comment karma, account creation date, avatar and whether the account is verified, a moderator or has Reddit Premium. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/reddit/get-user",
 		"fields": [
@@ -788,6 +1762,21 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
 			}
 		]
 	},
@@ -795,7 +1784,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "reddit_list_user_posts",
 		"platform": "Reddit",
 		"title": "List a Reddit user's posts",
-		"description": "List a Reddit user's posts. Costs 1 credit per request.",
+		"description": "List the most recent posts a Reddit user has submitted, with the title, body, subreddit, score, comment count and link of each. Page through older posts with `cursor`. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/reddit/list-user-posts",
 		"fields": [
@@ -822,6 +1811,49 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": "10",
 				"type": "number",
 				"integer": true
+			},
+			{
+				"name": "sort",
+				"description": "Result ordering. Defaults to \"new\".",
+				"required": false,
+				"defaultLabel": null,
+				"type": "enum",
+				"options": [
+					"new",
+					"hot",
+					"top",
+					"controversial"
+				]
+			},
+			{
+				"name": "time",
+				"description": "Time window for the \"top\" and \"controversial\" sorts. Defaults to \"all\".",
+				"required": false,
+				"defaultLabel": null,
+				"type": "enum",
+				"options": [
+					"hour",
+					"day",
+					"week",
+					"month",
+					"year",
+					"all"
+				]
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
 			}
 		]
 	},
@@ -829,7 +1861,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "reddit_list_user_comments",
 		"platform": "Reddit",
 		"title": "List a Reddit user's comments",
-		"description": "List a Reddit user's comments. Costs 1 credit per request.",
+		"description": "List the most recent comments a Reddit user has written. Each comment includes its text, score and subreddit, along with the title, link and author of the post it was left on. Page through older comments with `cursor`. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/reddit/list-user-comments",
 		"fields": [
@@ -856,6 +1888,49 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": "10",
 				"type": "number",
 				"integer": true
+			},
+			{
+				"name": "sort",
+				"description": "Result ordering. Defaults to \"new\".",
+				"required": false,
+				"defaultLabel": null,
+				"type": "enum",
+				"options": [
+					"new",
+					"hot",
+					"top",
+					"controversial"
+				]
+			},
+			{
+				"name": "time",
+				"description": "Time window for the \"top\" and \"controversial\" sorts. Defaults to \"all\".",
+				"required": false,
+				"defaultLabel": null,
+				"type": "enum",
+				"options": [
+					"hour",
+					"day",
+					"week",
+					"month",
+					"year",
+					"all"
+				]
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
 			}
 		]
 	},
@@ -863,7 +1938,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "reddit_list_user_overview",
 		"platform": "Reddit",
 		"title": "List a Reddit user's mixed post/comment activity",
-		"description": "List a Reddit user's mixed post/comment activity. Costs 1 credit per request.",
+		"description": "List a Reddit user's recent activity, posts and comments together in the order they were made, as it appears on their profile. Page through older activity with `cursor`. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/reddit/list-user-overview",
 		"fields": [
@@ -890,6 +1965,49 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": "10",
 				"type": "number",
 				"integer": true
+			},
+			{
+				"name": "sort",
+				"description": "Result ordering. Defaults to \"new\".",
+				"required": false,
+				"defaultLabel": null,
+				"type": "enum",
+				"options": [
+					"new",
+					"hot",
+					"top",
+					"controversial"
+				]
+			},
+			{
+				"name": "time",
+				"description": "Time window for the \"top\" and \"controversial\" sorts. Defaults to \"all\".",
+				"required": false,
+				"defaultLabel": null,
+				"type": "enum",
+				"options": [
+					"hour",
+					"day",
+					"week",
+					"month",
+					"year",
+					"all"
+				]
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
 			}
 		]
 	},
@@ -897,7 +2015,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "reddit_list_subreddit_posts",
 		"platform": "Reddit",
 		"title": "Reddit: List posts in a subreddit feed",
-		"description": "Reddit: List posts in a subreddit feed. Costs 1 credit per request.",
+		"description": "List the posts in a subreddit sorted by hot, new, top or rising, optionally limited to a time window. Each post includes the title, body, author, score, comment count and link. Page through results with `cursor`. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/reddit/list-subreddit-posts",
 		"fields": [
@@ -952,6 +2070,21 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
 			}
 		]
 	},
@@ -959,7 +2092,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "reddit_list_subreddit_comments",
 		"platform": "Reddit",
 		"title": "Reddit: List recent comments in a subreddit",
-		"description": "Reddit: List recent comments in a subreddit. Costs 1 credit per request.",
+		"description": "List the newest comments posted across a subreddit, with the text, author and score of each and the post it was left on. Page through results with `cursor`. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/reddit/list-subreddit-comments",
 		"fields": [
@@ -986,6 +2119,21 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
 			}
 		]
 	},
@@ -993,7 +2141,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "reddit_search_all",
 		"platform": "Reddit",
 		"title": "Search Reddit across posts, communities and users",
-		"description": "Search Reddit across posts, communities and users. Costs 1 credit per request.",
+		"description": "Search Reddit for a phrase and get matching posts, communities and users in one call, sorted by relevance, hot, top, new or comment count and optionally limited to a time window. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/reddit/search/all",
 		"fields": [
@@ -1049,6 +2197,21 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
 			}
 		]
 	},
@@ -1056,7 +2219,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "reddit_search_communities",
 		"platform": "Reddit",
 		"title": "Search Reddit communities",
-		"description": "Search Reddit communities. Costs 1 credit per request.",
+		"description": "Search Reddit for communities matching a phrase. Each result includes the subreddit name, description, weekly visitors and contributions, icon and link. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/reddit/search/communities",
 		"fields": [
@@ -1112,6 +2275,21 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
 			}
 		]
 	},
@@ -1119,7 +2297,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "reddit_search_posts",
 		"platform": "Reddit",
 		"title": "Search Reddit posts",
-		"description": "Search Reddit posts. Costs 1 credit per request.",
+		"description": "Search Reddit posts by phrase, across all of Reddit or within one subreddit, sorted by relevance, hot, top, new or comment count. Each result includes the title, author, subreddit, score, comment count and, when Reddit shows one, a passage matching the query. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/reddit/search/posts",
 		"fields": [
@@ -1175,6 +2353,21 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
 			}
 		]
 	},
@@ -1182,7 +2375,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "reddit_search_users",
 		"platform": "Reddit",
 		"title": "Search Reddit users",
-		"description": "Search Reddit users. Costs 1 credit per request.",
+		"description": "Search Reddit for user accounts matching a phrase. Each result includes the username, total karma, avatar and profile link. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/reddit/search/users",
 		"fields": [
@@ -1238,6 +2431,21 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
 			}
 		]
 	},
@@ -1245,7 +2453,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "reddit_search_comments",
 		"platform": "Reddit",
 		"title": "Search Reddit comments",
-		"description": "Search Reddit comments. Costs 1 credit per request.",
+		"description": "Search Reddit comments by phrase. Each result includes the comment text and link along with the title and subreddit of the post it was left on. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/reddit/search/comments",
 		"fields": [
@@ -1301,6 +2509,21 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
 			}
 		]
 	},
@@ -1308,7 +2531,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "x_get_tweet_detail",
 		"platform": "X (Twitter)",
 		"title": "X (Twitter): Fetch a tweet with its reply thread",
-		"description": "X (Twitter): Fetch a tweet with its reply thread. Costs 1 credit per request.",
+		"description": "Get a tweet by its ID together with the first page of replies beneath it. Returns the text, author, timestamp and like, retweet, reply, quote, bookmark and view counts for the tweet and each reply. Load more replies with `/x/get-tweet-replies`. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/x/get-tweet-detail",
 		"fields": [
@@ -1319,6 +2542,33 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
+			},
+			{
+				"name": "sortOrder",
+				"description": "Reply ordering: \"Relevance\" for X's ranking (default), \"Recency\" for newest first, \"Likes\" for most liked first.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "enum",
+				"options": [
+					"Relevance",
+					"Recency",
+					"Likes"
+				]
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
 			}
 		]
 	},
@@ -1326,7 +2576,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "x_get_tweet_replies",
 		"platform": "X (Twitter)",
 		"title": "X (Twitter): List the replies to a tweet",
-		"description": "X (Twitter): List the replies to a tweet. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"description": "List the replies beneath a tweet, with the threads under each one. Returns the text, author, timestamp and engagement counts for each reply. Page through them with `cursor`. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
 		"method": "POST",
 		"path": "/x/get-tweet-replies",
 		"fields": [
@@ -1345,6 +2595,33 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
+			},
+			{
+				"name": "sortOrder",
+				"description": "Reply ordering: \"Relevance\" for X's ranking (default), \"Recency\" for newest first, \"Likes\" for most liked first.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "enum",
+				"options": [
+					"Relevance",
+					"Recency",
+					"Likes"
+				]
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
 			}
 		]
 	},
@@ -1352,7 +2629,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "x_search",
 		"platform": "X (Twitter)",
 		"title": "Search tweets with X advanced-search operators",
-		"description": "Search tweets with X advanced-search operators. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"description": "Search tweets with the same operators as X advanced search, such as from:, since:, min_faves: and lang:. Sort by latest or top and get each tweet's text, author, media, links and engagement counts. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
 		"method": "POST",
 		"path": "/x/search",
 		"fields": [
@@ -1406,6 +2683,21 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
 			}
 		]
 	},
@@ -1413,7 +2705,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "x_search_users",
 		"platform": "X (Twitter)",
 		"title": "Search X users",
-		"description": "Search X users. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"description": "Search X accounts by name or keyword. Each result includes the handle, display name, bio, location, website, avatar and follower, following and tweet counts. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
 		"method": "POST",
 		"path": "/x/search/users",
 		"fields": [
@@ -1440,6 +2732,21 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": "10",
 				"type": "number",
 				"integer": true
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
 			}
 		]
 	},
@@ -1447,7 +2754,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "x_get_user",
 		"platform": "X (Twitter)",
 		"title": "Fetch an X user profile by handle",
-		"description": "Fetch an X user profile by handle. Costs 1 credit per request.",
+		"description": "Get an X profile by handle: display name, bio, location, website, avatar and banner, follower, following, tweet and like counts, verification status, pinned tweet and join date. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/x/get-user",
 		"fields": [
@@ -1458,6 +2765,21 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
 			}
 		]
 	},
@@ -1465,7 +2787,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "x_get_user_tweets",
 		"platform": "X (Twitter)",
 		"title": "List an X user's tweets timeline",
-		"description": "List an X user's tweets timeline. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"description": "List the tweets an X account has posted, using its numeric user ID from the user profile endpoint. Each tweet includes the text, timestamp, media and like, retweet, reply and view counts. Load older tweets with `cursor`. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
 		"method": "POST",
 		"path": "/x/get-user-tweets",
 		"fields": [
@@ -1484,6 +2806,21 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
 			}
 		]
 	},
@@ -1491,7 +2828,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "x_get_user_replies",
 		"platform": "X (Twitter)",
 		"title": "List an X user's replies",
-		"description": "List an X user's replies. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"description": "List the replies an X account has posted to other tweets, using its numeric user ID. Each reply includes the text, the tweet it answers, timestamp and engagement counts. Load older replies with `cursor`. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
 		"method": "POST",
 		"path": "/x/get-user-replies",
 		"fields": [
@@ -1510,6 +2847,21 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
 			}
 		]
 	},
@@ -1517,7 +2869,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "x_get_user_media",
 		"platform": "X (Twitter)",
 		"title": "List an X user's media tweets",
-		"description": "List an X user's media tweets. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"description": "List the tweets with photos or videos an X account has posted, using its numeric user ID. Each tweet includes direct media links, the text, timestamp and engagement counts. Load older tweets with `cursor`. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
 		"method": "POST",
 		"path": "/x/get-user-media",
 		"fields": [
@@ -1544,6 +2896,21 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": "10",
 				"type": "number",
 				"integer": true
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
 			}
 		]
 	},
@@ -1551,7 +2918,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "x_get_followers",
 		"platform": "X (Twitter)",
 		"title": "List an X user's followers",
-		"description": "List an X user's followers. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"description": "List the accounts that follow an X user, using its numeric user ID. Each follower includes the handle, display name, bio, location and follower and following counts. Page through the list with `cursor`. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
 		"method": "POST",
 		"path": "/x/get-followers",
 		"fields": [
@@ -1570,6 +2937,21 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
 			}
 		]
 	},
@@ -1577,7 +2959,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "x_get_following",
 		"platform": "X (Twitter)",
 		"title": "List the accounts an X user follows",
-		"description": "List the accounts an X user follows. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"description": "List the accounts an X user follows, using its numeric user ID. Each account includes the handle, display name, bio, location and follower and following counts. Page through the list with `cursor`. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
 		"method": "POST",
 		"path": "/x/get-following",
 		"fields": [
@@ -1596,6 +2978,21 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
 			}
 		]
 	},
@@ -1603,7 +3000,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "x_get_tweet_retweeters",
 		"platform": "X (Twitter)",
 		"title": "X (Twitter): List the users who retweeted a tweet",
-		"description": "X (Twitter): List the users who retweeted a tweet. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"description": "List the accounts that retweeted a tweet, with each account's handle, display name, bio and follower and following counts. Page through the list with `cursor`. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
 		"method": "POST",
 		"path": "/x/get-tweet-retweeters",
 		"fields": [
@@ -1630,6 +3027,21 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": "10",
 				"type": "number",
 				"integer": true
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
 			}
 		]
 	},
@@ -1637,7 +3049,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "x_get_tweet_quotes",
 		"platform": "X (Twitter)",
 		"title": "X (Twitter): List quote tweets of a tweet",
-		"description": "X (Twitter): List quote tweets of a tweet. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"description": "List the quote tweets of a tweet, the posts that shared it with added commentary, sorted by latest or top. Each includes the text, author, media and engagement counts. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
 		"method": "POST",
 		"path": "/x/get-tweet-quotes",
 		"fields": [
@@ -1675,6 +3087,21 @@ export const endpoints: CatalogEndpoint[] = [
 					"Latest",
 					"Top"
 				]
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
 			}
 		]
 	},
@@ -1682,7 +3109,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "github_get_profile",
 		"platform": "GitHub",
 		"title": "Fetch a GitHub user's profile and pinned repositories",
-		"description": "Fetch a GitHub user's profile and pinned repositories. Costs 1 credit per request.",
+		"description": "Get a GitHub user's public profile by username: name, bio, company, location, website, X handle, follower and repository counts, join date and pinned repositories. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/github/get-profile",
 		"fields": [
@@ -1693,6 +3120,21 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
 			}
 		]
 	},
@@ -1700,7 +3142,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "github_get_contributions",
 		"platform": "GitHub",
 		"title": "Fetch a GitHub user's contribution calendar and totals",
-		"description": "Fetch a GitHub user's contribution calendar and totals. Costs 1 credit per request.",
+		"description": "Get a GitHub user's contribution graph for a date range of up to one year: the contribution count for each day plus totals for commits, issues, pull requests, reviews and new repositories. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/github/get-contributions",
 		"fields": [
@@ -1718,7 +3160,7 @@ export const endpoints: CatalogEndpoint[] = [
 				"required": false,
 				"defaultLabel": null,
 				"type": "string",
-				"input": "text"
+				"input": "datetime"
 			},
 			{
 				"name": "to",
@@ -1726,7 +3168,22 @@ export const endpoints: CatalogEndpoint[] = [
 				"required": false,
 				"defaultLabel": null,
 				"type": "string",
-				"input": "text"
+				"input": "datetime"
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
 			}
 		]
 	},
@@ -1734,7 +3191,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "github_list_repositories",
 		"platform": "GitHub",
 		"title": "List a GitHub user's public repositories",
-		"description": "List a GitHub user's public repositories. Costs 1 credit per request.",
+		"description": "List a GitHub user's public repositories, sorted by last push or another order. Each repository includes its description, primary language, star, fork and watcher counts and whether it is a fork or archived. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/github/list-repositories",
 		"fields": [
@@ -1775,6 +3232,21 @@ export const endpoints: CatalogEndpoint[] = [
 					"name",
 					"stars"
 				]
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
 			}
 		]
 	},
@@ -1782,7 +3254,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "github_list_starred",
 		"platform": "GitHub",
 		"title": "List the repositories a GitHub user has starred",
-		"description": "List the repositories a GitHub user has starred. Costs 1 credit per request.",
+		"description": "List the repositories a GitHub user has starred, with each repository's owner, description, primary language and star and fork counts. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/github/list-starred",
 		"fields": [
@@ -1809,6 +3281,21 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
 			}
 		]
 	},
@@ -1816,7 +3303,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "github_list_projects",
 		"platform": "GitHub",
 		"title": "List a GitHub user's public projects",
-		"description": "List a GitHub user's public projects. Costs 1 credit per request.",
+		"description": "List a GitHub user's public project boards, with each project's title, description, link, open or closed state and creation and update dates. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/github/list-projects",
 		"fields": [
@@ -1843,6 +3330,21 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
 			}
 		]
 	},
@@ -1850,7 +3352,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "github_search_repositories",
 		"platform": "GitHub",
 		"title": "Search public GitHub repositories",
-		"description": "Search public GitHub repositories. Costs 1 credit per request.",
+		"description": "Search public GitHub repositories by keyword and filter by owner, language, stars, forks, topics, license or creation and last-push date. Each result includes the description, primary language and star and fork counts. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/github/search-repositories",
 		"fields": [
@@ -2112,17 +3614,6 @@ export const endpoints: CatalogEndpoint[] = [
 				"type": "boolean"
 			},
 			{
-				"name": "visibility",
-				"description": "Repository visibility. Maps to `is:public` / `is:private`.",
-				"required": false,
-				"defaultLabel": null,
-				"type": "enum",
-				"options": [
-					"public",
-					"private"
-				]
-			},
-			{
 				"name": "fork",
 				"description": "Whether to include forks: \"exclude\" (default), \"include\" (`fork:true`), or \"only\" (`fork:only`).",
 				"required": false,
@@ -2174,6 +3665,21 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
 			}
 		]
 	},
@@ -2181,7 +3687,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "github_search_code",
 		"platform": "GitHub",
 		"title": "Search code across public GitHub repositories",
-		"description": "Search code across public GitHub repositories. Costs 1 credit per request.",
+		"description": "Search source code across public GitHub repositories, filtered by language, file extension, file name, path, owner or repository. Each result gives the file name, path, link and the repository it belongs to. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/github/search-code",
 		"fields": [
@@ -2287,6 +3793,21 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": null,
 				"type": "number",
 				"integer": true
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
 			}
 		]
 	},
@@ -2294,7 +3815,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "github_search_commits",
 		"platform": "GitHub",
 		"title": "Search commits across public GitHub repositories",
-		"description": "Search commits across public GitHub repositories. Costs 1 credit per request.",
+		"description": "Search commits across public GitHub repositories by message, author, committer, date or hash. Each result includes the commit message, SHA, author, committer, link and repository. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/github/search-commits",
 		"fields": [
@@ -2471,6 +3992,21 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": null,
 				"type": "number",
 				"integer": true
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
 			}
 		]
 	},
@@ -2478,7 +4014,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "github_search_issues",
 		"platform": "GitHub",
 		"title": "Search GitHub issues",
-		"description": "Search GitHub issues. Costs 1 credit per request.",
+		"description": "Search GitHub issues by keyword and filter by repository, state, author, assignee, labels, comment count or date. Each result includes the title, state, author, labels, comment count and dates. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/github/search-issues",
 		"fields": [
@@ -2769,6 +4305,21 @@ export const endpoints: CatalogEndpoint[] = [
 					"updated",
 					"comments"
 				]
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
 			}
 		]
 	},
@@ -2776,7 +4327,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "github_search_pull_requests",
 		"platform": "GitHub",
 		"title": "Search GitHub pull requests",
-		"description": "Search GitHub pull requests. Costs 1 credit per request.",
+		"description": "Search GitHub pull requests by keyword and filter by repository, state, author, labels, review status, draft state or merge date. Each result includes the title, state, author, merge status, labels and dates. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/github/search-pull-requests",
 		"fields": [
@@ -3116,6 +4667,21 @@ export const endpoints: CatalogEndpoint[] = [
 					"updated",
 					"comments"
 				]
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
 			}
 		]
 	},
@@ -3123,7 +4689,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "github_search_discussions",
 		"platform": "GitHub",
 		"title": "Search GitHub discussions",
-		"description": "Search GitHub discussions. Costs 1 credit per request.",
+		"description": "Search GitHub Discussions by keyword and filter by repository, author, comment count, date or whether they are answered. Each result includes the title, category, author, comment count and answered status. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/github/search-discussions",
 		"fields": [
@@ -3313,6 +4879,21 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
 			}
 		]
 	},
@@ -3320,7 +4901,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "github_search_users",
 		"platform": "GitHub",
 		"title": "Search GitHub users and organizations",
-		"description": "Search GitHub users and organizations. Costs 1 credit per request.",
+		"description": "Search GitHub users and organizations by keyword, name, location, language, follower count, repository count or join date. Each result includes the username, name, bio, location and follower and repository counts. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/github/search-users",
 		"fields": [
@@ -3529,6 +5110,21 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
 			}
 		]
 	},
@@ -3536,7 +5132,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "github_search_topics",
 		"platform": "GitHub",
 		"title": "Search GitHub topics",
-		"description": "Search GitHub topics. Costs 1 credit per request.",
+		"description": "Search GitHub topics by keyword, optionally limited to featured or curated topics. Each result includes the topic name, display name, description and who created it. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/github/search-topics",
 		"fields": [
@@ -3659,6 +5255,455 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": null,
 				"type": "number",
 				"integer": true
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
+			}
+		]
+	},
+	{
+		"id": "instagram_user_reels",
+		"platform": "Instagram",
+		"title": "Instagram: List profile Reels",
+		"description": "List Reels from a public Instagram profile with media links, engagement counts, collaborator IDs and owner details. Continue with nextCursor. Instagram may include other profile videos. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"method": "POST",
+		"path": "/instagram/user-reels",
+		"fields": [
+			{
+				"name": "username",
+				"description": "Instagram username, or the profile link, e.g. \"instagram\" or \"https://www.instagram.com/instagram/\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–10). Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
+			}
+		]
+	},
+	{
+		"id": "instagram_tagged_posts",
+		"platform": "Instagram",
+		"title": "Instagram: List posts tagging a profile",
+		"description": "List public posts in which an Instagram account is tagged, including captions, media links and engagement counts. Continue with nextCursor; Instagram controls which tagged posts are visible. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"method": "POST",
+		"path": "/instagram/tagged-posts",
+		"fields": [
+			{
+				"name": "username",
+				"description": "Instagram username, or the profile link, e.g. \"instagram\" or \"https://www.instagram.com/instagram/\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–10). Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
+			}
+		]
+	},
+	{
+		"id": "instagram_stories",
+		"platform": "Instagram",
+		"title": "Instagram: Get current profile stories",
+		"description": "Get the stories currently available on a public Instagram profile, including media variants, publish and expiration times, author details, mentions, links and shared posts. Returns an empty stories list when none are available. Stories are not paginated. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/instagram/stories",
+		"fields": [
+			{
+				"name": "username",
+				"description": "Instagram username, or the profile link, e.g. \"instagram\" or \"https://www.instagram.com/instagram/\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
+			}
+		]
+	},
+	{
+		"id": "instagram_highlights",
+		"platform": "Instagram",
+		"title": "Instagram: List profile highlights",
+		"description": "List saved story highlights on a public Instagram profile, including highlight IDs, titles and cover images. Use a highlight ID with the highlight endpoint to retrieve its stories. Continue with nextCursor. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"method": "POST",
+		"path": "/instagram/highlights",
+		"fields": [
+			{
+				"name": "username",
+				"description": "Instagram username, or the profile link, e.g. \"instagram\" or \"https://www.instagram.com/instagram/\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–10). Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
+			}
+		]
+	},
+	{
+		"id": "instagram_highlight",
+		"platform": "Instagram",
+		"title": "Instagram: Get a highlight and its stories",
+		"description": "Get a saved Instagram highlight and its available stories, including media variants, publish times, author details, mentions, links and shared posts. Saved highlights do not expire. Stories in a highlight are returned together without pagination. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/instagram/highlight",
+		"fields": [
+			{
+				"name": "highlightId",
+				"description": "Numeric highlight ID, highlight:<ID>, or an Instagram stories/highlights link.",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
+			}
+		]
+	},
+	{
+		"id": "instagram_post_likers",
+		"platform": "Instagram",
+		"title": "Instagram: Get post likers",
+		"description": "Get the liker accounts Instagram exposes for a post or Reel, with usernames, names, profile images, private and verified flags, and the total liker count. Instagram can limit this list; it is not a complete audience export and does not support pagination. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/instagram/post-likers",
+		"fields": [
+			{
+				"name": "shortcode",
+				"description": "Post shortcode, or the post or Reel link, e.g. \"DA1b2C3d4E5\" or \"https://www.instagram.com/p/DA1b2C3d4E5/\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
+			}
+		]
+	},
+	{
+		"id": "instagram_comment_replies",
+		"platform": "Instagram",
+		"title": "Instagram: List replies to a comment",
+		"description": "List the accessible replies to an Instagram post comment in chronological order, including text, author, publish time, like count, the parent comment and total reply count. Supply the post shortcode and parent comment ID. Continue with nextCursor. Instagram may return a different page size than requested. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"method": "POST",
+		"path": "/instagram/comment-replies",
+		"fields": [
+			{
+				"name": "shortcode",
+				"description": "Post shortcode, or the post or Reel link, e.g. \"DA1b2C3d4E5\" or \"https://www.instagram.com/p/DA1b2C3d4E5/\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–10). Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "commentId",
+				"description": "Numeric ID of the parent comment.",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
+			}
+		]
+	},
+	{
+		"id": "instagram_location",
+		"platform": "Instagram",
+		"title": "Instagram: Get location details",
+		"description": "Get an Instagram location by its numeric ID or location link. Returns its name, coordinates, category, post count, address, price range and hours status. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/instagram/location",
+		"fields": [
+			{
+				"name": "locationId",
+				"description": "Numeric Instagram location ID or an instagram.com/explore/locations/<ID>/ link.",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
+			}
+		]
+	},
+	{
+		"id": "instagram_location_posts",
+		"platform": "Instagram",
+		"title": "Instagram: List posts at a location",
+		"description": "List posts Instagram associates with a location, including captions, image and video URLs, publish times, engagement counts, tagged users and place details. Results use Instagram’s ranked order and may include nearby places. Continue with nextCursor. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"method": "POST",
+		"path": "/instagram/location-posts",
+		"fields": [
+			{
+				"name": "locationId",
+				"description": "Numeric Instagram location ID or an instagram.com/explore/locations/<ID>/ link.",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–10). Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
+			}
+		]
+	},
+	{
+		"id": "instagram_search",
+		"platform": "Instagram",
+		"title": "Instagram: Search posts by keyword or hashtag",
+		"description": "Search public Instagram posts and Reels by keyword or hashtag. Returns media links, captions, publish times, engagement counts and owner details, with nextCursor for more results. Search results reflect Instagram’s ranking and available content. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"method": "POST",
+		"path": "/instagram/search",
+		"fields": [
+			{
+				"name": "query",
+				"description": null,
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–10). Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
 			}
 		]
 	},
@@ -3666,17 +5711,32 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "instagram_user",
 		"platform": "Instagram",
 		"title": "Instagram: Get user profile by username",
-		"description": "Instagram: Get user profile by username. Costs 1 credit per request.",
+		"description": "Get a public Instagram profile by username: full name, bio, bio links, profile picture, follower, following and post counts, and whether the account is private, verified or a business. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/instagram/user",
 		"fields": [
 			{
 				"name": "username",
-				"description": "Instagram username, or the profile link, e.g. \"instagram\" or \"https://www.instagram.com/instagram/\"",
+				"description": "Instagram username, or the profile link, e.g. \"instagram\" or \"https://www.instagram.com/instagram/\".",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
 			}
 		]
 	},
@@ -3684,13 +5744,13 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "instagram_user_posts",
 		"platform": "Instagram",
 		"title": "Instagram: Get paginated user posts",
-		"description": "Instagram: Get paginated user posts. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"description": "List the posts on an Instagram profile. Each post includes the caption, image or video link, like and comment counts, timestamp and, for videos, the view count. Page through older posts with `cursor`. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
 		"method": "POST",
 		"path": "/instagram/user-posts",
 		"fields": [
 			{
 				"name": "username",
-				"description": "Instagram username, or the profile link, e.g. \"instagram\" or \"https://www.instagram.com/instagram/\"",
+				"description": "Instagram username, or the profile link, e.g. \"instagram\" or \"https://www.instagram.com/instagram/\".",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
@@ -3711,6 +5771,21 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
 			}
 		]
 	},
@@ -3718,13 +5793,13 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "instagram_followers",
 		"platform": "Instagram",
 		"title": "Instagram: Get paginated user followers",
-		"description": "Instagram: Get paginated user followers. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"description": "List the followers of an Instagram account, with each follower's username, full name, profile picture and whether they are private or verified. Page through the list with `cursor`. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
 		"method": "POST",
 		"path": "/instagram/followers",
 		"fields": [
 			{
 				"name": "username",
-				"description": "Instagram username, or the profile link, e.g. \"instagram\" or \"https://www.instagram.com/instagram/\"",
+				"description": "Instagram username, or the profile link, e.g. \"instagram\" or \"https://www.instagram.com/instagram/\".",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
@@ -3745,6 +5820,21 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
 			}
 		]
 	},
@@ -3752,13 +5842,13 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "instagram_following",
 		"platform": "Instagram",
 		"title": "Instagram: Get paginated users followed by the user",
-		"description": "Instagram: Get paginated users followed by the user. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"description": "List the accounts an Instagram user follows, with each account's username, full name, profile picture and whether it is private or verified. Page through the list with `cursor`. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
 		"method": "POST",
 		"path": "/instagram/following",
 		"fields": [
 			{
 				"name": "username",
-				"description": "Instagram username, or the profile link, e.g. \"instagram\" or \"https://www.instagram.com/instagram/\"",
+				"description": "Instagram username, or the profile link, e.g. \"instagram\" or \"https://www.instagram.com/instagram/\".",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
@@ -3779,6 +5869,21 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
 			}
 		]
 	},
@@ -3786,17 +5891,32 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "instagram_post",
 		"platform": "Instagram",
 		"title": "Instagram: Get post details by shortcode",
-		"description": "Instagram: Get post details by shortcode. Costs 1 credit per request.",
+		"description": "Get an Instagram post or Reel by its shortcode, the code in its link (instagram.com/p/<shortcode>). Returns the caption, image or video link, like and comment counts, timestamp and, for videos, the view count. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/instagram/post",
 		"fields": [
 			{
 				"name": "shortcode",
-				"description": "Post shortcode, or the post or Reel link, e.g. \"DA1b2C3d4E5\" or \"https://www.instagram.com/p/DA1b2C3d4E5/\"",
+				"description": "Post shortcode, or the post or Reel link, e.g. \"DA1b2C3d4E5\" or \"https://www.instagram.com/p/DA1b2C3d4E5/\".",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
 			}
 		]
 	},
@@ -3804,13 +5924,13 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "instagram_post_comments",
 		"platform": "Instagram",
 		"title": "Instagram: Get comments on a post",
-		"description": "Instagram: Get comments on a post. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"description": "List the comments on an Instagram post or Reel by its shortcode. Each comment includes the text, author, time posted and like count. Page through the comments with `cursor`. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
 		"method": "POST",
 		"path": "/instagram/post-comments",
 		"fields": [
 			{
 				"name": "shortcode",
-				"description": "Post shortcode, or the post or Reel link, e.g. \"DA1b2C3d4E5\" or \"https://www.instagram.com/p/DA1b2C3d4E5/\"",
+				"description": "Post shortcode, or the post or Reel link, e.g. \"DA1b2C3d4E5\" or \"https://www.instagram.com/p/DA1b2C3d4E5/\".",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
@@ -3831,6 +5951,21 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
 			}
 		]
 	},
@@ -3838,7 +5973,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "instagram_search_users",
 		"platform": "Instagram",
 		"title": "Instagram: Search users",
-		"description": "Instagram: Search users. Costs 1 credit per request.",
+		"description": "Search Instagram accounts by name or keyword. Each result includes the username, full name, bio, profile picture, follower and post counts, and whether the account is private, verified or a business. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/instagram/search-users",
 		"fields": [
@@ -3849,6 +5984,21 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
 			}
 		]
 	},
@@ -3856,7 +6006,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "tiktok_get_user",
 		"platform": "TikTok",
 		"title": "Fetch a TikTok user by username",
-		"description": "Fetch a TikTok user by username. Costs 1 credit per request.",
+		"description": "Get a public TikTok profile by username: nickname, bio, avatar, verification status, whether the account is private and its comment, duet and stitch settings. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/tiktok/get-user",
 		"fields": [
@@ -3867,6 +6017,21 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
 			}
 		]
 	},
@@ -3874,7 +6039,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "tiktok_get_user_posts",
 		"platform": "TikTok",
 		"title": "Get a TikTok user’s posts",
-		"description": "Get a TikTok user’s posts. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"description": "List the videos and photo posts on a public TikTok account by username. Each post includes the caption, view, like, comment, share and save counts, sound, hashtags and cover image. Page through results with the `cursor` from the previous response's `nextCursor`. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
 		"method": "POST",
 		"path": "/tiktok/get-user-posts",
 		"fields": [
@@ -3901,6 +6066,21 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": "35",
 				"type": "number",
 				"integer": true
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
 			}
 		]
 	},
@@ -3908,7 +6088,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "tiktok_get_user_liked_videos",
 		"platform": "TikTok",
 		"title": "Get the videos a TikTok user liked",
-		"description": "Get the videos a TikTok user liked. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"description": "List the posts a TikTok account liked, by username. Works for accounts that show their liked videos publicly. Page through results with the `cursor` from the previous response's `nextCursor`. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
 		"method": "POST",
 		"path": "/tiktok/get-user-liked-videos",
 		"fields": [
@@ -3935,6 +6115,21 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": "30",
 				"type": "number",
 				"integer": true
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
 			}
 		]
 	},
@@ -3942,7 +6137,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "tiktok_get_user_reposts",
 		"platform": "TikTok",
 		"title": "Get the videos a TikTok user reposted",
-		"description": "Get the videos a TikTok user reposted. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"description": "List the posts a TikTok account reposted to its followers, by username, each with its original creator. Page through results with the `cursor` from the previous response's `nextCursor`. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
 		"method": "POST",
 		"path": "/tiktok/get-user-reposts",
 		"fields": [
@@ -3969,6 +6164,21 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": "30",
 				"type": "number",
 				"integer": true
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
 			}
 		]
 	},
@@ -3976,7 +6186,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "tiktok_get_user_followers",
 		"platform": "TikTok",
 		"title": "Get a TikTok user’s followers",
-		"description": "Get a TikTok user’s followers. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"description": "List the followers of a public TikTok account by username, with each follower’s username, nickname, bio, avatar and follower counts. Page through results with the `cursor` from the previous response's `nextCursor`. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
 		"method": "POST",
 		"path": "/tiktok/get-user-followers",
 		"fields": [
@@ -4003,6 +6213,21 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": "30",
 				"type": "number",
 				"integer": true
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
 			}
 		]
 	},
@@ -4010,7 +6235,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "tiktok_get_user_following",
 		"platform": "TikTok",
 		"title": "Get the accounts a TikTok user follows",
-		"description": "Get the accounts a TikTok user follows. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"description": "List the accounts a public TikTok user follows, by username, with each account’s username, nickname, bio, avatar and follower counts. Page through results with the `cursor` from the previous response's `nextCursor`. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
 		"method": "POST",
 		"path": "/tiktok/get-user-following",
 		"fields": [
@@ -4037,6 +6262,21 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": "30",
 				"type": "number",
 				"integer": true
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
 			}
 		]
 	},
@@ -4044,7 +6284,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "tiktok_get_user_playlists",
 		"platform": "TikTok",
 		"title": "Get a TikTok user’s playlists",
-		"description": "Get a TikTok user’s playlists. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"description": "List the playlists a TikTok creator made, by username, with each playlist’s ID, name, cover and number of posts. Page through results with the `cursor` from the previous response's `nextCursor`. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
 		"method": "POST",
 		"path": "/tiktok/get-user-playlists",
 		"fields": [
@@ -4071,6 +6311,21 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": "30",
 				"type": "number",
 				"integer": true
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
 			}
 		]
 	},
@@ -4078,7 +6333,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "tiktok_get_playlist_videos",
 		"platform": "TikTok",
 		"title": "Get the videos in a TikTok playlist",
-		"description": "Get the videos in a TikTok playlist. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"description": "List the posts in a TikTok creator playlist by playlist ID, in playlist order. Page through results with the `cursor` from the previous response's `nextCursor`. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
 		"method": "POST",
 		"path": "/tiktok/get-playlist-videos",
 		"fields": [
@@ -4105,6 +6360,21 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": "20",
 				"type": "number",
 				"integer": true
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
 			}
 		]
 	},
@@ -4112,7 +6382,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "tiktok_get_video",
 		"platform": "TikTok",
 		"title": "Fetch a TikTok video by ID",
-		"description": "Fetch a TikTok video by ID. Costs 1 credit per request.",
+		"description": "Get a TikTok video or photo post by ID: caption, view, like, comment, share and save counts, creator, sound, hashtags, mentions, tagged place, cover image and subtitle files. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/tiktok/get-video",
 		"fields": [
@@ -4123,6 +6393,21 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
 			}
 		]
 	},
@@ -4130,7 +6415,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "tiktok_get_video_comments",
 		"platform": "TikTok",
 		"title": "Get the comments on a TikTok video",
-		"description": "Get the comments on a TikTok video. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"description": "List the top-level comments on a TikTok post by ID, with each comment’s text, like and reply counts, author and whether the creator liked or pinned it. Page through results with the `cursor` from the previous response's `nextCursor`. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
 		"method": "POST",
 		"path": "/tiktok/get-video-comments",
 		"fields": [
@@ -4157,6 +6442,21 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": "20",
 				"type": "number",
 				"integer": true
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
 			}
 		]
 	},
@@ -4164,7 +6464,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "tiktok_get_comment_replies",
 		"platform": "TikTok",
 		"title": "Get the replies to a TikTok comment",
-		"description": "Get the replies to a TikTok comment. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"description": "List the replies to a comment on a TikTok post, with each reply’s text, like count and author. Page through results with the `cursor` from the previous response's `nextCursor`. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
 		"method": "POST",
 		"path": "/tiktok/get-comment-replies",
 		"fields": [
@@ -4199,6 +6499,21 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
 			}
 		]
 	},
@@ -4206,7 +6521,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "tiktok_get_related_videos",
 		"platform": "TikTok",
 		"title": "Get videos related to a TikTok video",
-		"description": "Get videos related to a TikTok video. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"description": "Get the posts TikTok recommends alongside a post, by post ID. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
 		"method": "POST",
 		"path": "/tiktok/get-related-videos",
 		"fields": [
@@ -4217,6 +6532,21 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
 			}
 		]
 	},
@@ -4224,7 +6554,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "tiktok_get_hashtag",
 		"platform": "TikTok",
 		"title": "Fetch a TikTok hashtag",
-		"description": "Fetch a TikTok hashtag. Costs 1 credit per request.",
+		"description": "Look up a TikTok hashtag by name and get its ID, description, number of videos and total views. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/tiktok/get-hashtag",
 		"fields": [
@@ -4235,6 +6565,21 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
 			}
 		]
 	},
@@ -4242,7 +6587,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "tiktok_get_hashtag_videos",
 		"platform": "TikTok",
 		"title": "Get the videos for a TikTok hashtag",
-		"description": "Get the videos for a TikTok hashtag. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"description": "List the posts made with a TikTok hashtag, by hashtag name, in the order TikTok shows them on the hashtag page. Page through results with the `cursor` from the previous response's `nextCursor`. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
 		"method": "POST",
 		"path": "/tiktok/get-hashtag-videos",
 		"fields": [
@@ -4269,6 +6614,21 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": "30",
 				"type": "number",
 				"integer": true
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
 			}
 		]
 	},
@@ -4276,7 +6636,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "tiktok_get_sound",
 		"platform": "TikTok",
 		"title": "Fetch a TikTok sound by ID",
-		"description": "Fetch a TikTok sound by ID. Costs 1 credit per request.",
+		"description": "Get a TikTok sound by ID: title, artist, duration, cover image, audio link, whether it is an original sound and how many videos use it. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/tiktok/get-sound",
 		"fields": [
@@ -4287,6 +6647,21 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
 			}
 		]
 	},
@@ -4294,7 +6669,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "tiktok_get_sound_videos",
 		"platform": "TikTok",
 		"title": "Get the videos that use a TikTok sound",
-		"description": "Get the videos that use a TikTok sound. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"description": "List the posts that use a TikTok sound, by sound ID, in the order TikTok shows them on the sound’s page. Page through results with the `cursor` from the previous response's `nextCursor`. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
 		"method": "POST",
 		"path": "/tiktok/get-sound-videos",
 		"fields": [
@@ -4321,6 +6696,21 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": "30",
 				"type": "number",
 				"integer": true
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
 			}
 		]
 	},
@@ -4328,7 +6718,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "tiktok_search_users",
 		"platform": "TikTok",
 		"title": "Search TikTok accounts",
-		"description": "Search TikTok accounts. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"description": "Find TikTok accounts by keyword, with each account’s username, nickname, bio, avatar, follower and like counts and verification status. Page through results with the `cursor` from the previous response's `nextCursor`. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
 		"method": "POST",
 		"path": "/tiktok/search-users",
 		"fields": [
@@ -4355,6 +6745,21 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": "10",
 				"type": "number",
 				"integer": true
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
 			}
 		]
 	},
@@ -4362,7 +6767,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "tiktok_search_videos",
 		"platform": "TikTok",
 		"title": "Search TikTok videos",
-		"description": "Search TikTok videos. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"description": "Search TikTok posts by keyword. Each result includes the caption, view, like, comment and share counts, creator, sound and hashtags. Page through results with the `cursor` from the previous response's `nextCursor`. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
 		"method": "POST",
 		"path": "/tiktok/search-videos",
 		"fields": [
@@ -4389,6 +6794,21 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": "30",
 				"type": "number",
 				"integer": true
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
 			}
 		]
 	},
@@ -4396,7 +6816,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "youtube_get_video",
 		"platform": "YouTube",
 		"title": "Fetch a video's full details and transcript from its YouTube link",
-		"description": "Fetch a video's full details and transcript from its YouTube link. Costs 1 credit per request.",
+		"description": "Get a YouTube video's details from any video link, including Shorts and live streams: title, description, channel, duration, view and like counts, publish date, keywords and thumbnails, plus its timed transcript in the language you choose. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/youtube/get-video",
 		"fields": [
@@ -4422,6 +6842,21 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
 			}
 		]
 	},
