@@ -2191,6 +2191,14 @@ export const endpoints: CatalogEndpoint[] = [
 				]
 			},
 			{
+				"name": "count",
+				"description": "Number of results to return (1–10). Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
+			},
+			{
 				"name": "cursor",
 				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
 				"required": false,
@@ -2267,6 +2275,14 @@ export const endpoints: CatalogEndpoint[] = [
 					"year",
 					"all"
 				]
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–10). Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
 			},
 			{
 				"name": "cursor",
@@ -2347,6 +2363,14 @@ export const endpoints: CatalogEndpoint[] = [
 				]
 			},
 			{
+				"name": "count",
+				"description": "Number of results to return (1–10). Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
+			},
+			{
 				"name": "cursor",
 				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
 				"required": false,
@@ -2423,6 +2447,14 @@ export const endpoints: CatalogEndpoint[] = [
 					"year",
 					"all"
 				]
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–10). Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
 			},
 			{
 				"name": "cursor",
@@ -2503,6 +2535,14 @@ export const endpoints: CatalogEndpoint[] = [
 				]
 			},
 			{
+				"name": "count",
+				"description": "Number of results to return (1–10). Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
+			},
+			{
 				"name": "cursor",
 				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
 				"required": false,
@@ -2556,6 +2596,14 @@ export const endpoints: CatalogEndpoint[] = [
 				]
 			},
 			{
+				"name": "count",
+				"description": "Number of replies to return with the tweet (1–20). Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
+			},
+			{
 				"name": "cacheMaxAgeHours",
 				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
 				"required": false,
@@ -2607,6 +2655,14 @@ export const endpoints: CatalogEndpoint[] = [
 					"Recency",
 					"Likes"
 				]
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–20). Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
 			},
 			{
 				"name": "cacheMaxAgeHours",
@@ -2808,6 +2864,14 @@ export const endpoints: CatalogEndpoint[] = [
 				"input": "text"
 			},
 			{
+				"name": "count",
+				"description": "Number of results to return (1–20). Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
+			},
+			{
 				"name": "cacheMaxAgeHours",
 				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
 				"required": false,
@@ -2847,6 +2911,14 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–20). Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
 			},
 			{
 				"name": "cacheMaxAgeHours",
@@ -2939,6 +3011,14 @@ export const endpoints: CatalogEndpoint[] = [
 				"input": "text"
 			},
 			{
+				"name": "count",
+				"description": "Number of results to return (1–50). Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
+			},
+			{
 				"name": "cacheMaxAgeHours",
 				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
 				"required": false,
@@ -2980,6 +3060,14 @@ export const endpoints: CatalogEndpoint[] = [
 				"input": "text"
 			},
 			{
+				"name": "count",
+				"description": "Number of results to return (1–50). Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
+			},
+			{
 				"name": "cacheMaxAgeHours",
 				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
 				"required": false,
@@ -3013,20 +3101,20 @@ export const endpoints: CatalogEndpoint[] = [
 				"input": "text"
 			},
 			{
-				"name": "tweetId",
-				"description": "Numeric ID of the tweet whose retweeters to list, or the tweet link, e.g. \"1234567890\".",
-				"required": true,
-				"defaultLabel": null,
-				"type": "string",
-				"input": "text"
-			},
-			{
 				"name": "count",
 				"description": "Number of results to return (1–100). Defaults to 10.",
 				"required": false,
 				"defaultLabel": "10",
 				"type": "number",
 				"integer": true
+			},
+			{
+				"name": "tweetId",
+				"description": "Numeric ID of the tweet whose retweeters to list, or the tweet link, e.g. \"1234567890\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
 			},
 			{
 				"name": "cacheMaxAgeHours",
