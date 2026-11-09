@@ -5463,7 +5463,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "instagram_stories",
 		"platform": "Instagram",
 		"title": "Instagram: Get current profile stories",
-		"description": "Get the stories currently available on a public Instagram profile, including media variants, publish and expiration times, author details, mentions, links and shared posts. Returns an empty stories list when none are available. Stories are not paginated. Costs 1 credit per request.",
+		"description": "Get the stories currently available on a public Instagram profile, including media variants, publish and expiration times, author details, mentions, links and shared posts. Returns an empty stories list when none are available. Stories are not paginated: every available story comes back in one response. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/instagram/stories",
 		"fields": [
@@ -5545,7 +5545,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "instagram_highlight",
 		"platform": "Instagram",
 		"title": "Instagram: Get a highlight and its stories",
-		"description": "Get a saved Instagram highlight and its available stories, including media variants, publish times, author details, mentions, links and shared posts. Saved highlights do not expire. Stories in a highlight are returned together without pagination. Costs 1 credit per request.",
+		"description": "Get a saved Instagram highlight and its available stories, including media variants, publish times, author details, mentions, links and shared posts. Saved highlights do not expire. Stories are not paginated: every story in the highlight comes back in one response. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/instagram/highlight",
 		"fields": [
@@ -5578,7 +5578,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "instagram_post_likers",
 		"platform": "Instagram",
 		"title": "Instagram: Get post likers",
-		"description": "Get the liker accounts Instagram exposes for a post or Reel, with usernames, names, profile images, private and verified flags, and the total liker count. Instagram can limit this list; it is not a complete audience export and does not support pagination. Costs 1 credit per request.",
+		"description": "Get the liker accounts Instagram exposes for a post or Reel, with usernames, names, profile images, private and verified flags, and the total liker count. Instagram can limit this list, so it is not a complete audience export. This list is not paginated: one request returns the results we could get, which is not always every match. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/instagram/post-likers",
 		"fields": [
@@ -6061,7 +6061,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "instagram_search_users",
 		"platform": "Instagram",
 		"title": "Instagram: Search users",
-		"description": "Search Instagram accounts by name or keyword. Each result includes the username, full name, bio, profile picture, follower and post counts, and whether the account is private, verified or a business. Costs 1 credit per request.",
+		"description": "Search Instagram accounts by name or keyword. Each result includes the username, full name, bio, profile picture, follower and post counts, and whether the account is private, verified or a business. This list is not paginated: one request returns the results we could get, which is not always every match. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/instagram/search-users",
 		"fields": [
@@ -6609,7 +6609,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "tiktok_get_related_videos",
 		"platform": "TikTok",
 		"title": "Get videos related to a TikTok video",
-		"description": "Get the posts TikTok recommends alongside a post, by post ID. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"description": "Get the posts TikTok recommends alongside a post, by post ID. This list is not paginated: one request returns the results we could get, which is not always every match. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
 		"method": "POST",
 		"path": "/tiktok/get-related-videos",
 		"fields": [
