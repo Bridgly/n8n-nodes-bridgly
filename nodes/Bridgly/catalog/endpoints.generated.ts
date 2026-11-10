@@ -6118,7 +6118,7 @@ export const endpoints: CatalogEndpoint[] = [
 	{
 		"id": "tiktok_get_user_posts",
 		"platform": "TikTok",
-		"title": "Get a TikTok user’s posts",
+		"title": "Get a TikTok user's posts",
 		"description": "List the videos and photo posts on a public TikTok account by username. Each post includes the caption, view, like, comment, share and save counts, sound, hashtags and cover image. Page through results with the `cursor` from the previous response's `nextCursor`. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/tiktok/get-user-posts",
@@ -6265,7 +6265,7 @@ export const endpoints: CatalogEndpoint[] = [
 	{
 		"id": "tiktok_get_user_followers",
 		"platform": "TikTok",
-		"title": "Get a TikTok user’s followers",
+		"title": "Get a TikTok user's followers",
 		"description": "List the followers of a public TikTok account by username, with each follower’s username, nickname, bio, avatar and follower counts. Page through results with the `cursor` from the previous response's `nextCursor`. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/tiktok/get-user-followers",
@@ -6363,7 +6363,7 @@ export const endpoints: CatalogEndpoint[] = [
 	{
 		"id": "tiktok_get_user_playlists",
 		"platform": "TikTok",
-		"title": "Get a TikTok user’s playlists",
+		"title": "Get a TikTok user's playlists",
 		"description": "List the playlists a TikTok creator made, by username, with each playlist’s ID, name, cover and number of posts. Page through results with the `cursor` from the previous response's `nextCursor`. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/tiktok/get-user-playlists",
