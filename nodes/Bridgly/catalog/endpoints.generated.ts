@@ -2596,14 +2596,6 @@ export const endpoints: CatalogEndpoint[] = [
 				]
 			},
 			{
-				"name": "count",
-				"description": "Number of replies to return with the tweet (1–20). Defaults to 20.",
-				"required": false,
-				"defaultLabel": "20",
-				"type": "number",
-				"integer": true
-			},
-			{
 				"name": "cacheMaxAgeHours",
 				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
 				"required": false,
