@@ -6003,6 +6003,322 @@ export const endpoints: CatalogEndpoint[] = [
 		]
 	},
 	{
+		"id": "instagram_user_by_id",
+		"platform": "Instagram",
+		"title": "Instagram: Get user profile by user ID",
+		"description": "Get a public Instagram profile from its numeric user ID: username, full name, bio, bio links, profile picture, follower, following and post counts, and whether the account is private, verified or a business. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/instagram/user-by-id",
+		"fields": [
+			{
+				"name": "userId",
+				"description": "Numeric Instagram user ID, e.g. \"787132\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
+			}
+		]
+	},
+	{
+		"id": "instagram_user_about",
+		"platform": "Instagram",
+		"title": "Instagram: Get account details from \"About this account\"",
+		"description": "Get the details Instagram shows under \"About this account\": the month and year the account joined, the country it is based in, whether it is verified, how many usernames it has used before and how many profiles share many of its followers. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/instagram/user-about",
+		"fields": [
+			{
+				"name": "username",
+				"description": "Instagram username, or the profile link, e.g. \"instagram\" or \"https://www.instagram.com/instagram/\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
+			}
+		]
+	},
+	{
+		"id": "instagram_hashtag_posts",
+		"platform": "Instagram",
+		"title": "Instagram: List posts with a hashtag",
+		"description": "List the top posts, the newest posts or the Reels on an Instagram hashtag page, with captions, media links, publish times, engagement counts, owner details and the audio each Reel uses. Continue with nextCursor. Instagram decides how many posts each page holds. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"method": "POST",
+		"path": "/instagram/hashtag-posts",
+		"fields": [
+			{
+				"name": "hashtag",
+				"description": "Hashtag with or without the #, or its link, e.g. \"sunset\" or \"https://www.instagram.com/explore/tags/sunset/\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "tab",
+				"description": "Which hashtag tab to list: \"top\" for top posts, \"recent\" for the newest posts, or \"reels\" for Reels. Defaults to \"top\".",
+				"required": false,
+				"defaultLabel": "top",
+				"type": "enum",
+				"options": [
+					"top",
+					"recent",
+					"reels"
+				]
+			},
+			{
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
+			}
+		]
+	},
+	{
+		"id": "instagram_audio",
+		"platform": "Instagram",
+		"title": "Instagram: Get audio details",
+		"description": "Get a song or original sound used in Instagram Reels by its audio ID or audio page link: title, artist, length, cover image, a downloadable audio file, whether it is trending and how many Reels use it. Get audio IDs from the audio field of a Reel. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/instagram/audio",
+		"fields": [
+			{
+				"name": "audioId",
+				"description": "Numeric audio ID, or the audio page link, e.g. \"6516695721690591\" or \"https://www.instagram.com/reels/audio/6516695721690591/\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
+			}
+		]
+	},
+	{
+		"id": "instagram_audio_reels",
+		"platform": "Instagram",
+		"title": "Instagram: List Reels using an audio",
+		"description": "List the Reels that use a song or original sound, with captions, media links, publish times, engagement counts and owner details. Continue with nextCursor. Instagram decides how many Reels each page holds. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"method": "POST",
+		"path": "/instagram/audio-reels",
+		"fields": [
+			{
+				"name": "audioId",
+				"description": "Numeric audio ID, or the audio page link, e.g. \"6516695721690591\" or \"https://www.instagram.com/reels/audio/6516695721690591/\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
+			}
+		]
+	},
+	{
+		"id": "instagram_related_reels",
+		"platform": "Instagram",
+		"title": "Instagram: List Reels related to a Reel",
+		"description": "List the Reels Instagram recommends after a given Reel, with captions, media links, publish times, engagement counts, owner details and audio. Continue with nextCursor. Recommendations change between requests. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"method": "POST",
+		"path": "/instagram/related-reels",
+		"fields": [
+			{
+				"name": "shortcode",
+				"description": "Post shortcode, or the post or Reel link, e.g. \"DA1b2C3d4E5\" or \"https://www.instagram.com/p/DA1b2C3d4E5/\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–10). Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
+			}
+		]
+	},
+	{
+		"id": "instagram_trending_reels",
+		"platform": "Instagram",
+		"title": "Instagram: List trending Reels",
+		"description": "List the Reels Instagram’s Reels tab is recommending right now, with captions, media links, publish times, engagement counts, owner details and the audio each one uses. Continue with nextCursor. Recommendations change between requests. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"method": "POST",
+		"path": "/instagram/trending-reels",
+		"fields": [
+			{
+				"name": "count",
+				"description": "Number of results to return (1–10). Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
+			}
+		]
+	},
+	{
+		"id": "instagram_explore_posts",
+		"platform": "Instagram",
+		"title": "Instagram: List popular Explore posts",
+		"description": "List the popular posts and Reels on Instagram’s Explore page, the same for every visitor rather than tailored to one account. Each post includes the caption, media links, publish time, engagement counts and owner details. Continue with nextCursor. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"method": "POST",
+		"path": "/instagram/explore-posts",
+		"fields": [
+			{
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
+			}
+		]
+	},
+	{
 		"id": "tiktok_get_user",
 		"platform": "TikTok",
 		"title": "Fetch a TikTok user by username",
