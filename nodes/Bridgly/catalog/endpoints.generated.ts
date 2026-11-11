@@ -6152,7 +6152,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "instagram_hashtag_posts",
 		"platform": "Instagram",
 		"title": "Instagram: List posts with a hashtag",
-		"description": "List the top posts, the newest posts or the Reels on an Instagram hashtag page, with captions, media links, publish times, engagement counts, owner details and the audio each Reel uses. Continue with nextCursor. Instagram decides how many posts each page holds. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"description": "List the top posts, the newest posts or the Reels on an Instagram hashtag page, with captions, media links, publish times, engagement counts, owner details and the audio each Reel uses. Continue with nextCursor. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/instagram/hashtag-posts",
 		"fields": [
@@ -6175,6 +6175,14 @@ export const endpoints: CatalogEndpoint[] = [
 					"recent",
 					"reels"
 				]
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–10). Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
 			},
 			{
 				"name": "cursor",
@@ -6238,7 +6246,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "instagram_audio_reels",
 		"platform": "Instagram",
 		"title": "Instagram: List Reels using an audio",
-		"description": "List the Reels that use a song or original sound, with captions, media links, publish times, engagement counts and owner details. Continue with nextCursor. Instagram decides how many Reels each page holds. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"description": "List the Reels that use a song or original sound, with captions, media links, publish times, engagement counts and owner details. Continue with nextCursor. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/instagram/audio-reels",
 		"fields": [
@@ -6249,6 +6257,14 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–10). Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
 			},
 			{
 				"name": "cursor",
@@ -6279,7 +6295,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "instagram_related_reels",
 		"platform": "Instagram",
 		"title": "Instagram: List Reels related to a Reel",
-		"description": "List the Reels Instagram recommends after a given Reel, with captions, media links, publish times, engagement counts, owner details and audio. Continue with nextCursor. Recommendations change between requests. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"description": "List the Reels Instagram recommends after a given Reel, with captions, media links, publish times, engagement counts, owner details and audio. Continue with nextCursor. Recommendations change between requests. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/instagram/related-reels",
 		"fields": [
@@ -6328,7 +6344,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "instagram_trending_reels",
 		"platform": "Instagram",
 		"title": "Instagram: List trending Reels",
-		"description": "List the Reels Instagram’s Reels tab is recommending right now, with captions, media links, publish times, engagement counts, owner details and the audio each one uses. Continue with nextCursor. Recommendations change between requests. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"description": "List the Reels Instagram’s Reels tab is recommending right now, with captions, media links, publish times, engagement counts, owner details and the audio each one uses. Continue with nextCursor. Recommendations change between requests. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/instagram/trending-reels",
 		"fields": [
@@ -6369,10 +6385,18 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "instagram_explore_posts",
 		"platform": "Instagram",
 		"title": "Instagram: List popular Explore posts",
-		"description": "List the popular posts and Reels on Instagram’s Explore page, the same for every visitor rather than tailored to one account. Each post includes the caption, media links, publish time, engagement counts and owner details. Continue with nextCursor. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"description": "List the popular posts and Reels on Instagram’s Explore page, the same for every visitor rather than tailored to one account. Each post includes the caption, media links, publish time, engagement counts and owner details. Continue with nextCursor. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/instagram/explore-posts",
 		"fields": [
+			{
+				"name": "count",
+				"description": "Number of results to return (1–10). Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
+			},
 			{
 				"name": "cursor",
 				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
