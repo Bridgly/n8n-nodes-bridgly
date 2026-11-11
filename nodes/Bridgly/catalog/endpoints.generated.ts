@@ -431,9 +431,9 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "count",
-				"description": "Number of companies to return (1–100), each with every position held there. Defaults to 10.",
+				"description": "Number of companies to return (1–100), each with every position held there. Defaults to 100.",
 				"required": false,
-				"defaultLabel": "10",
+				"defaultLabel": "100",
 				"type": "number",
 				"integer": true
 			},
@@ -480,9 +480,9 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "count",
-				"description": "Number of results to return (1–100). Defaults to 10.",
+				"description": "Number of results to return (1–100). Defaults to 100.",
 				"required": false,
-				"defaultLabel": "10",
+				"defaultLabel": "100",
 				"type": "number",
 				"integer": true
 			},
@@ -529,9 +529,9 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "count",
-				"description": "Number of results to return (1–100). Defaults to 10.",
+				"description": "Number of results to return (1–100). Defaults to 100.",
 				"required": false,
-				"defaultLabel": "10",
+				"defaultLabel": "100",
 				"type": "number",
 				"integer": true
 			},
@@ -578,9 +578,9 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "count",
-				"description": "Number of results to return (1–100). Defaults to 10.",
+				"description": "Number of results to return (1–100). Defaults to 100.",
 				"required": false,
-				"defaultLabel": "10",
+				"defaultLabel": "100",
 				"type": "number",
 				"integer": true
 			},
@@ -627,9 +627,9 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "count",
-				"description": "Number of results to return (1–100). Defaults to 10.",
+				"description": "Number of results to return (1–100). Defaults to 100.",
 				"required": false,
-				"defaultLabel": "10",
+				"defaultLabel": "100",
 				"type": "number",
 				"integer": true
 			},
@@ -676,9 +676,9 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "count",
-				"description": "Number of results to return (1–100). Defaults to 10.",
+				"description": "Number of results to return (1–100). Defaults to 100.",
 				"required": false,
-				"defaultLabel": "10",
+				"defaultLabel": "100",
 				"type": "number",
 				"integer": true
 			},
@@ -725,9 +725,9 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "count",
-				"description": "Number of results to return (1–100). Defaults to 10.",
+				"description": "Number of results to return (1–100). Defaults to 100.",
 				"required": false,
-				"defaultLabel": "10",
+				"defaultLabel": "100",
 				"type": "number",
 				"integer": true
 			},
@@ -774,9 +774,9 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "count",
-				"description": "Number of results to return (1–100). Defaults to 10.",
+				"description": "Number of results to return (1–100). Defaults to 100.",
 				"required": false,
-				"defaultLabel": "10",
+				"defaultLabel": "100",
 				"type": "number",
 				"integer": true
 			},
@@ -823,9 +823,9 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "count",
-				"description": "Number of results to return (1–100). Defaults to 10.",
+				"description": "Number of results to return (1–100). Defaults to 100.",
 				"required": false,
-				"defaultLabel": "10",
+				"defaultLabel": "100",
 				"type": "number",
 				"integer": true
 			},
@@ -872,9 +872,9 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "count",
-				"description": "Number of results to return (1–100). Defaults to 10.",
+				"description": "Number of results to return (1–100). Defaults to 100.",
 				"required": false,
-				"defaultLabel": "10",
+				"defaultLabel": "100",
 				"type": "number",
 				"integer": true
 			},
@@ -921,9 +921,9 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "count",
-				"description": "Number of results to return (1–100). Defaults to 10.",
+				"description": "Number of results to return (1–100). Defaults to 100.",
 				"required": false,
-				"defaultLabel": "10",
+				"defaultLabel": "100",
 				"type": "number",
 				"integer": true
 			},
@@ -970,9 +970,9 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "count",
-				"description": "Number of results to return (1–100). Defaults to 10.",
+				"description": "Number of results to return (1–100). Defaults to 100.",
 				"required": false,
-				"defaultLabel": "10",
+				"defaultLabel": "100",
 				"type": "number",
 				"integer": true
 			},
@@ -2191,6 +2191,14 @@ export const endpoints: CatalogEndpoint[] = [
 				]
 			},
 			{
+				"name": "count",
+				"description": "Number of results to return (1–10). Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
+			},
+			{
 				"name": "cursor",
 				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
 				"required": false,
@@ -2267,6 +2275,14 @@ export const endpoints: CatalogEndpoint[] = [
 					"year",
 					"all"
 				]
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–10). Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
 			},
 			{
 				"name": "cursor",
@@ -2347,6 +2363,14 @@ export const endpoints: CatalogEndpoint[] = [
 				]
 			},
 			{
+				"name": "count",
+				"description": "Number of results to return (1–10). Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
+			},
+			{
 				"name": "cursor",
 				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
 				"required": false,
@@ -2423,6 +2447,14 @@ export const endpoints: CatalogEndpoint[] = [
 					"year",
 					"all"
 				]
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–10). Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
 			},
 			{
 				"name": "cursor",
@@ -2503,6 +2535,14 @@ export const endpoints: CatalogEndpoint[] = [
 				]
 			},
 			{
+				"name": "count",
+				"description": "Number of results to return (1–10). Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
+			},
+			{
 				"name": "cursor",
 				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
 				"required": false,
@@ -2576,7 +2616,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "x_get_tweet_replies",
 		"platform": "X (Twitter)",
 		"title": "X (Twitter): List the replies to a tweet",
-		"description": "List the replies beneath a tweet, with the threads under each one. Returns the text, author, timestamp and engagement counts for each reply. Page through them with `cursor`. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"description": "List the replies beneath a tweet, with the threads under each one. Returns the text, author, timestamp and engagement counts for each reply. Page through them with `cursor`. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/x/get-tweet-replies",
 		"fields": [
@@ -2609,6 +2649,14 @@ export const endpoints: CatalogEndpoint[] = [
 				]
 			},
 			{
+				"name": "count",
+				"description": "Number of results to return (1–20). Defaults to 20.",
+				"required": false,
+				"defaultLabel": "20",
+				"type": "number",
+				"integer": true
+			},
+			{
 				"name": "cacheMaxAgeHours",
 				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
 				"required": false,
@@ -2629,7 +2677,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "x_search",
 		"platform": "X (Twitter)",
 		"title": "Search tweets with X advanced-search operators",
-		"description": "Search tweets with the same operators as X advanced search, such as from:, since:, min_faves: and lang:. Sort by latest or top and get each tweet's text, author, media, links and engagement counts. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"description": "Search tweets with the same operators as X advanced search, such as from:, since:, min_faves: and lang:. Sort by latest or top and get each tweet's text, author, media, links and engagement counts. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/x/search",
 		"fields": [
@@ -2651,9 +2699,9 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "count",
-				"description": "Number of results to return (1–20). Defaults to 10.",
+				"description": "Number of results to return (1–20). Defaults to 20.",
 				"required": false,
-				"defaultLabel": "10",
+				"defaultLabel": "20",
 				"type": "number",
 				"integer": true
 			},
@@ -2705,7 +2753,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "x_search_users",
 		"platform": "X (Twitter)",
 		"title": "Search X users",
-		"description": "Search X accounts by name or keyword. Each result includes the handle, display name, bio, location, website, avatar and follower, following and tweet counts. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"description": "Search X accounts by name or keyword. Each result includes the handle, display name, bio, location, website, avatar and follower, following and tweet counts. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/x/search/users",
 		"fields": [
@@ -2727,9 +2775,9 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "count",
-				"description": "Number of results to return (1–20). Defaults to 10.",
+				"description": "Number of results to return (1–20). Defaults to 20.",
 				"required": false,
-				"defaultLabel": "10",
+				"defaultLabel": "20",
 				"type": "number",
 				"integer": true
 			},
@@ -2787,7 +2835,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "x_get_user_tweets",
 		"platform": "X (Twitter)",
 		"title": "List an X user's tweets timeline",
-		"description": "List the tweets an X account has posted, using its numeric user ID from the user profile endpoint. Each tweet includes the text, timestamp, media and like, retweet, reply and view counts. Load older tweets with `cursor`. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"description": "List the tweets an X account has posted, using its numeric user ID from the user profile endpoint. Each tweet includes the text, timestamp, media and like, retweet, reply and view counts. Load older tweets with `cursor`. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/x/get-user-tweets",
 		"fields": [
@@ -2806,6 +2854,14 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–20). Defaults to 20.",
+				"required": false,
+				"defaultLabel": "20",
+				"type": "number",
+				"integer": true
 			},
 			{
 				"name": "cacheMaxAgeHours",
@@ -2828,7 +2884,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "x_get_user_replies",
 		"platform": "X (Twitter)",
 		"title": "List an X user's replies",
-		"description": "List the replies an X account has posted to other tweets, using its numeric user ID. Each reply includes the text, the tweet it answers, timestamp and engagement counts. Load older replies with `cursor`. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"description": "List the replies an X account has posted to other tweets, using its numeric user ID. Each reply includes the text, the tweet it answers, timestamp and engagement counts. Load older replies with `cursor`. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/x/get-user-replies",
 		"fields": [
@@ -2847,6 +2903,14 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–20). Defaults to 20.",
+				"required": false,
+				"defaultLabel": "20",
+				"type": "number",
+				"integer": true
 			},
 			{
 				"name": "cacheMaxAgeHours",
@@ -2869,7 +2933,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "x_get_user_media",
 		"platform": "X (Twitter)",
 		"title": "List an X user's media tweets",
-		"description": "List the tweets with photos or videos an X account has posted, using its numeric user ID. Each tweet includes direct media links, the text, timestamp and engagement counts. Load older tweets with `cursor`. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"description": "List the tweets with photos or videos an X account has posted, using its numeric user ID. Each tweet includes direct media links, the text, timestamp and engagement counts. Load older tweets with `cursor`. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/x/get-user-media",
 		"fields": [
@@ -2891,9 +2955,9 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "count",
-				"description": "Number of results to return (1–100). Defaults to 10.",
+				"description": "Number of results to return (1–100). Defaults to 100.",
 				"required": false,
-				"defaultLabel": "10",
+				"defaultLabel": "100",
 				"type": "number",
 				"integer": true
 			},
@@ -2918,7 +2982,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "x_get_followers",
 		"platform": "X (Twitter)",
 		"title": "List an X user's followers",
-		"description": "List the accounts that follow an X user, using its numeric user ID. Each follower includes the handle, display name, bio, location and follower and following counts. Page through the list with `cursor`. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"description": "List the accounts that follow an X user, using its numeric user ID. Each follower includes the handle, display name, bio, location and follower and following counts. Page through the list with `cursor`. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/x/get-followers",
 		"fields": [
@@ -2937,6 +3001,14 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–50). Defaults to 50.",
+				"required": false,
+				"defaultLabel": "50",
+				"type": "number",
+				"integer": true
 			},
 			{
 				"name": "cacheMaxAgeHours",
@@ -2959,7 +3031,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "x_get_following",
 		"platform": "X (Twitter)",
 		"title": "List the accounts an X user follows",
-		"description": "List the accounts an X user follows, using its numeric user ID. Each account includes the handle, display name, bio, location and follower and following counts. Page through the list with `cursor`. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"description": "List the accounts an X user follows, using its numeric user ID. Each account includes the handle, display name, bio, location and follower and following counts. Page through the list with `cursor`. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/x/get-following",
 		"fields": [
@@ -2978,6 +3050,14 @@ export const endpoints: CatalogEndpoint[] = [
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–50). Defaults to 50.",
+				"required": false,
+				"defaultLabel": "50",
+				"type": "number",
+				"integer": true
 			},
 			{
 				"name": "cacheMaxAgeHours",
@@ -3000,7 +3080,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "x_get_tweet_retweeters",
 		"platform": "X (Twitter)",
 		"title": "X (Twitter): List the users who retweeted a tweet",
-		"description": "List the accounts that retweeted a tweet, with each account's handle, display name, bio and follower and following counts. Page through the list with `cursor`. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"description": "List the accounts that retweeted a tweet, with each account's handle, display name, bio and follower and following counts. Page through the list with `cursor`. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/x/get-tweet-retweeters",
 		"fields": [
@@ -3013,20 +3093,20 @@ export const endpoints: CatalogEndpoint[] = [
 				"input": "text"
 			},
 			{
+				"name": "count",
+				"description": "Number of results to return (1–100). Defaults to 100.",
+				"required": false,
+				"defaultLabel": "100",
+				"type": "number",
+				"integer": true
+			},
+			{
 				"name": "tweetId",
 				"description": "Numeric ID of the tweet whose retweeters to list, or the tweet link, e.g. \"1234567890\".",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
-			},
-			{
-				"name": "count",
-				"description": "Number of results to return (1–100). Defaults to 10.",
-				"required": false,
-				"defaultLabel": "10",
-				"type": "number",
-				"integer": true
 			},
 			{
 				"name": "cacheMaxAgeHours",
@@ -3049,7 +3129,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "x_get_tweet_quotes",
 		"platform": "X (Twitter)",
 		"title": "X (Twitter): List quote tweets of a tweet",
-		"description": "List the quote tweets of a tweet, the posts that shared it with added commentary, sorted by latest or top. Each includes the text, author, media and engagement counts. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"description": "List the quote tweets of a tweet, the posts that shared it with added commentary, sorted by latest or top. Each includes the text, author, media and engagement counts. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/x/get-tweet-quotes",
 		"fields": [
@@ -3063,9 +3143,9 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "count",
-				"description": "Number of results to return (1–20). Defaults to 10.",
+				"description": "Number of results to return (1–20). Defaults to 20.",
 				"required": false,
-				"defaultLabel": "10",
+				"defaultLabel": "20",
 				"type": "number",
 				"integer": true
 			},
@@ -5277,7 +5357,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "instagram_user_reels",
 		"platform": "Instagram",
 		"title": "Instagram: List profile Reels",
-		"description": "List Reels from a public Instagram profile with media links, engagement counts, collaborator IDs and owner details. Continue with nextCursor. Instagram may include other profile videos. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"description": "List Reels from a public Instagram profile with media links, engagement counts, collaborator IDs and owner details. Continue with nextCursor. Instagram may include other profile videos. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/instagram/user-reels",
 		"fields": [
@@ -5326,7 +5406,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "instagram_tagged_posts",
 		"platform": "Instagram",
 		"title": "Instagram: List posts tagging a profile",
-		"description": "List public posts in which an Instagram account is tagged, including captions, media links and engagement counts. Continue with nextCursor; Instagram controls which tagged posts are visible. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"description": "List public posts in which an Instagram account is tagged, including captions, media links and engagement counts. Continue with nextCursor; Instagram controls which tagged posts are visible. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/instagram/tagged-posts",
 		"fields": [
@@ -5375,7 +5455,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "instagram_stories",
 		"platform": "Instagram",
 		"title": "Instagram: Get current profile stories",
-		"description": "Get the stories currently available on a public Instagram profile, including media variants, publish and expiration times, author details, mentions, links and shared posts. Returns an empty stories list when none are available. Stories are not paginated. Costs 1 credit per request.",
+		"description": "Get the stories currently available on a public Instagram profile, including media variants, publish and expiration times, author details, mentions, links and shared posts. Returns an empty stories list when none are available. Stories are not paginated: every available story comes back in one response. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/instagram/stories",
 		"fields": [
@@ -5408,7 +5488,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "instagram_highlights",
 		"platform": "Instagram",
 		"title": "Instagram: List profile highlights",
-		"description": "List saved story highlights on a public Instagram profile, including highlight IDs, titles and cover images. Use a highlight ID with the highlight endpoint to retrieve its stories. Continue with nextCursor. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"description": "List saved story highlights on a public Instagram profile, including highlight IDs, titles and cover images. Use a highlight ID with the highlight endpoint to retrieve its stories. Continue with nextCursor. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/instagram/highlights",
 		"fields": [
@@ -5457,7 +5537,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "instagram_highlight",
 		"platform": "Instagram",
 		"title": "Instagram: Get a highlight and its stories",
-		"description": "Get a saved Instagram highlight and its available stories, including media variants, publish times, author details, mentions, links and shared posts. Saved highlights do not expire. Stories in a highlight are returned together without pagination. Costs 1 credit per request.",
+		"description": "Get a saved Instagram highlight and its available stories, including media variants, publish times, author details, mentions, links and shared posts. Saved highlights do not expire. Stories are not paginated: every story in the highlight comes back in one response. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/instagram/highlight",
 		"fields": [
@@ -5490,7 +5570,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "instagram_post_likers",
 		"platform": "Instagram",
 		"title": "Instagram: Get post likers",
-		"description": "Get the liker accounts Instagram exposes for a post or Reel, with usernames, names, profile images, private and verified flags, and the total liker count. Instagram can limit this list; it is not a complete audience export and does not support pagination. Costs 1 credit per request.",
+		"description": "Get the liker accounts Instagram exposes for a post or Reel, with usernames, names, profile images, private and verified flags, and the total liker count. Instagram can limit this list, so it is not a complete audience export. This list is not paginated: one request returns the results we could get, which is not always every match. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/instagram/post-likers",
 		"fields": [
@@ -5523,7 +5603,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "instagram_comment_replies",
 		"platform": "Instagram",
 		"title": "Instagram: List replies to a comment",
-		"description": "List the accessible replies to an Instagram post comment in chronological order, including text, author, publish time, like count, the parent comment and total reply count. Supply the post shortcode and parent comment ID. Continue with nextCursor. Instagram may return a different page size than requested. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"description": "List the accessible replies to an Instagram post comment in chronological order, including text, author, publish time, like count, the parent comment and total reply count. Supply the post shortcode and parent comment ID. Continue with nextCursor. Instagram may return a different page size than requested. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/instagram/comment-replies",
 		"fields": [
@@ -5613,7 +5693,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "instagram_location_posts",
 		"platform": "Instagram",
 		"title": "Instagram: List posts at a location",
-		"description": "List posts Instagram associates with a location, including captions, image and video URLs, publish times, engagement counts, tagged users and place details. Results use Instagram’s ranked order and may include nearby places. Continue with nextCursor. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"description": "List posts Instagram associates with a location, including captions, image and video URLs, publish times, engagement counts, tagged users and place details. Results use Instagram’s ranked order and may include nearby places. Continue with nextCursor. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/instagram/location-posts",
 		"fields": [
@@ -5662,7 +5742,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "instagram_search",
 		"platform": "Instagram",
 		"title": "Instagram: Search posts by keyword or hashtag",
-		"description": "Search public Instagram posts and Reels by keyword or hashtag. Returns media links, captions, publish times, engagement counts and owner details, with nextCursor for more results. Search results reflect Instagram’s ranking and available content. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"description": "Search public Instagram posts and Reels by keyword or hashtag. Returns media links, captions, publish times, engagement counts and owner details, with nextCursor for more results. Search results reflect Instagram’s ranking and available content. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/instagram/search",
 		"fields": [
@@ -5744,7 +5824,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "instagram_user_posts",
 		"platform": "Instagram",
 		"title": "Instagram: Get paginated user posts",
-		"description": "List the posts on an Instagram profile. Each post includes the caption, image or video link, like and comment counts, timestamp and, for videos, the view count. Page through older posts with `cursor`. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"description": "List the posts on an Instagram profile. Each post includes the caption, image or video link, like and comment counts, timestamp and, for videos, the view count. Page through older posts with `cursor`. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/instagram/user-posts",
 		"fields": [
@@ -5793,7 +5873,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "instagram_followers",
 		"platform": "Instagram",
 		"title": "Instagram: Get paginated user followers",
-		"description": "List the followers of an Instagram account, with each follower's username, full name, profile picture and whether they are private or verified. Page through the list with `cursor`. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"description": "List the followers of an Instagram account, with each follower's username, full name, profile picture and whether they are private or verified. Page through the list with `cursor`. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/instagram/followers",
 		"fields": [
@@ -5842,7 +5922,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "instagram_following",
 		"platform": "Instagram",
 		"title": "Instagram: Get paginated users followed by the user",
-		"description": "List the accounts an Instagram user follows, with each account's username, full name, profile picture and whether it is private or verified. Page through the list with `cursor`. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"description": "List the accounts an Instagram user follows, with each account's username, full name, profile picture and whether it is private or verified. Page through the list with `cursor`. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/instagram/following",
 		"fields": [
@@ -5924,7 +6004,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "instagram_post_comments",
 		"platform": "Instagram",
 		"title": "Instagram: Get comments on a post",
-		"description": "List the comments on an Instagram post or Reel by its shortcode. Each comment includes the text, author, time posted and like count. Page through the comments with `cursor`. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"description": "List the comments on an Instagram post or Reel by its shortcode. Each comment includes the text, author, time posted and like count. Page through the comments with `cursor`. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/instagram/post-comments",
 		"fields": [
@@ -5973,7 +6053,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "instagram_search_users",
 		"platform": "Instagram",
 		"title": "Instagram: Search users",
-		"description": "Search Instagram accounts by name or keyword. Each result includes the username, full name, bio, profile picture, follower and post counts, and whether the account is private, verified or a business. Costs 1 credit per request.",
+		"description": "Search Instagram accounts by name or keyword. Each result includes the username, full name, bio, profile picture, follower and post counts, and whether the account is private, verified or a business. This list is not paginated: one request returns the results we could get, which is not always every match. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/instagram/search-users",
 		"fields": [
@@ -6354,8 +6434,8 @@ export const endpoints: CatalogEndpoint[] = [
 	{
 		"id": "tiktok_get_user_posts",
 		"platform": "TikTok",
-		"title": "Get a TikTok user’s posts",
-		"description": "List the videos and photo posts on a public TikTok account by username. Each post includes the caption, view, like, comment, share and save counts, sound, hashtags and cover image. Page through results with the `cursor` from the previous response's `nextCursor`. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"title": "Get a TikTok user's posts",
+		"description": "List the videos and photo posts on a public TikTok account by username. Each post includes the caption, view, like, comment, share and save counts, sound, hashtags and cover image. Page through results with the `cursor` from the previous response's `nextCursor`. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/tiktok/get-user-posts",
 		"fields": [
@@ -6404,7 +6484,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "tiktok_get_user_liked_videos",
 		"platform": "TikTok",
 		"title": "Get the videos a TikTok user liked",
-		"description": "List the posts a TikTok account liked, by username. Works for accounts that show their liked videos publicly. Page through results with the `cursor` from the previous response's `nextCursor`. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"description": "List the posts a TikTok account liked, by username. Works for accounts that show their liked videos publicly. Page through results with the `cursor` from the previous response's `nextCursor`. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/tiktok/get-user-liked-videos",
 		"fields": [
@@ -6453,7 +6533,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "tiktok_get_user_reposts",
 		"platform": "TikTok",
 		"title": "Get the videos a TikTok user reposted",
-		"description": "List the posts a TikTok account reposted to its followers, by username, each with its original creator. Page through results with the `cursor` from the previous response's `nextCursor`. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"description": "List the posts a TikTok account reposted to its followers, by username, each with its original creator. Page through results with the `cursor` from the previous response's `nextCursor`. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/tiktok/get-user-reposts",
 		"fields": [
@@ -6501,8 +6581,8 @@ export const endpoints: CatalogEndpoint[] = [
 	{
 		"id": "tiktok_get_user_followers",
 		"platform": "TikTok",
-		"title": "Get a TikTok user’s followers",
-		"description": "List the followers of a public TikTok account by username, with each follower’s username, nickname, bio, avatar and follower counts. Page through results with the `cursor` from the previous response's `nextCursor`. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"title": "Get a TikTok user's followers",
+		"description": "List the followers of a public TikTok account by username, with each follower’s username, nickname, bio, avatar and follower counts. Page through results with the `cursor` from the previous response's `nextCursor`. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/tiktok/get-user-followers",
 		"fields": [
@@ -6551,7 +6631,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "tiktok_get_user_following",
 		"platform": "TikTok",
 		"title": "Get the accounts a TikTok user follows",
-		"description": "List the accounts a public TikTok user follows, by username, with each account’s username, nickname, bio, avatar and follower counts. Page through results with the `cursor` from the previous response's `nextCursor`. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"description": "List the accounts a public TikTok user follows, by username, with each account’s username, nickname, bio, avatar and follower counts. Page through results with the `cursor` from the previous response's `nextCursor`. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/tiktok/get-user-following",
 		"fields": [
@@ -6599,8 +6679,8 @@ export const endpoints: CatalogEndpoint[] = [
 	{
 		"id": "tiktok_get_user_playlists",
 		"platform": "TikTok",
-		"title": "Get a TikTok user’s playlists",
-		"description": "List the playlists a TikTok creator made, by username, with each playlist’s ID, name, cover and number of posts. Page through results with the `cursor` from the previous response's `nextCursor`. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"title": "Get a TikTok user's playlists",
+		"description": "List the playlists a TikTok creator made, by username, with each playlist’s ID, name, cover and number of posts. Page through results with the `cursor` from the previous response's `nextCursor`. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/tiktok/get-user-playlists",
 		"fields": [
@@ -6649,7 +6729,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "tiktok_get_playlist_videos",
 		"platform": "TikTok",
 		"title": "Get the videos in a TikTok playlist",
-		"description": "List the posts in a TikTok creator playlist by playlist ID, in playlist order. Page through results with the `cursor` from the previous response's `nextCursor`. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"description": "List the posts in a TikTok creator playlist by playlist ID, in playlist order. Page through results with the `cursor` from the previous response's `nextCursor`. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/tiktok/get-playlist-videos",
 		"fields": [
@@ -6731,7 +6811,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "tiktok_get_video_comments",
 		"platform": "TikTok",
 		"title": "Get the comments on a TikTok video",
-		"description": "List the top-level comments on a TikTok post by ID, with each comment’s text, like and reply counts, author and whether the creator liked or pinned it. Page through results with the `cursor` from the previous response's `nextCursor`. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"description": "List the top-level comments on a TikTok post by ID, with each comment’s text, like and reply counts, author and whether the creator liked or pinned it. Page through results with the `cursor` from the previous response's `nextCursor`. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/tiktok/get-video-comments",
 		"fields": [
@@ -6780,7 +6860,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "tiktok_get_comment_replies",
 		"platform": "TikTok",
 		"title": "Get the replies to a TikTok comment",
-		"description": "List the replies to a comment on a TikTok post, with each reply’s text, like count and author. Page through results with the `cursor` from the previous response's `nextCursor`. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"description": "List the replies to a comment on a TikTok post, with each reply’s text, like count and author. Page through results with the `cursor` from the previous response's `nextCursor`. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/tiktok/get-comment-replies",
 		"fields": [
@@ -6837,7 +6917,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "tiktok_get_related_videos",
 		"platform": "TikTok",
 		"title": "Get videos related to a TikTok video",
-		"description": "Get the posts TikTok recommends alongside a post, by post ID. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"description": "Get the posts TikTok recommends alongside a post, by post ID. This list is not paginated: one request returns the results we could get, which is not always every match. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/tiktok/get-related-videos",
 		"fields": [
@@ -6903,7 +6983,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "tiktok_get_hashtag_videos",
 		"platform": "TikTok",
 		"title": "Get the videos for a TikTok hashtag",
-		"description": "List the posts made with a TikTok hashtag, by hashtag name, in the order TikTok shows them on the hashtag page. Page through results with the `cursor` from the previous response's `nextCursor`. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"description": "List the posts made with a TikTok hashtag, by hashtag name, in the order TikTok shows them on the hashtag page. Page through results with the `cursor` from the previous response's `nextCursor`. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/tiktok/get-hashtag-videos",
 		"fields": [
@@ -6985,7 +7065,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "tiktok_get_sound_videos",
 		"platform": "TikTok",
 		"title": "Get the videos that use a TikTok sound",
-		"description": "List the posts that use a TikTok sound, by sound ID, in the order TikTok shows them on the sound’s page. Page through results with the `cursor` from the previous response's `nextCursor`. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"description": "List the posts that use a TikTok sound, by sound ID, in the order TikTok shows them on the sound’s page. Page through results with the `cursor` from the previous response's `nextCursor`. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/tiktok/get-sound-videos",
 		"fields": [
@@ -7034,7 +7114,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "tiktok_search_users",
 		"platform": "TikTok",
 		"title": "Search TikTok accounts",
-		"description": "Find TikTok accounts by keyword, with each account’s username, nickname, bio, avatar, follower and like counts and verification status. Page through results with the `cursor` from the previous response's `nextCursor`. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"description": "Find TikTok accounts by keyword, with each account’s username, nickname, bio, avatar, follower and like counts and verification status. Page through results with the `cursor` from the previous response's `nextCursor`. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/tiktok/search-users",
 		"fields": [
@@ -7083,7 +7163,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "tiktok_search_videos",
 		"platform": "TikTok",
 		"title": "Search TikTok videos",
-		"description": "Search TikTok posts by keyword. Each result includes the caption, view, like, comment and share counts, creator, sound and hashtags. Page through results with the `cursor` from the previous response's `nextCursor`. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"description": "Search TikTok posts by keyword. Each result includes the caption, view, like, comment and share counts, creator, sound and hashtags. Page through results with the `cursor` from the previous response's `nextCursor`. Costs 1 credit per request.",
 		"method": "POST",
 		"path": "/tiktok/search-videos",
 		"fields": [
