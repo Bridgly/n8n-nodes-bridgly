@@ -54,7 +54,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "linkedin_get_profile_from_url",
 		"platform": "LinkedIn",
 		"title": "Fetch a LinkedIn profile by profile slug",
-		"description": "Get a LinkedIn profile from the slug in its URL, e.g. \"williamhgates\". Returns the name, headline, location, about section, full work history, education, skills, certifications, languages, projects and more. Costs 1 credit per request.",
+		"description": "Get a LinkedIn profile from the slug in its URL, e.g. \"williamhgates\". Returns the name, headline, location, about section, full work history, education, skills, certifications, languages, projects and more. Costs 2 credits per request.",
 		"method": "POST",
 		"path": "/linkedin/get-profile-from-url",
 		"fields": [
