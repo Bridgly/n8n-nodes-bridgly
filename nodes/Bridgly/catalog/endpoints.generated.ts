@@ -7233,6 +7233,267 @@ export const endpoints: CatalogEndpoint[] = [
 		]
 	},
 	{
+		"id": "meta_ads_search",
+		"platform": "Meta Ads",
+		"title": "Search ads in the Meta Ad Library",
+		"description": "Search ads running on Facebook, Instagram and Meta’s other apps by keyword or advertiser, with filters for country, active status, ad category, media type, platform, language and dates. Each ad includes its text, images, videos, carousel cards, link, call to action, run dates, platforms and advertiser, plus spend, impressions and the paid-for-by disclaimer for ads about social issues, elections or politics. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"method": "POST",
+		"path": "/meta-ads/search",
+		"fields": [
+			{
+				"name": "q",
+				"description": "Keywords to search the ads’ text for, e.g. \"running shoes\". Leave it out to list every ad matching the other filters.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "pageId",
+				"description": "Only return ads from this advertiser: its Facebook Page ID, e.g. \"15087023444\", as returned in `page.id` or by the advertiser search. The Ad Library link of the advertiser’s ads (`?view_all_page_id=<id>`) works too.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "exactPhrase",
+				"description": "Match `q` as an exact phrase instead of matching any ad that has all its words. Defaults to false.",
+				"required": false,
+				"defaultLabel": "false",
+				"type": "boolean"
+			},
+			{
+				"name": "country",
+				"description": "Two-letter country code to search ads shown in, e.g. \"US\" or \"GB\", or \"ALL\" for every country. Defaults to \"ALL\".",
+				"required": false,
+				"defaultLabel": "ALL",
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "activeStatus",
+				"description": "Return ads that are still running (\"active\"), that stopped (\"inactive\"), or both (\"all\"). Defaults to \"active\".",
+				"required": false,
+				"defaultLabel": "active",
+				"type": "enum",
+				"options": [
+					"active",
+					"inactive",
+					"all"
+				]
+			},
+			{
+				"name": "adType",
+				"description": "Ad category: \"all\", \"political_and_issue_ads\" (social issues, elections or politics), \"housing_ads\", \"employment_ads\" or \"credit_ads\". Defaults to \"all\".",
+				"required": false,
+				"defaultLabel": "all",
+				"type": "enum",
+				"options": [
+					"all",
+					"political_and_issue_ads",
+					"housing_ads",
+					"employment_ads",
+					"credit_ads"
+				]
+			},
+			{
+				"name": "mediaType",
+				"description": "Media in the ad: \"all\", \"image\", \"meme\", \"image_and_meme\", \"video\", or \"none\" for ads with no image or video. Defaults to \"all\".",
+				"required": false,
+				"defaultLabel": "all",
+				"type": "enum",
+				"options": [
+					"all",
+					"image",
+					"meme",
+					"image_and_meme",
+					"video",
+					"none"
+				]
+			},
+			{
+				"name": "platforms",
+				"description": "Only return ads running on these platforms, e.g. [\"instagram\"]. Leave it out for every platform.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "stringArray"
+			},
+			{
+				"name": "languages",
+				"description": "Only return ads in these languages, as two-letter codes, e.g. [\"en\", \"es\"].",
+				"required": false,
+				"defaultLabel": null,
+				"type": "stringArray"
+			},
+			{
+				"name": "startDate",
+				"description": "Only return ads that ran on or after this date (YYYY-MM-DD), e.g. \"2026-01-01\".",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "date"
+			},
+			{
+				"name": "endDate",
+				"description": "Only return ads that ran on or before this date (YYYY-MM-DD), e.g. \"2026-03-31\".",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "date"
+			},
+			{
+				"name": "sortBy",
+				"description": "Order of the ads: most seen first (\"impressions\"), or recently started ads first (\"recent\"), which Meta orders roughly rather than strictly by start date. Defaults to \"impressions\".",
+				"required": false,
+				"defaultLabel": "impressions",
+				"type": "enum",
+				"options": [
+					"impressions",
+					"recent"
+				]
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–30). Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
+			}
+		]
+	},
+	{
+		"id": "meta_ads_get_ad_details",
+		"platform": "Meta Ads",
+		"title": "Fetch an ad from the Meta Ad Library by its ID",
+		"description": "Get one ad from the Meta Ad Library by its Library ID or link: its creative, run dates, platforms and advertiser, who paid for it and who it benefits, and where Meta publishes them, its targeting, reach by country, age and gender, and the audience of ads about social issues, elections or politics. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/meta-ads/get-ad-details",
+		"fields": [
+			{
+				"name": "adId",
+				"description": "Ad Library ID of the ad, or its Ad Library link, e.g. \"1806650610330561\" or \"https://www.facebook.com/ads/library/?id=1806650610330561\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
+			}
+		]
+	},
+	{
+		"id": "meta_ads_search_companies",
+		"platform": "Meta Ads",
+		"title": "Search advertisers in the Meta Ad Library",
+		"description": "Find advertisers in the Meta Ad Library by brand or page name. Each result includes the Page ID to search the advertiser’s ads with, the page’s name, username, category, likes, verification and country, and its linked Instagram account. Returns up to 15 advertisers; this list is not paginated. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/meta-ads/search-companies",
+		"fields": [
+			{
+				"name": "q",
+				"description": "Name of the brand or advertiser to look for, e.g. \"nike\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "country",
+				"description": "Two-letter country code to favor advertisers from, e.g. \"US\", or \"ALL\". Defaults to \"ALL\".",
+				"required": false,
+				"defaultLabel": "ALL",
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
+			}
+		]
+	},
+	{
+		"id": "meta_ads_get_company",
+		"platform": "Meta Ads",
+		"title": "Fetch an advertiser from the Meta Ad Library by Page ID",
+		"description": "Get an advertiser from the Meta Ad Library by its Facebook Page ID: the page and its linked Instagram account, its About text, how many ads it has, the organization Meta confirmed owns it, when it was created or renamed, where the people managing it are, and for advertisers of ads about social issues, elections or politics, their spend and targeting over the last 30 days. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/meta-ads/get-company",
+		"fields": [
+			{
+				"name": "pageId",
+				"description": "Facebook Page ID of the advertiser, e.g. \"15087023444\", as returned in `page.id` or by the advertiser search. The Ad Library link of the advertiser’s ads (`?view_all_page_id=<id>`) works too.",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
+			}
+		]
+	},
+	{
 		"id": "youtube_get_video",
 		"platform": "YouTube",
 		"title": "Fetch a video's full details and transcript from its YouTube link",
