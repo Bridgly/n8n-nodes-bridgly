@@ -1291,7 +1291,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "linkedin_search_jobs",
 		"platform": "LinkedIn",
 		"title": "Search LinkedIn jobs",
-		"description": "Search LinkedIn job listings by keyword, with optional filters for location, workplace type, experience level, job type and date posted. Each result includes the job title, company, location, salary when listed and posting date. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"description": "Search LinkedIn job listings by keyword, with optional filters for location, hiring company, workplace type, experience level, job type and date posted. Each result includes the job title, company, location, salary when listed and posting date. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
 		"method": "POST",
 		"path": "/linkedin/search/jobs",
 		"fields": [
@@ -1321,7 +1321,15 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "location",
-				"description": "Geographic location to filter jobs by, e.g. \"San Francisco Bay Area\", \"India\", \"Remote\".",
+				"description": "Geographic location to filter jobs by, e.g. \"San Francisco Bay Area\", \"India\", \"Remote\". Defaults to \"United States\".",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "companyId",
+				"description": "Only return jobs posted by this company, given as its numeric LinkedIn company ID (the `id` from the company endpoint, or `companyId` on a job result), e.g. \"1441\".",
 				"required": false,
 				"defaultLabel": null,
 				"type": "string",
