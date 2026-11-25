@@ -2691,7 +2691,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"fields": [
 			{
 				"name": "query",
-				"description": "Raw search query — supports all X advanced-search operators, e.g. \"openai lang:en\".",
+				"description": "Raw search query — supports all X advanced-search operators, e.g. \"openai lang:en\". At most 512 characters, the longest search X accepts; withinHours and lang are added to the query and count toward it.",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
@@ -2767,7 +2767,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"fields": [
 			{
 				"name": "query",
-				"description": "Raw search query — supports all X advanced-search operators, e.g. \"openai lang:en\".",
+				"description": "Raw search query — supports all X advanced-search operators, e.g. \"openai lang:en\". At most 512 characters, the longest search X accepts; withinHours and lang are added to the query and count toward it.",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
