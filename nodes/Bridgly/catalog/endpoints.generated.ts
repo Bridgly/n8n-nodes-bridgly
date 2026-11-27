@@ -749,6 +749,66 @@ export const endpoints: CatalogEndpoint[] = [
 		]
 	},
 	{
+		"id": "linkedin_get_profile_recommendations",
+		"platform": "LinkedIn",
+		"title": "List the recommendations a LinkedIn profile received or gave",
+		"description": "List the recommendations a LinkedIn member received or gave, newest first, with the other member's name, headline and profile link, the text, the date and how the two know each other. Page on with the `nextStart` from the previous response. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/linkedin/get-profile-recommendations",
+		"fields": [
+			{
+				"name": "start",
+				"description": "Number of results to skip. Defaults to 0.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "publicId",
+				"description": "The member public identity, or the profile link itself, e.g. \"williamhgates\" or \"https://www.linkedin.com/in/williamhgates\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–100). Defaults to 100.",
+				"required": false,
+				"defaultLabel": "100",
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "type",
+				"description": "Which recommendations to list: \"received\" (written about the member) or \"given\" (written by the member). Defaults to \"received\".",
+				"required": false,
+				"defaultLabel": "received",
+				"type": "enum",
+				"options": [
+					"received",
+					"given"
+				]
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
+			}
+		]
+	},
+	{
 		"id": "linkedin_get_profile_interests_top_voices",
 		"platform": "LinkedIn",
 		"title": "List the Top Voices a LinkedIn profile follows",
@@ -1704,6 +1764,70 @@ export const endpoints: CatalogEndpoint[] = [
 					"old",
 					"qa"
 				]
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
+			}
+		]
+	},
+	{
+		"id": "reddit_list_post_comments",
+		"platform": "Reddit",
+		"title": "List the comments on a Reddit post",
+		"description": "List the top-level comments on a Reddit post, in any of the sort orders Reddit offers, each with its text, author, score, awards and the first replies beneath it. Page through all of them with `cursor`; load the rest of a comment's replies with `/reddit/get-comment`. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/reddit/list-post-comments",
+		"fields": [
+			{
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "url",
+				"description": "Link to the Reddit post to fetch (with or without query), e.g. \"https://www.reddit.com/r/programming/comments/1u3a0cd/title/\". A redd.it short link works too.",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "sort",
+				"description": "Comment ordering. Defaults to the subreddit's suggested sort, usually \"best\".",
+				"required": false,
+				"defaultLabel": null,
+				"type": "enum",
+				"options": [
+					"best",
+					"top",
+					"new",
+					"controversial",
+					"old",
+					"qa"
+				]
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–25). Defaults to 25.",
+				"required": false,
+				"defaultLabel": "25",
+				"type": "number",
+				"integer": true
 			},
 			{
 				"name": "cacheMaxAgeHours",
@@ -6300,55 +6424,6 @@ export const endpoints: CatalogEndpoint[] = [
 		]
 	},
 	{
-		"id": "instagram_related_reels",
-		"platform": "Instagram",
-		"title": "Instagram: List Reels related to a Reel",
-		"description": "List the Reels Instagram recommends after a given Reel, with captions, media links, publish times, engagement counts, owner details and audio. Continue with nextCursor. Recommendations change between requests. Costs 1 credit per request.",
-		"method": "POST",
-		"path": "/instagram/related-reels",
-		"fields": [
-			{
-				"name": "shortcode",
-				"description": "Post shortcode, or the post or Reel link, e.g. \"DA1b2C3d4E5\" or \"https://www.instagram.com/p/DA1b2C3d4E5/\".",
-				"required": true,
-				"defaultLabel": null,
-				"type": "string",
-				"input": "text"
-			},
-			{
-				"name": "count",
-				"description": "Number of results to return (1–10). Defaults to 10.",
-				"required": false,
-				"defaultLabel": "10",
-				"type": "number",
-				"integer": true
-			},
-			{
-				"name": "cursor",
-				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
-				"required": false,
-				"defaultLabel": null,
-				"type": "string",
-				"input": "text"
-			},
-			{
-				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
-				"required": false,
-				"defaultLabel": null,
-				"type": "number",
-				"integer": true
-			},
-			{
-				"name": "cacheOnly",
-				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
-				"required": false,
-				"defaultLabel": null,
-				"type": "boolean"
-			}
-		]
-	},
-	{
 		"id": "instagram_trending_reels",
 		"platform": "Instagram",
 		"title": "Instagram: List trending Reels",
@@ -7528,6 +7603,840 @@ export const endpoints: CatalogEndpoint[] = [
 				"name": "transcriptLanguage",
 				"description": "Preferred transcript language as a BCP-47 code, e.g. \"en\" or \"pt-BR\". Defaults to the video's own default caption track.",
 				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
+			}
+		]
+	},
+	{
+		"id": "youtube_get_video_transcript",
+		"platform": "YouTube",
+		"title": "Get a YouTube video's transcript in any of its caption languages",
+		"description": "Get a YouTube video's timed transcript from its link, in the caption language you choose or the one YouTube shows first, with every caption track the video has. A video with no captions, or none in the language asked for, returns a 404. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/youtube/get-video-transcript",
+		"fields": [
+			{
+				"name": "url",
+				"description": "The video whose transcript to fetch. Accepts any YouTube video link — watch, youtu.be, Shorts, embed, or live — or a bare 11-character video ID.",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "language",
+				"description": "Caption language to read, as a language code such as \"en\" or \"pt-BR\"; \"en\" also matches \"en-US\". Defaults to the caption track YouTube shows first. The languages a video has are listed in `captionTracks`.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
+			}
+		]
+	},
+	{
+		"id": "youtube_get_video_subtitles",
+		"platform": "YouTube",
+		"title": "Download a YouTube video's subtitles as SRT or WebVTT",
+		"description": "Get a YouTube video's captions as a ready-to-save SRT or WebVTT subtitle file, in the caption language you choose or the one YouTube shows first. A video with no captions, or none in the language asked for, returns a 404. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/youtube/get-video-subtitles",
+		"fields": [
+			{
+				"name": "url",
+				"description": "The video whose transcript to fetch. Accepts any YouTube video link — watch, youtu.be, Shorts, embed, or live — or a bare 11-character video ID.",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "language",
+				"description": "Caption language to read, as a language code such as \"en\" or \"pt-BR\"; \"en\" also matches \"en-US\". Defaults to the caption track YouTube shows first. The languages a video has are listed in `captionTracks`.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "format",
+				"description": "Subtitle file format: \"srt\" (SubRip) or \"vtt\" (WebVTT). Defaults to \"srt\".",
+				"required": false,
+				"defaultLabel": "srt",
+				"type": "enum",
+				"options": [
+					"srt",
+					"vtt"
+				]
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
+			}
+		]
+	},
+	{
+		"id": "youtube_search",
+		"platform": "YouTube",
+		"title": "Search YouTube videos, Shorts, channels and playlists",
+		"description": "Search YouTube by keyword and get videos, Shorts, channels and playlists in YouTube's order, each tagged with its `type`. Narrow the results to one kind, sort by relevance or view count, and filter videos by upload date, length and features such as 4K, live or Creative Commons. Page through results with the `cursor` from the previous response's `nextCursor`. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/youtube/search",
+		"fields": [
+			{
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "query",
+				"description": "Search keywords, e.g. \"lofi hip hop\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "type",
+				"description": "Which kind of result to return: \"all\" (the mixed results YouTube shows by default), \"video\", \"short\", \"channel\" or \"playlist\". Defaults to \"all\".",
+				"required": false,
+				"defaultLabel": null,
+				"type": "enum",
+				"options": [
+					"all",
+					"video",
+					"short",
+					"channel",
+					"playlist"
+				]
+			},
+			{
+				"name": "sortBy",
+				"description": "Result order: \"relevance\" (YouTube's default) or \"viewCount\" (most viewed first). Defaults to \"relevance\".",
+				"required": false,
+				"defaultLabel": null,
+				"type": "enum",
+				"options": [
+					"relevance",
+					"viewCount"
+				]
+			},
+			{
+				"name": "uploadDate",
+				"description": "Only return videos uploaded in the last day, week, month or year. Applies to videos and Shorts, so channels and playlists are left out when it is set.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "enum",
+				"options": [
+					"today",
+					"week",
+					"month",
+					"year"
+				]
+			},
+			{
+				"name": "duration",
+				"description": "Only return videos of this length: under 3 minutes, 3 to 20 minutes, or over 20 minutes. Applies to videos and Shorts, so channels and playlists are left out when it is set.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "enum",
+				"options": [
+					"under3Minutes",
+					"3to20Minutes",
+					"over20Minutes"
+				]
+			},
+			{
+				"name": "features",
+				"description": "Only return videos that have all of these features, as in YouTube's search filters: \"live\" (live now), \"4k\", \"hd\", \"subtitles\" (subtitles or closed captions), \"creativeCommons\" (Creative Commons license), \"360\" (360°), \"vr180\", \"3d\", \"hdr\", \"location\" (tagged with a place) or \"purchased\" (bought by the viewer, which signed-out searches never match). Applies to videos and Shorts, so channels and playlists are left out when it is set.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "stringArray"
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–20). Defaults to 20.",
+				"required": false,
+				"defaultLabel": "20",
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
+			}
+		]
+	},
+	{
+		"id": "youtube_get_search_suggestions",
+		"platform": "YouTube",
+		"title": "Get YouTube search suggestions for a query",
+		"description": "Get the searches YouTube suggests as a query is typed into its search box, most popular first, for the language and country you choose. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/youtube/get-search-suggestions",
+		"fields": [
+			{
+				"name": "query",
+				"description": "The start of a search, e.g. \"how to bake\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "language",
+				"description": "Language of the suggestions, as a language code such as \"en\" or \"pt-BR\". Defaults to \"en\".",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "country",
+				"description": "Country whose searches the suggestions come from, as a two-letter code such as \"US\" or \"IN\". Defaults to \"US\".",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
+			}
+		]
+	},
+	{
+		"id": "youtube_get_hashtag_videos",
+		"platform": "YouTube",
+		"title": "List the videos or Shorts on a YouTube hashtag",
+		"description": "List the videos or Shorts on a hashtag's YouTube page, in YouTube's order, with how many videos and channels use the hashtag. Accepts the hashtag with or without \"#\", or its link. Page through results with the `cursor` from the previous response's `nextCursor`. For some hashtags YouTube shows only one page of videos, so `nextCursor` is null after the first page. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/youtube/get-hashtag-videos",
+		"fields": [
+			{
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "hashtag",
+				"description": "The hashtag, with or without \"#\", or its YouTube link, e.g. \"#minecraft\", \"minecraft\" or \"https://www.youtube.com/hashtag/minecraft\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "type",
+				"description": "Which tab of the hashtag page to list: \"videos\" (the default) or \"shorts\".",
+				"required": false,
+				"defaultLabel": "videos",
+				"type": "enum",
+				"options": [
+					"videos",
+					"shorts"
+				]
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–30). Defaults to 30.",
+				"required": false,
+				"defaultLabel": "30",
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
+			}
+		]
+	},
+	{
+		"id": "youtube_get_playlist",
+		"platform": "YouTube",
+		"title": "Fetch a YouTube playlist's details and videos",
+		"description": "Get a YouTube playlist from its link or ID: title, description, owner channel, video and view counts and when it was last updated, plus its videos in playlist order with each one's position, duration, views and channel. Page through the videos with the `cursor` from the previous response's `nextCursor`. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/youtube/get-playlist",
+		"fields": [
+			{
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "url",
+				"description": "The playlist to fetch. Accepts any YouTube link with a `list=` parameter, such as \"https://www.youtube.com/playlist?list=PLFgquLnL59alCl_2TQvOiD5Vgm1hCaGSI\" or a watch link playing the playlist, or a bare playlist ID.",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–100). Defaults to 100.",
+				"required": false,
+				"defaultLabel": "100",
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
+			}
+		]
+	},
+	{
+		"id": "youtube_get_video_comments",
+		"platform": "YouTube",
+		"title": "Get the comments on a YouTube video",
+		"description": "List the top-level comments on a YouTube video or Short from its link, top or newest first. Each comment includes its text, author, like and reply counts, when it was posted and whether the channel pinned or hearted it. The first page also gives the video's total comment count. Page through results with the `cursor` from the previous response's `nextCursor`. A video with comments turned off returns an empty list, with a `warning` saying so. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/youtube/get-video-comments",
+		"fields": [
+			{
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "url",
+				"description": "The video whose comments to list. Accepts any YouTube video link — watch, youtu.be, Shorts, embed, or live — or a bare 11-character video ID.",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "sort",
+				"description": "Comment order: \"top\" (the most popular first, as YouTube shows by default) or \"newest\" (most recent first). Defaults to \"top\".",
+				"required": false,
+				"defaultLabel": "top",
+				"type": "enum",
+				"options": [
+					"top",
+					"newest"
+				]
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–20). Defaults to 20.",
+				"required": false,
+				"defaultLabel": "20",
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
+			}
+		]
+	},
+	{
+		"id": "youtube_get_comment_replies",
+		"platform": "YouTube",
+		"title": "Get the replies to a YouTube comment",
+		"description": "List the replies to a comment on a YouTube video, by the video link and the comment ID, in the order YouTube shows them. Each reply includes its text, author, like count, when it was posted and the comment it answers. Page through results with the `cursor` from the previous response's `nextCursor`. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/youtube/get-comment-replies",
+		"fields": [
+			{
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "url",
+				"description": "The video the comment is on. Accepts any YouTube video link — watch, youtu.be, Shorts, embed, or live — or a bare 11-character video ID.",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "commentId",
+				"description": "ID of the comment whose replies to list, as returned in a comment's `id`, e.g. \"UgwPwTibxdgqCHZxktd4AaABAg\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–10). Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
+			}
+		]
+	},
+	{
+		"id": "youtube_get_related_videos",
+		"platform": "YouTube",
+		"title": "Get the videos YouTube recommends next to a video",
+		"description": "List the videos and Shorts YouTube recommends next to a video, from its link, with each one's title, channel, duration, view count and publish time. Page through results with the `cursor` from the previous response's `nextCursor`. Recommendations change between requests. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/youtube/get-related-videos",
+		"fields": [
+			{
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "url",
+				"description": "The video to find related videos for. Accepts any YouTube video link — watch, youtu.be, Shorts, embed, or live — or a bare 11-character video ID.",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–20). Defaults to 20.",
+				"required": false,
+				"defaultLabel": "20",
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
+			}
+		]
+	},
+	{
+		"id": "youtube_get_channel",
+		"platform": "YouTube",
+		"title": "Fetch a YouTube channel's profile and About details",
+		"description": "Get a YouTube channel's profile from its link, handle or channel ID: name, handle, full description, avatar and banner, verified badge, subscriber, video and total view counts, joined date, country, the links it lists and its keywords. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/youtube/get-channel",
+		"fields": [
+			{
+				"name": "channel",
+				"description": "The channel: its link, its handle, or its channel ID, e.g. \"https://www.youtube.com/@RickAstleyYT\", \"@RickAstleyYT\" or \"UCuAXFkgsw1L7xaCfnd5JJOw\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
+			}
+		]
+	},
+	{
+		"id": "youtube_get_channel_videos",
+		"platform": "YouTube",
+		"title": "List a YouTube channel's videos",
+		"description": "List the videos on a YouTube channel's Videos tab, newest first, from its link, handle or channel ID, with each one's title, duration, view count and publish time. Page through results with the `cursor` from the previous response's `nextCursor`. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/youtube/get-channel-videos",
+		"fields": [
+			{
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "channel",
+				"description": "The channel: its link, its handle, or its channel ID, e.g. \"https://www.youtube.com/@RickAstleyYT\", \"@RickAstleyYT\" or \"UCuAXFkgsw1L7xaCfnd5JJOw\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–30). Defaults to 30.",
+				"required": false,
+				"defaultLabel": "30",
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
+			}
+		]
+	},
+	{
+		"id": "youtube_get_channel_shorts",
+		"platform": "YouTube",
+		"title": "List a YouTube channel's Shorts",
+		"description": "List the Shorts on a YouTube channel's Shorts tab, newest first, from its link, handle or channel ID, with each one's title, view count and thumbnail. Page through results with the `cursor` from the previous response's `nextCursor`. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/youtube/get-channel-shorts",
+		"fields": [
+			{
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "channel",
+				"description": "The channel: its link, its handle, or its channel ID, e.g. \"https://www.youtube.com/@RickAstleyYT\", \"@RickAstleyYT\" or \"UCuAXFkgsw1L7xaCfnd5JJOw\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–48). Defaults to 48.",
+				"required": false,
+				"defaultLabel": "48",
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
+			}
+		]
+	},
+	{
+		"id": "youtube_get_channel_streams",
+		"platform": "YouTube",
+		"title": "List a YouTube channel's live streams",
+		"description": "List the streams on a YouTube channel's Live tab from its link, handle or channel ID: streams on air now and scheduled ones first, then past streams, newest first. Each has its title, length, views (or the number watching while on air) and when it was streamed. Page through results with the `cursor` from the previous response's `nextCursor`. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/youtube/get-channel-streams",
+		"fields": [
+			{
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "channel",
+				"description": "The channel: its link, its handle, or its channel ID, e.g. \"https://www.youtube.com/@RickAstleyYT\", \"@RickAstleyYT\" or \"UCuAXFkgsw1L7xaCfnd5JJOw\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–30). Defaults to 30.",
+				"required": false,
+				"defaultLabel": "30",
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
+			}
+		]
+	},
+	{
+		"id": "youtube_get_channel_playlists",
+		"platform": "YouTube",
+		"title": "List a YouTube channel's playlists",
+		"description": "List the playlists on a YouTube channel's Playlists tab, from its link, handle or channel ID, with each one's title, video count and cover image. Page through results with the `cursor` from the previous response's `nextCursor`. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/youtube/get-channel-playlists",
+		"fields": [
+			{
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "channel",
+				"description": "The channel: its link, its handle, or its channel ID, e.g. \"https://www.youtube.com/@RickAstleyYT\", \"@RickAstleyYT\" or \"UCuAXFkgsw1L7xaCfnd5JJOw\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–30). Defaults to 30.",
+				"required": false,
+				"defaultLabel": "30",
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
+			}
+		]
+	},
+	{
+		"id": "youtube_get_channel_posts",
+		"platform": "YouTube",
+		"title": "List a YouTube channel's community posts",
+		"description": "List the posts on a YouTube channel's Posts tab, newest first, from its link, handle or channel ID. Each post includes its text, images, poll choices and total votes, attached video, like and comment counts and when it was posted. Page through results with the `cursor` from the previous response's `nextCursor`. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/youtube/get-channel-posts",
+		"fields": [
+			{
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "channel",
+				"description": "The channel: its link, its handle, or its channel ID, e.g. \"https://www.youtube.com/@RickAstleyYT\", \"@RickAstleyYT\" or \"UCuAXFkgsw1L7xaCfnd5JJOw\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–10). Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
+			}
+		]
+	},
+	{
+		"id": "youtube_get_post",
+		"platform": "YouTube",
+		"title": "Fetch one YouTube community post",
+		"description": "Get one YouTube community post from its link or ID: its text, images, poll choices and total votes, attached video, like and comment counts, author and when it was posted. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/youtube/get-post",
+		"fields": [
+			{
+				"name": "url",
+				"description": "The post: its link or its post ID, e.g. \"https://www.youtube.com/post/Ugkx2lkCYp85jak0n5z7-bq_4ug2Rntk9iWT\" or \"Ugkx2lkCYp85jak0n5z7-bq_4ug2Rntk9iWT\". Older links to a channel's Community tab with `lb=` work too.",
+				"required": true,
 				"defaultLabel": null,
 				"type": "string",
 				"input": "text"
