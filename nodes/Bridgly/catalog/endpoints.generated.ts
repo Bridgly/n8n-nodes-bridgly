@@ -54,7 +54,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "linkedin_get_profile_from_url",
 		"platform": "LinkedIn",
 		"title": "Fetch a LinkedIn profile by profile slug",
-		"description": "Get a LinkedIn profile from the slug in its URL, e.g. \"williamhgates\". Returns the name, headline, location, about section, full work history, education, skills, certifications, languages, projects and more. Costs 1 credit per request.",
+		"description": "Get a LinkedIn profile from the slug in its URL, e.g. \"williamhgates\". Returns the name, headline, location, about section, full work history, education, skills, certifications, languages, projects and more. Costs 2 credits per request.",
 		"method": "POST",
 		"path": "/linkedin/get-profile-from-url",
 		"fields": [
@@ -1291,7 +1291,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"id": "linkedin_search_jobs",
 		"platform": "LinkedIn",
 		"title": "Search LinkedIn jobs",
-		"description": "Search LinkedIn job listings by keyword, with optional filters for location, workplace type, experience level, job type and date posted. Each result includes the job title, company, location, salary when listed and posting date. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"description": "Search LinkedIn job listings by keyword, with optional filters for location, hiring company, workplace type, experience level, job type and date posted. Each result includes the job title, company, location, salary when listed and posting date. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
 		"method": "POST",
 		"path": "/linkedin/search/jobs",
 		"fields": [
@@ -1321,7 +1321,15 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "location",
-				"description": "Geographic location to filter jobs by, e.g. \"San Francisco Bay Area\", \"India\", \"Remote\".",
+				"description": "Geographic location to filter jobs by, e.g. \"San Francisco Bay Area\", \"India\", \"Remote\". Defaults to \"United States\".",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "companyId",
+				"description": "Only return jobs posted by this company, given as its numeric LinkedIn company ID (the `id` from the company endpoint, or `companyId` on a job result), e.g. \"1441\".",
 				"required": false,
 				"defaultLabel": null,
 				"type": "string",
@@ -2683,7 +2691,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"fields": [
 			{
 				"name": "query",
-				"description": "Raw search query — supports all X advanced-search operators, e.g. \"openai lang:en\".",
+				"description": "Raw search query — supports all X advanced-search operators, e.g. \"openai lang:en\". At most 512 characters, the longest search X accepts; withinHours and lang are added to the query and count toward it.",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
@@ -2759,7 +2767,7 @@ export const endpoints: CatalogEndpoint[] = [
 		"fields": [
 			{
 				"name": "query",
-				"description": "Raw search query — supports all X advanced-search operators, e.g. \"openai lang:en\".",
+				"description": "Raw search query — supports all X advanced-search operators, e.g. \"openai lang:en\". At most 512 characters, the longest search X accepts; withinHours and lang are added to the query and count toward it.",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
@@ -7233,6 +7241,267 @@ export const endpoints: CatalogEndpoint[] = [
 		]
 	},
 	{
+		"id": "meta_ads_search",
+		"platform": "Meta Ads",
+		"title": "Search ads in the Meta Ad Library",
+		"description": "Search ads running on Facebook, Instagram and Meta’s other apps by keyword or advertiser, with filters for country, active status, ad category, media type, platform, language and dates. Each ad includes its text, images, videos, carousel cards, link, call to action, run dates, platforms and advertiser, plus spend, impressions and the paid-for-by disclaimer for ads about social issues, elections or politics. Costs 1 credit per result returned, with a minimum of 1 credit per request.",
+		"method": "POST",
+		"path": "/meta-ads/search",
+		"fields": [
+			{
+				"name": "q",
+				"description": "Keywords to search the ads’ text for, e.g. \"running shoes\". Leave it out to list every ad matching the other filters.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "pageId",
+				"description": "Only return ads from this advertiser: its Facebook Page ID, e.g. \"15087023444\", as returned in `page.id` or by the advertiser search. The Ad Library link of the advertiser’s ads (`?view_all_page_id=<id>`) works too.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "exactPhrase",
+				"description": "Match `q` as an exact phrase instead of matching any ad that has all its words. Defaults to false.",
+				"required": false,
+				"defaultLabel": "false",
+				"type": "boolean"
+			},
+			{
+				"name": "country",
+				"description": "Two-letter country code to search ads shown in, e.g. \"US\" or \"GB\", or \"ALL\" for every country. Defaults to \"ALL\".",
+				"required": false,
+				"defaultLabel": "ALL",
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "activeStatus",
+				"description": "Return ads that are still running (\"active\"), that stopped (\"inactive\"), or both (\"all\"). Defaults to \"active\".",
+				"required": false,
+				"defaultLabel": "active",
+				"type": "enum",
+				"options": [
+					"active",
+					"inactive",
+					"all"
+				]
+			},
+			{
+				"name": "adType",
+				"description": "Ad category: \"all\", \"political_and_issue_ads\" (social issues, elections or politics), \"housing_ads\", \"employment_ads\" or \"credit_ads\". Defaults to \"all\".",
+				"required": false,
+				"defaultLabel": "all",
+				"type": "enum",
+				"options": [
+					"all",
+					"political_and_issue_ads",
+					"housing_ads",
+					"employment_ads",
+					"credit_ads"
+				]
+			},
+			{
+				"name": "mediaType",
+				"description": "Media in the ad: \"all\", \"image\", \"meme\", \"image_and_meme\", \"video\", or \"none\" for ads with no image or video. Defaults to \"all\".",
+				"required": false,
+				"defaultLabel": "all",
+				"type": "enum",
+				"options": [
+					"all",
+					"image",
+					"meme",
+					"image_and_meme",
+					"video",
+					"none"
+				]
+			},
+			{
+				"name": "platforms",
+				"description": "Only return ads running on these platforms, e.g. [\"instagram\"]. Leave it out for every platform.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "stringArray"
+			},
+			{
+				"name": "languages",
+				"description": "Only return ads in these languages, as two-letter codes, e.g. [\"en\", \"es\"].",
+				"required": false,
+				"defaultLabel": null,
+				"type": "stringArray"
+			},
+			{
+				"name": "startDate",
+				"description": "Only return ads that ran on or after this date (YYYY-MM-DD), e.g. \"2026-01-01\".",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "date"
+			},
+			{
+				"name": "endDate",
+				"description": "Only return ads that ran on or before this date (YYYY-MM-DD), e.g. \"2026-03-31\".",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "date"
+			},
+			{
+				"name": "sortBy",
+				"description": "Order of the ads: most seen first (\"impressions\"), or recently started ads first (\"recent\"), which Meta orders roughly rather than strictly by start date. Defaults to \"impressions\".",
+				"required": false,
+				"defaultLabel": "impressions",
+				"type": "enum",
+				"options": [
+					"impressions",
+					"recent"
+				]
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–30). Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
+			}
+		]
+	},
+	{
+		"id": "meta_ads_get_ad_details",
+		"platform": "Meta Ads",
+		"title": "Fetch an ad from the Meta Ad Library by its ID",
+		"description": "Get one ad from the Meta Ad Library by its Library ID or link: its creative, run dates, platforms and advertiser, who paid for it and who it benefits, and where Meta publishes them, its targeting, reach by country, age and gender, and the audience of ads about social issues, elections or politics. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/meta-ads/get-ad-details",
+		"fields": [
+			{
+				"name": "adId",
+				"description": "Ad Library ID of the ad, or its Ad Library link, e.g. \"1806650610330561\" or \"https://www.facebook.com/ads/library/?id=1806650610330561\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
+			}
+		]
+	},
+	{
+		"id": "meta_ads_search_companies",
+		"platform": "Meta Ads",
+		"title": "Search advertisers in the Meta Ad Library",
+		"description": "Find advertisers in the Meta Ad Library by brand or page name. Each result includes the Page ID to search the advertiser’s ads with, the page’s name, username, category, likes, verification and country, and its linked Instagram account. Returns up to 15 advertisers; this list is not paginated. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/meta-ads/search-companies",
+		"fields": [
+			{
+				"name": "q",
+				"description": "Name of the brand or advertiser to look for, e.g. \"nike\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "country",
+				"description": "Two-letter country code to favor advertisers from, e.g. \"US\", or \"ALL\". Defaults to \"ALL\".",
+				"required": false,
+				"defaultLabel": "ALL",
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
+			}
+		]
+	},
+	{
+		"id": "meta_ads_get_company",
+		"platform": "Meta Ads",
+		"title": "Fetch an advertiser from the Meta Ad Library by Page ID",
+		"description": "Get an advertiser from the Meta Ad Library by its Facebook Page ID: the page and its linked Instagram account, its About text, how many ads it has, the organization Meta confirmed owns it, when it was created or renamed, where the people managing it are, and for advertisers of ads about social issues, elections or politics, their spend and targeting over the last 30 days. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/meta-ads/get-company",
+		"fields": [
+			{
+				"name": "pageId",
+				"description": "Facebook Page ID of the advertiser, e.g. \"15087023444\", as returned in `page.id` or by the advertiser search. The Ad Library link of the advertiser’s ads (`?view_all_page_id=<id>`) works too.",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
+			}
+		]
+	},
+	{
 		"id": "youtube_get_video",
 		"platform": "YouTube",
 		"title": "Fetch a video's full details and transcript from its YouTube link",
@@ -8092,6 +8361,1163 @@ export const endpoints: CatalogEndpoint[] = [
 			{
 				"name": "url",
 				"description": "The post: its link or its post ID, e.g. \"https://www.youtube.com/post/Ugkx2lkCYp85jak0n5z7-bq_4ug2Rntk9iWT\" or \"Ugkx2lkCYp85jak0n5z7-bq_4ug2Rntk9iWT\". Older links to a channel's Community tab with `lb=` work too.",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
+			}
+		]
+	},
+	{
+		"id": "facebook_get_profile",
+		"platform": "Facebook",
+		"title": "Get a Facebook profile or Page",
+		"description": "Get a Facebook profile or Page from its link, username or numeric ID: name, username, bio, category, verified badge, follower and following counts, intro details such as city, work, address and contact email, websites, and profile and cover pictures. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/facebook/get-profile",
+		"fields": [
+			{
+				"name": "profile",
+				"description": "The profile or Page: its link, username or numeric ID, e.g. \"https://www.facebook.com/NASA\", \"NASA\" or \"100044561550831\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
+			}
+		]
+	},
+	{
+		"id": "facebook_get_profile_posts",
+		"platform": "Facebook",
+		"title": "Facebook: Get paginated profile posts",
+		"description": "List the posts of a Facebook profile or Page, newest first. Each post includes its text, author, date, photos and videos, shared link or post, reactions by type, and comment and share counts. Page through older posts with `cursor`. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/facebook/get-profile-posts",
+		"fields": [
+			{
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "profile",
+				"description": "The profile or Page: its link, username or numeric ID, e.g. \"https://www.facebook.com/NASA\", \"NASA\" or \"100044561550831\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–3). Defaults to 3.",
+				"required": false,
+				"defaultLabel": "3",
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
+			}
+		]
+	},
+	{
+		"id": "facebook_get_profile_photos",
+		"platform": "Facebook",
+		"title": "Facebook: Get paginated profile photos",
+		"description": "List the photos a Facebook profile or Page posted, in the order its Photos tab shows them, with each photo's link, full size image URL, dimensions and description. Page through the list with `cursor`. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/facebook/get-profile-photos",
+		"fields": [
+			{
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "profile",
+				"description": "The profile or Page: its link, username or numeric ID, e.g. \"https://www.facebook.com/NASA\", \"NASA\" or \"100044561550831\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–8). Defaults to 8.",
+				"required": false,
+				"defaultLabel": "8",
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
+			}
+		]
+	},
+	{
+		"id": "facebook_get_profile_reels",
+		"platform": "Facebook",
+		"title": "Facebook: Get paginated profile reels",
+		"description": "List the reels on a Facebook profile or Page's Reels tab, with each reel's caption, video file, thumbnail, duration, date, play count, reactions, comments and shares. Page through the list with `cursor`. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/facebook/get-profile-reels",
+		"fields": [
+			{
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "profile",
+				"description": "The profile or Page: its link, username or numeric ID, e.g. \"https://www.facebook.com/NASA\", \"NASA\" or \"100044561550831\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–10). Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
+			}
+		]
+	},
+	{
+		"id": "facebook_get_profile_about",
+		"platform": "Facebook",
+		"title": "Get a Facebook profile About tab",
+		"description": "Get every section of a Facebook profile or Page About tab: work, education, places lived, contact info, links, category, personal details and privacy and legal info. Each field comes with the lines shown under it, such as dates, and the Pages it links to. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/facebook/get-profile-about",
+		"fields": [
+			{
+				"name": "profile",
+				"description": "The profile or Page: its link, username or numeric ID, e.g. \"https://www.facebook.com/NASA\", \"NASA\" or \"100044561550831\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
+			}
+		]
+	},
+	{
+		"id": "facebook_get_profile_mentions",
+		"platform": "Facebook",
+		"title": "List posts that mention a Facebook Page",
+		"description": "List the public posts on a Facebook Page or profile Mentions tab: posts that tag or mention it, with their text, author, date, media, reactions, comment and share counts. Page through older posts with `cursor`. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/facebook/get-profile-mentions",
+		"fields": [
+			{
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "profile",
+				"description": "The profile or Page: its link, username or numeric ID, e.g. \"https://www.facebook.com/NASA\", \"NASA\" or \"100044561550831\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–3). Defaults to 3.",
+				"required": false,
+				"defaultLabel": "3",
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
+			}
+		]
+	},
+	{
+		"id": "facebook_get_profile_events",
+		"platform": "Facebook",
+		"title": "List the events a Facebook Page hosts",
+		"description": "List the upcoming or past events a Facebook Page or profile hosts, with each event's name, start time, venue, city, cover image and canceled state. Page through the events with `cursor`. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/facebook/get-profile-events",
+		"fields": [
+			{
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "profile",
+				"description": "The profile or Page: its link, username or numeric ID, e.g. \"https://www.facebook.com/NASA\", \"NASA\" or \"100044561550831\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "timeframe",
+				"description": "Which events to list: \"upcoming\" or \"past\". Defaults to \"upcoming\".",
+				"required": false,
+				"defaultLabel": "upcoming",
+				"type": "enum",
+				"options": [
+					"upcoming",
+					"past"
+				]
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–10). Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
+			}
+		]
+	},
+	{
+		"id": "facebook_get_post",
+		"platform": "Facebook",
+		"title": "Get a Facebook post from its link",
+		"description": "Get one Facebook post from its link, from a profile, Page or group: text, author, date, group, photos and videos, shared link or post, reactions by type, and comment and share counts. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/facebook/get-post",
+		"fields": [
+			{
+				"name": "url",
+				"description": "Link to the post, e.g. \"https://www.facebook.com/NASA/posts/pfbid0sWE…\", a group post link, a share link such as \"https://www.facebook.com/share/p/1DnHdkn7c7/\", or a permalink.php or story.php link.",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
+			}
+		]
+	},
+	{
+		"id": "facebook_get_post_comments",
+		"platform": "Facebook",
+		"title": "Facebook: Get paginated post comments",
+		"description": "List the comments on a Facebook post, top or newest first, with each comment's text, author, date, reaction count and reply count. Page through the comments with `cursor`. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/facebook/get-post-comments",
+		"fields": [
+			{
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "url",
+				"description": "Link to the post, e.g. \"https://www.facebook.com/NASA/posts/pfbid0sWE…\", a group post link, a share link such as \"https://www.facebook.com/share/p/1DnHdkn7c7/\", or a permalink.php or story.php link.",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "sort",
+				"description": "Comment order: \"top\" (every comment, in Facebook's ranking) or \"newest\" first. Defaults to \"top\".",
+				"required": false,
+				"defaultLabel": "top",
+				"type": "enum",
+				"options": [
+					"top",
+					"newest"
+				]
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–10). Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
+			}
+		]
+	},
+	{
+		"id": "facebook_get_comment_replies",
+		"platform": "Facebook",
+		"title": "Facebook: Get paginated comment replies",
+		"description": "List the direct replies to a comment on a Facebook post, oldest first, with each reply's text, author, date and reaction count. Page through the replies with `cursor`. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/facebook/get-comment-replies",
+		"fields": [
+			{
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "url",
+				"description": "Link to the post, e.g. \"https://www.facebook.com/NASA/posts/pfbid0sWE…\", a group post link, a share link such as \"https://www.facebook.com/share/p/1DnHdkn7c7/\", or a permalink.php or story.php link.",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "commentId",
+				"description": "Numeric ID of the comment whose replies to list, as returned by the post comments endpoint.",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–10). Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
+			}
+		]
+	},
+	{
+		"id": "facebook_get_group",
+		"platform": "Facebook",
+		"title": "Get a Facebook group",
+		"description": "Get a Facebook group's details from its link, username or numeric ID: name, description, privacy, visibility, member count, posts in the last day and month, creation date, admins, rules and cover photo. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/facebook/get-group",
+		"fields": [
+			{
+				"name": "group",
+				"description": "The group: its link, username or numeric ID, e.g. \"https://www.facebook.com/groups/3267540656602272\" or \"3267540656602272\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
+			}
+		]
+	},
+	{
+		"id": "facebook_get_group_posts",
+		"platform": "Facebook",
+		"title": "Facebook: Get paginated group posts",
+		"description": "List the posts of a public Facebook group by top, newest or recent activity. Each post includes its text, author, date, photos and videos, shared link or post, reactions by type, and comment and share counts. Page through the posts with `cursor`. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/facebook/get-group-posts",
+		"fields": [
+			{
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "group",
+				"description": "The group: its link, username or numeric ID, e.g. \"https://www.facebook.com/groups/3267540656602272\" or \"3267540656602272\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "sort",
+				"description": "Post order: \"top\" (most relevant first), \"new\" (newest posts first) or \"activity\" (most recent activity first). Defaults to \"top\".",
+				"required": false,
+				"defaultLabel": "top",
+				"type": "enum",
+				"options": [
+					"top",
+					"new",
+					"activity"
+				]
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–3). Defaults to 3.",
+				"required": false,
+				"defaultLabel": "3",
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
+			}
+		]
+	},
+	{
+		"id": "facebook_get_group_events",
+		"platform": "Facebook",
+		"title": "List the events of a Facebook group",
+		"description": "List the upcoming or past events of a Facebook group, with each event's name, date, creator, cover image and canceled state. Page through the events with `cursor`. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/facebook/get-group-events",
+		"fields": [
+			{
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "group",
+				"description": "The group: its link, username or numeric ID, e.g. \"https://www.facebook.com/groups/3267540656602272\" or \"3267540656602272\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "timeframe",
+				"description": "Which events to list: \"upcoming\" or \"past\". Defaults to \"upcoming\".",
+				"required": false,
+				"defaultLabel": "upcoming",
+				"type": "enum",
+				"options": [
+					"upcoming",
+					"past"
+				]
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–8). Defaults to 8.",
+				"required": false,
+				"defaultLabel": "8",
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
+			}
+		]
+	},
+	{
+		"id": "facebook_get_event",
+		"platform": "Facebook",
+		"title": "Get a Facebook event",
+		"description": "Get a Facebook event from its link or ID: name, description, start and end time, venue with address and coordinates, city, hosts, categories, ticket link, cover image and going and interested counts. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/facebook/get-event",
+		"fields": [
+			{
+				"name": "event",
+				"description": "The event: its link or numeric ID, e.g. \"https://www.facebook.com/events/1476422713848230/\" or \"1476422713848230\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
+			}
+		]
+	},
+	{
+		"id": "facebook_get_events_by_location",
+		"platform": "Facebook",
+		"title": "List Facebook events in a city",
+		"description": "List the events Facebook suggests in a city, with each event's name, start time, venue, attendance and cover image. Find the city's `locationId` with the location search. Page through the events with `cursor`. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/facebook/get-events-by-location",
+		"fields": [
+			{
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "locationId",
+				"description": "Numeric ID of the city, as returned by the location search, e.g. \"106224666074625\" for Austin, Texas.",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–12). Defaults to 12.",
+				"required": false,
+				"defaultLabel": "12",
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
+			}
+		]
+	},
+	{
+		"id": "facebook_search_posts",
+		"platform": "Facebook",
+		"title": "Search Facebook posts",
+		"description": "Search public Facebook posts by keyword. Each result includes the post's text, author, date, photos and videos, link, reactions, comments and shares. Page through the results with `cursor`. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/facebook/search/posts",
+		"fields": [
+			{
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "query",
+				"description": "What to search for, e.g. \"electric bikes\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–8). Defaults to 8.",
+				"required": false,
+				"defaultLabel": "8",
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
+			}
+		]
+	},
+	{
+		"id": "facebook_search_people",
+		"platform": "Facebook",
+		"title": "Search Facebook people",
+		"description": "Search Facebook for people by name or keyword, with each person's profile link, picture and the summary line Facebook shows under the name. Page through the results with `cursor`. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/facebook/search/people",
+		"fields": [
+			{
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "query",
+				"description": "What to search for, e.g. \"electric bikes\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–8). Defaults to 8.",
+				"required": false,
+				"defaultLabel": "8",
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
+			}
+		]
+	},
+	{
+		"id": "facebook_search_pages",
+		"platform": "Facebook",
+		"title": "Search Facebook Pages",
+		"description": "Search Facebook Pages by keyword, with each Page's link, picture and the summary line Facebook shows, such as its category, followers, rating and address. Page through the results with `cursor`. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/facebook/search/pages",
+		"fields": [
+			{
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "query",
+				"description": "What to search for, e.g. \"electric bikes\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–8). Defaults to 8.",
+				"required": false,
+				"defaultLabel": "8",
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
+			}
+		]
+	},
+	{
+		"id": "facebook_search_groups",
+		"platform": "Facebook",
+		"title": "Search Facebook groups",
+		"description": "Search Facebook groups by keyword, with each group's link, picture and the summary line Facebook shows, such as its privacy, member count and posts per day. Page through the results with `cursor`. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/facebook/search/groups",
+		"fields": [
+			{
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "query",
+				"description": "What to search for, e.g. \"electric bikes\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–8). Defaults to 8.",
+				"required": false,
+				"defaultLabel": "8",
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
+			}
+		]
+	},
+	{
+		"id": "facebook_search_videos",
+		"platform": "Facebook",
+		"title": "Search Facebook videos",
+		"description": "Search Facebook videos and reels by keyword, with each video's title, owner, duration, thumbnail, video file, date, reactions, comments and shares. Page through the results with `cursor`. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/facebook/search/videos",
+		"fields": [
+			{
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "query",
+				"description": "What to search for, e.g. \"electric bikes\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–8). Defaults to 8.",
+				"required": false,
+				"defaultLabel": "8",
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
+			}
+		]
+	},
+	{
+		"id": "facebook_search_hashtag",
+		"platform": "Facebook",
+		"title": "Search a Facebook hashtag",
+		"description": "List the public posts on a Facebook hashtag page, as Facebook ranks them, with their text, author, date, media, reactions, comment and share counts. Page through the posts with `cursor`. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/facebook/search/hashtag",
+		"fields": [
+			{
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "hashtag",
+				"description": "The hashtag, with or without \"#\", e.g. \"travel\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–8). Defaults to 8.",
+				"required": false,
+				"defaultLabel": "8",
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
+			}
+		]
+	},
+	{
+		"id": "facebook_search_locations",
+		"platform": "Facebook",
+		"title": "Search Facebook locations",
+		"description": "Find cities and areas by name, with the ID that lists their events and the latitude and longitude that search their Marketplace, plus country and time zone. This list is not paginated: one request returns up to 8 places, best match first. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/facebook/search/locations",
+		"fields": [
+			{
+				"name": "query",
+				"description": "Name of the city or area to find, e.g. \"Austin\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
+			}
+		]
+	},
+	{
+		"id": "facebook_search_marketplace",
+		"platform": "Facebook",
+		"title": "Search Facebook Marketplace",
+		"description": "Search Facebook Marketplace listings around a location, optionally within a price range. Each listing includes its title, price, original price, city, photo, seller, date, sold state and delivery options. Page through the results with `cursor`. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/facebook/search/marketplace",
+		"fields": [
+			{
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "query",
+				"description": "What to search for, e.g. \"electric bikes\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "latitude",
+				"description": "Latitude of the place to search around, e.g. 40.7142.",
+				"required": true,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": false
+			},
+			{
+				"name": "longitude",
+				"description": "Longitude of the place to search around, e.g. -74.0064.",
+				"required": true,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": false
+			},
+			{
+				"name": "radiusKm",
+				"description": "Search radius in kilometers (1–500). Defaults to 65. Facebook shows listings inside it first and can add listings from farther away when few nearby listings match.",
+				"required": false,
+				"defaultLabel": "65",
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "minPrice",
+				"description": "Lowest price, in the local currency.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "maxPrice",
+				"description": "Highest price, in the local currency.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–10). Defaults to 10.",
+				"required": false,
+				"defaultLabel": "10",
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
+			}
+		]
+	},
+	{
+		"id": "facebook_get_marketplace_item",
+		"platform": "Facebook",
+		"title": "Get a Facebook Marketplace listing",
+		"description": "Get a Facebook Marketplace listing from its link or ID: title, description, price and currency, condition and other details, every photo, location, seller, status and delivery options. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/facebook/get-marketplace-item",
+		"fields": [
+			{
+				"name": "item",
+				"description": "The listing: its link or numeric ID, e.g. \"https://www.facebook.com/marketplace/item/1649700810182946/\" or \"1649700810182946\".",
 				"required": true,
 				"defaultLabel": null,
 				"type": "string",
