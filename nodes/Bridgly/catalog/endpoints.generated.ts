@@ -1783,6 +1783,70 @@ export const endpoints: CatalogEndpoint[] = [
 		]
 	},
 	{
+		"id": "reddit_list_post_comments",
+		"platform": "Reddit",
+		"title": "List the comments on a Reddit post",
+		"description": "List the top-level comments on a Reddit post, in any of the sort orders Reddit offers, each with its text, author, score, awards and the first replies beneath it. Page through all of them with `cursor`; load the rest of a comment's replies with `/reddit/get-comment`. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/reddit/list-post-comments",
+		"fields": [
+			{
+				"name": "cursor",
+				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "url",
+				"description": "Link to the Reddit post to fetch (with or without query), e.g. \"https://www.reddit.com/r/programming/comments/1u3a0cd/title/\". A redd.it short link works too.",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "sort",
+				"description": "Comment ordering. Defaults to the subreddit's suggested sort, usually \"best\".",
+				"required": false,
+				"defaultLabel": null,
+				"type": "enum",
+				"options": [
+					"best",
+					"top",
+					"new",
+					"controversial",
+					"old",
+					"qa"
+				]
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–25). Defaults to 25.",
+				"required": false,
+				"defaultLabel": "25",
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
+			}
+		]
+	},
+	{
 		"id": "reddit_get_subreddit",
 		"platform": "Reddit",
 		"title": "Reddit: Fetch subreddit metadata",
