@@ -749,6 +749,66 @@ export const endpoints: CatalogEndpoint[] = [
 		]
 	},
 	{
+		"id": "linkedin_get_profile_recommendations",
+		"platform": "LinkedIn",
+		"title": "List the recommendations a LinkedIn profile received or gave",
+		"description": "List the recommendations a LinkedIn member received or gave, newest first, with the other member's name, headline and profile link, the text, the date and how the two know each other. Page on with the `nextStart` from the previous response. Costs 1 credit per request.",
+		"method": "POST",
+		"path": "/linkedin/get-profile-recommendations",
+		"fields": [
+			{
+				"name": "start",
+				"description": "Number of results to skip. Defaults to 0.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "publicId",
+				"description": "The member public identity, or the profile link itself, e.g. \"williamhgates\" or \"https://www.linkedin.com/in/williamhgates\".",
+				"required": true,
+				"defaultLabel": null,
+				"type": "string",
+				"input": "text"
+			},
+			{
+				"name": "count",
+				"description": "Number of results to return (1–100). Defaults to 100.",
+				"required": false,
+				"defaultLabel": "100",
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "type",
+				"description": "Which recommendations to list: \"received\" (written about the member) or \"given\" (written by the member). Defaults to \"received\".",
+				"required": false,
+				"defaultLabel": "received",
+				"type": "enum",
+				"options": [
+					"received",
+					"given"
+				]
+			},
+			{
+				"name": "cacheMaxAgeHours",
+				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "number",
+				"integer": true
+			},
+			{
+				"name": "cacheOnly",
+				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"required": false,
+				"defaultLabel": null,
+				"type": "boolean"
+			}
+		]
+	},
+	{
 		"id": "linkedin_get_profile_interests_top_voices",
 		"platform": "LinkedIn",
 		"title": "List the Top Voices a LinkedIn profile follows",
