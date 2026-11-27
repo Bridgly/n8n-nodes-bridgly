@@ -6300,55 +6300,6 @@ export const endpoints: CatalogEndpoint[] = [
 		]
 	},
 	{
-		"id": "instagram_related_reels",
-		"platform": "Instagram",
-		"title": "Instagram: List Reels related to a Reel",
-		"description": "List the Reels Instagram recommends after a given Reel, with captions, media links, publish times, engagement counts, owner details and audio. Continue with nextCursor. Recommendations change between requests. Costs 1 credit per request.",
-		"method": "POST",
-		"path": "/instagram/related-reels",
-		"fields": [
-			{
-				"name": "shortcode",
-				"description": "Post shortcode, or the post or Reel link, e.g. \"DA1b2C3d4E5\" or \"https://www.instagram.com/p/DA1b2C3d4E5/\".",
-				"required": true,
-				"defaultLabel": null,
-				"type": "string",
-				"input": "text"
-			},
-			{
-				"name": "count",
-				"description": "Number of results to return (1–10). Defaults to 10.",
-				"required": false,
-				"defaultLabel": "10",
-				"type": "number",
-				"integer": true
-			},
-			{
-				"name": "cursor",
-				"description": "The previous response's `nextCursor`, to fetch the next page. Omit it for the first page.",
-				"required": false,
-				"defaultLabel": null,
-				"type": "string",
-				"input": "text"
-			},
-			{
-				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
-				"required": false,
-				"defaultLabel": null,
-				"type": "number",
-				"integer": true
-			},
-			{
-				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
-				"required": false,
-				"defaultLabel": null,
-				"type": "boolean"
-			}
-		]
-	},
-	{
 		"id": "instagram_trending_reels",
 		"platform": "Instagram",
 		"title": "Instagram: List trending Reels",
