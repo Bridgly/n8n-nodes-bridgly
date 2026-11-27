@@ -35,7 +35,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -43,7 +43,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -68,7 +68,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -76,7 +76,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -101,7 +101,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -109,7 +109,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -150,7 +150,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -158,7 +158,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -199,7 +199,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -207,7 +207,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -232,7 +232,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -240,7 +240,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -292,7 +292,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -300,7 +300,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -341,7 +341,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -349,7 +349,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -390,7 +390,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -398,7 +398,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -439,7 +439,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -447,7 +447,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -488,7 +488,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -496,7 +496,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -537,7 +537,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -545,7 +545,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -586,7 +586,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -594,7 +594,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -635,7 +635,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -643,7 +643,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -684,7 +684,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -692,7 +692,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -733,7 +733,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -741,7 +741,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -782,7 +782,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -790,7 +790,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -831,7 +831,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -839,7 +839,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -880,7 +880,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -888,7 +888,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -929,7 +929,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -937,7 +937,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -978,7 +978,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -986,7 +986,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -1027,7 +1027,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -1035,7 +1035,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -1076,7 +1076,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -1084,7 +1084,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -1125,7 +1125,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -1133,7 +1133,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -1174,7 +1174,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -1182,7 +1182,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -1223,7 +1223,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -1231,7 +1231,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -1272,7 +1272,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -1280,7 +1280,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -1392,7 +1392,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -1400,7 +1400,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -1464,7 +1464,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -1472,7 +1472,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -1513,7 +1513,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -1521,7 +1521,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -1562,7 +1562,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -1570,7 +1570,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -1611,7 +1611,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -1619,7 +1619,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -1659,7 +1659,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -1667,7 +1667,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -1707,7 +1707,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -1715,7 +1715,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -1740,7 +1740,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -1748,7 +1748,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -1773,7 +1773,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -1781,7 +1781,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -1850,7 +1850,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -1858,7 +1858,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -1927,7 +1927,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -1935,7 +1935,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -2004,7 +2004,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -2012,7 +2012,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -2081,7 +2081,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -2089,7 +2089,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -2130,7 +2130,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -2138,7 +2138,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -2216,7 +2216,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -2224,7 +2224,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -2302,7 +2302,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -2310,7 +2310,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -2388,7 +2388,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -2396,7 +2396,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -2474,7 +2474,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -2482,7 +2482,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -2560,7 +2560,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -2568,7 +2568,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -2605,7 +2605,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -2613,7 +2613,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -2666,7 +2666,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -2674,7 +2674,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -2742,7 +2742,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -2750,7 +2750,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -2791,7 +2791,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -2799,7 +2799,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -2824,7 +2824,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -2832,7 +2832,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -2873,7 +2873,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -2881,7 +2881,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -2922,7 +2922,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -2930,7 +2930,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -2971,7 +2971,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -2979,7 +2979,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -3020,7 +3020,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -3028,7 +3028,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -3069,7 +3069,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -3077,7 +3077,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -3118,7 +3118,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -3126,7 +3126,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -3178,7 +3178,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -3186,7 +3186,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -3211,7 +3211,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -3219,7 +3219,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -3260,7 +3260,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -3268,7 +3268,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -3323,7 +3323,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -3331,7 +3331,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -3372,7 +3372,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -3380,7 +3380,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -3421,7 +3421,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -3429,7 +3429,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -3756,7 +3756,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -3764,7 +3764,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -3884,7 +3884,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -3892,7 +3892,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -4083,7 +4083,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -4091,7 +4091,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -4396,7 +4396,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -4404,7 +4404,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -4758,7 +4758,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -4766,7 +4766,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -4970,7 +4970,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -4978,7 +4978,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -5201,7 +5201,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -5209,7 +5209,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -5346,7 +5346,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -5354,7 +5354,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -5395,7 +5395,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -5403,7 +5403,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -5444,7 +5444,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -5452,7 +5452,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -5477,7 +5477,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -5485,7 +5485,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -5526,7 +5526,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -5534,7 +5534,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -5559,7 +5559,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -5567,7 +5567,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -5592,7 +5592,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -5600,7 +5600,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -5649,7 +5649,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -5657,7 +5657,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -5682,7 +5682,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -5690,7 +5690,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -5731,7 +5731,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -5739,7 +5739,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -5780,7 +5780,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -5788,7 +5788,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -5813,7 +5813,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -5821,7 +5821,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -5862,7 +5862,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -5870,7 +5870,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -5911,7 +5911,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -5919,7 +5919,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -5960,7 +5960,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -5968,7 +5968,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -5993,7 +5993,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -6001,7 +6001,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -6042,7 +6042,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -6050,7 +6050,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -6075,7 +6075,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -6083,7 +6083,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -6108,7 +6108,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -6116,7 +6116,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -6141,7 +6141,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -6149,7 +6149,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -6202,7 +6202,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -6210,7 +6210,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -6235,7 +6235,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -6243,7 +6243,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -6284,7 +6284,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -6292,7 +6292,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -6333,7 +6333,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -6341,7 +6341,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -6374,7 +6374,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -6382,7 +6382,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -6415,7 +6415,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -6423,7 +6423,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -6448,7 +6448,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -6456,7 +6456,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -6497,7 +6497,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -6505,7 +6505,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -6546,7 +6546,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -6554,7 +6554,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -6595,7 +6595,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -6603,7 +6603,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -6644,7 +6644,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -6652,7 +6652,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -6693,7 +6693,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -6701,7 +6701,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -6742,7 +6742,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -6750,7 +6750,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -6791,7 +6791,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -6799,7 +6799,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -6824,7 +6824,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -6832,7 +6832,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -6873,7 +6873,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -6881,7 +6881,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -6930,7 +6930,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -6938,7 +6938,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -6963,7 +6963,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -6971,7 +6971,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -6996,7 +6996,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -7004,7 +7004,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -7045,7 +7045,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -7053,7 +7053,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -7078,7 +7078,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -7086,7 +7086,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -7127,7 +7127,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -7135,7 +7135,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -7176,7 +7176,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -7184,7 +7184,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -7225,7 +7225,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -7233,7 +7233,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -7379,7 +7379,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -7387,7 +7387,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -7412,7 +7412,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -7420,7 +7420,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -7453,7 +7453,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -7461,7 +7461,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -7486,7 +7486,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -7494,7 +7494,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -7534,7 +7534,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -7542,7 +7542,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -7567,7 +7567,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -7575,7 +7575,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -7616,7 +7616,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -7624,7 +7624,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -7665,7 +7665,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -7673,7 +7673,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -7714,7 +7714,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -7722,7 +7722,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -7747,7 +7747,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -7755,7 +7755,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -7796,7 +7796,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -7804,7 +7804,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -7856,7 +7856,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -7864,7 +7864,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -7889,7 +7889,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -7897,7 +7897,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -7949,7 +7949,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -7957,7 +7957,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -8006,7 +8006,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -8014,7 +8014,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -8039,7 +8039,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -8047,7 +8047,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -8100,7 +8100,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -8108,7 +8108,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -8160,7 +8160,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -8168,7 +8168,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -8193,7 +8193,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -8201,7 +8201,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -8242,7 +8242,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -8250,7 +8250,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -8291,7 +8291,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -8299,7 +8299,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -8340,7 +8340,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -8348,7 +8348,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -8389,7 +8389,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -8397,7 +8397,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -8438,7 +8438,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -8446,7 +8446,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -8487,7 +8487,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -8495,7 +8495,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -8536,7 +8536,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -8544,7 +8544,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -8569,7 +8569,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -8577,7 +8577,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -8658,7 +8658,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -8666,7 +8666,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
@@ -8691,7 +8691,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheMaxAgeHours",
-				"description": "Accept a cached result scraped up to this many hours ago. A cached result costs no credits, and its `cachedAt` says when it was scraped. When no cached result is that recent, the data is scraped live at the normal price. Leave it out to always scrape live, e.g. 24.",
+				"description": "Accept a cached result up to this many hours old, at no cost; its `cachedAt` says when it was fetched. Without one that recent, fresh data is fetched at the normal price. Leave it out to always get fresh data, e.g. 24.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "number",
@@ -8699,7 +8699,7 @@ export const endpoints: CatalogEndpoint[] = [
 			},
 			{
 				"name": "cacheOnly",
-				"description": "Return only a cached result and never scrape live. With `cacheMaxAgeHours`, only a result that recent is returned; without it, the latest cached result of any age. Responds 404, at no cost, when there is none, e.g. true.",
+				"description": "Return only a cached result, never fresh data. With `cacheMaxAgeHours`, only one that recent; without it, the latest of any age. Responds 404, at no cost, when there is none, e.g. true.",
 				"required": false,
 				"defaultLabel": null,
 				"type": "boolean"
